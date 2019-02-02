@@ -1,9 +1,27 @@
 
-<form class="example-form">
-  <mat-form-field appearance="outline">
-    <mat-label>Titulo de la Encuesta</mat-label>
-    <input matInput placeholder="Titulo">
-  </mat-form-field>
-  <br/>
-  <button mat-raised-button color="primary">Basic</button>
-</form>
+<table class="example-form">
+    <tr>
+      <td>
+        <mat-form-field appearance="outline" class="inputQuestion">
+            <mat-label>Titulo de la Encuesta</mat-label>
+            <input matInput 
+            #surveyTitle
+            required
+            placeholder="Titulo" 
+            (input)="onSearchChange($event.target.value)"
+            type="text">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td class="questionCreatonBtn">
+        <button mat-raised-button 
+        color="primary"
+        routerLink="/survey-questions"
+        (click)="onGoToQuestions(surveyTitle.value)"
+        [disabled]="!isEnabled">
+        Ingresar Preguntas
+      </button>
+    </td>
+    </tr>
+</table>

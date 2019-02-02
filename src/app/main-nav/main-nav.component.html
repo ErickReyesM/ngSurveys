@@ -5,9 +5,9 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/first-page">First Page</a>
-      <a mat-list-item routerLink="/second-page">Second Page</a>
-      <a mat-list-item routerLink="/third-page">Third Page</a>
+      <a mat-list-item (click)="onNavigate()" routerLink="/first-page">Crear Encuesta</a>
+      <a mat-list-item (click)="onNavigate()" routerLink="/second-page">Mis Encuestas</a>
+      <a mat-list-item (click)="onNavigate()" routerLink="/third-page">Reportes</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,9 +20,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>ngSurveys</span>
+      <span>{{ message }}</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
+    <ng-content *ngIf="welcomeMessage"></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

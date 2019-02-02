@@ -12,11 +12,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
+import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
+import { DataService } from 'src/seervices/data.service';
 
 const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent },
   { path: 'second-page', component: SecondPageComponent },
-  { path: 'third-page', component: ThirdPageComponent }
+  { path: 'third-page', component: ThirdPageComponent },
+  { path: 'survey-questions', component: SurveyQuestionsComponent }
 ];
 
 @NgModule({
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     MainNavComponent,
     FirstPageComponent,
     SecondPageComponent,
-    ThirdPageComponent
+    ThirdPageComponent,
+    SurveyQuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +41,10 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule.forRoot(appRoutes),
-    MatInputModule
+    RouterModule.forRoot(appRoutes, {initialNavigation: false}),
+    MatInputModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

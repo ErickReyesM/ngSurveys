@@ -1,0 +1,27 @@
+<table class="example-form">
+  <tr>
+    <td>
+        <mat-form-field appearance="outline" class="inputQuestion">
+            <mat-label>Pregunta {{ count }}</mat-label>
+            <input matInput required placeholder="Ingresa la Pregunta" #question type="text">
+          </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+      <td class="questionCreatonBtn">
+          <button 
+          routerLink="/survey-questions"
+          mat-raised-button 
+          color="primary"
+          (click)="onAddQuestion(question.value)">
+          Ingresar Preguntas
+        </button>
+          <button style="margin-left:10px"
+          mat-raised-button 
+          color="warn"
+          (click)="onFinishSurvey()">
+          Terminar Encuesta
+        </button>
+      </td>
+    </tr>
+</table>

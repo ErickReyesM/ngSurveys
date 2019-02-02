@@ -1,6 +1,17 @@
 .example-form {
+    margin-top: 10%;
     min-width: 150px;
-    max-width: 500px;
+    padding: 20px;
+  }
+
+  table, th, td {
     width: 100%;
-    padding: 7%;
+  }
+
+  .questionCreatonBtn{
+    text-align: right;
+  }
+
+  .inputQuestion{
+    width: 100%;
   }
