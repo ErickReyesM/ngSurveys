@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,  } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatRadioModule  } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
@@ -43,6 +43,7 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
+    MatRadioModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

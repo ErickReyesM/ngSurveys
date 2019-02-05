@@ -32,10 +32,11 @@
     </tr>
 </table>
 
-<h3>Preguntas en la encuesta:</h3>
+
 <mat-list role="list" *ngIf="questionsSet.length > 0">
+    <h3>Preguntas en la encuesta:</h3>
   <mat-list-item role="listitem"
   *ngFor="let question of  questionsSet; let i = index">
-  <h4>{{i + 1}}.- {{" " + question }}</h4>
+  <h4>{{i + 1}}.-{{question }}</h4>
 </mat-list-item>
 </mat-list>
