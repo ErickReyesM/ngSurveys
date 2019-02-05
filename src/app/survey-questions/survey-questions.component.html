@@ -3,7 +3,11 @@
     <td>
         <mat-form-field appearance="outline" class="inputQuestion">
             <mat-label>Pregunta {{ count }}</mat-label>
-            <input matInput required placeholder="Ingresa la Pregunta" #question type="text">
+            <input matInput 
+            #questionTxt
+            required 
+            placeholder="Ingresa la Pregunta" 
+            type="text">
           </mat-form-field>
     </td>
   </tr>
@@ -13,15 +17,25 @@
           routerLink="/survey-questions"
           mat-raised-button 
           color="primary"
-          (click)="onAddQuestion(question.value)">
+          (click)="onAddQuestion(questionTxt.value); questionTxt.value = ''"
+          [disabled]="!questionTxt.value.length > 0">
           Ingresar Preguntas
         </button>
           <button style="margin-left:10px"
           mat-raised-button 
           color="warn"
-          (click)="onFinishSurvey()">
+          (click)="onFinishSurvey()"
+          [disabled]="!questionsSet.length > 0">
           Terminar Encuesta
         </button>
       </td>
     </tr>
 </table>
+
+<h3>Preguntas en la encuesta:</h3>
+<mat-list role="list" *ngIf="questionsSet.length > 0">
+  <mat-list-item role="listitem"
+  *ngFor="let question of  questionsSet; let i = index">
+  <h4>{{i + 1}}.- {{" " + question }}</h4>
+</mat-list-item>
+</mat-list>

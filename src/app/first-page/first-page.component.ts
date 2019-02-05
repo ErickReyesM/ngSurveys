@@ -11,13 +11,6 @@ export class FirstPageComponent {
 
   constructor(private data: DataService) {}
 
-  onSearchChange(searchValue : string){
-    if(searchValue.length > 0){
-      this.isEnabled = true;
-    }
-    return this.isEnabled;
-  }
-
   onGoToQuestions(value: string){
     this.data.changeMessage(value);
   }

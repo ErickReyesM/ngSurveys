@@ -8,7 +8,6 @@
             #surveyTitle
             required
             placeholder="Titulo" 
-            (input)="onSearchChange($event.target.value)"
             type="text">
           </mat-form-field>
         </td>
@@ -19,7 +18,7 @@
         color="primary"
         routerLink="/survey-questions"
         (click)="onGoToQuestions(surveyTitle.value)"
-        [disabled]="!isEnabled">
+        [disabled]="!surveyTitle.value.length > 0">
         Ingresar Preguntas
       </button>
     </td>
