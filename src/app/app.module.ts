@@ -8,6 +8,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,  } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
+    DragDropModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
