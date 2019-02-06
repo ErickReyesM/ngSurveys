@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
+import { Survey } from '../data/survey.interface';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-survey-questions',
@@ -8,15 +10,16 @@ import { DataService } from 'src/seervices/data.service';
 })
 export class SurveyQuestionsComponent implements OnInit {
 
-  title:string = '';
+  surveyTitle:string = '';
   count:number = 1;
-  questionTxt:string = '';
   questionsSet:any = [];
+  questionType:any = ['satisfaction', 'options', 'open'];
+  surveyQuestion: { title:string, questions:Survey[] };
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.currentMessage.subscribe(message=> this.title = message);
+    this.data.currentMessage.subscribe(message=> this.surveyTitle = message);
   }
 
   onAddQuestion(question:string){
@@ -25,8 +28,11 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onFinishSurvey(){
-    console.log(this.title);
-    console.log(this.questionsSet);
+
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.questionType, event.previousIndex, event.currentIndex);
   }
 
 }

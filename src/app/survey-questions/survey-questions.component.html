@@ -1,6 +1,6 @@
 <table class="example-form">
   <tr>
-    <td>
+    <td colspan="2">
         <mat-form-field appearance="outline" class="inputQuestion">
             <mat-label>Pregunta {{ count }}</mat-label>
             <input matInput 
@@ -12,7 +12,22 @@
     </td>
   </tr>
   <tr>
-      <td class="questionCreatonBtn">
+      <td class="typeList">
+          <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let type of questionType" cdkDrag>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                {{type}}
+              </div>
+            </div>
+      </td>
+      <td style="text-align:center">
+        <div>
+          <p>Arrastra Aquí</p>
+        </div>
+      </td>
+  </tr>
+  <tr>
+      <td class="questionCreatonBtn" colspan="2">
           <button 
           routerLink="/survey-questions"
           mat-raised-button 

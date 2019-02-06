@@ -44,11 +44,8 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
-<<<<<<< HEAD
     DragDropModule,
     MatRadioModule
-=======
->>>>>>> ca65b52c0b6571227df950e6d234ff2920d60624
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
