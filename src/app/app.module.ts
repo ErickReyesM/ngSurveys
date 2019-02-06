@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,  } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatRadioModule  } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { RouterModule, Routes } from '@angular/router';
@@ -44,7 +44,11 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
-    DragDropModule
+<<<<<<< HEAD
+    DragDropModule,
+    MatRadioModule
+=======
+>>>>>>> ca65b52c0b6571227df950e6d234ff2920d60624
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
