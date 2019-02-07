@@ -10,8 +10,10 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class SurveyQuestionsComponent implements OnInit {
 
+  radioType:string;
   surveyTitle:string = '';
   count:number = 1;
+  optionLetter:string = 'a';
   questionsSet:any = [];
   questionType:any = ['satisfaction', 'options', 'open'];
   surveyQuestion: { title:string, questions:Survey[] };
@@ -28,11 +30,13 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onFinishSurvey(){
-
+    console.log(this.getNextChar('a'));
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.questionType, event.previousIndex, event.currentIndex);
+  getNextChar(char:String): String{
+     const code = char.charCodeAt(0).valueOf()
+     let i = code;
+     i++;
+     return String.fromCharCode(i);
   }
-
 }

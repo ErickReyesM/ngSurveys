@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatRadioModule  } from '@angular/material';
-import { MatInputModule } from '@angular/material/input';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
+   MatListModule, MatRadioModule, MatInputModule  } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
@@ -44,8 +44,8 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
-    DragDropModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
