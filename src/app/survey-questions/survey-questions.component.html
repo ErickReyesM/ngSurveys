@@ -1,4 +1,7 @@
 <table class="example-form">
+    <button mat-icon-button routerLink="/first-page">
+      <mat-icon aria-label="back to title">arrow_back</mat-icon>
+    </button>
   <tr>
     <td colspan="2">
         <mat-form-field appearance="outline" class="inputQuestion">
@@ -20,14 +23,20 @@
             </mat-radio-button>
           </mat-radio-group>    
     </td>
-      <td>
+      <td><!--Select Input Question-->
+        <mat-icon class="satisfactionIcon" aria-label="back to title" *ngIf="'satisfaction'==radioType">mood</mat-icon>
           <mat-form-field class="inputQuestion" *ngIf="'open'==radioType">
               <textarea matInput placeholder="Textarea" disabled="true"></textarea>
             </mat-form-field>
-            <mat-form-field class="inputQuestion" *ngIf="'options'==radioType">
-                <input matInput placeholder="Opcion {{ optionLetter }}" type="text">
-                <span matPrefix>{{optionLetter}}&#41;</span>
-              </mat-form-field>
+            <div *ngIf="'options'==radioType">
+                <mat-form-field class="inputQuestion">
+                    <input matInput placeholder="Opcion {{ optionLetter }}" type="text">
+                    <span matPrefix>{{optionLetter}}&#41;</span>
+                </mat-form-field>
+                <button mat-icon-button>
+                  <mat-icon aria-label="back to title">add</mat-icon>
+                </button>
+            </div>
       </td>
   </tr>
   <tr>
