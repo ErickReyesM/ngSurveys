@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import { Survey } from '../data/survey.interface';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-survey-questions',
@@ -10,12 +9,13 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class SurveyQuestionsComponent implements OnInit {
 
-  radioType:string;
+  radioType:string='';
   surveyTitle:string = '';
   count:number = 1;
   optionLetter:string = 'a';
   questionsSet:any = [];
   questionType:any = ['satisfaction', 'options', 'open'];
+  numberOption:number;
   surveyQuestion: { title:string, questions:Survey[] };
 
   constructor(private data: DataService) { }
@@ -27,16 +27,19 @@ export class SurveyQuestionsComponent implements OnInit {
   onAddQuestion(question:string){
     this.count += 1;
     this.questionsSet.push(question);
+    console.log(this.radioType);
   }
 
   onFinishSurvey(){
-    console.log(this.getNextChar('a'));
+    console.log(this.getNextChar());
   }
 
-  getNextChar(char:String): String{
-     const code = char.charCodeAt(0).valueOf()
-     let i = code;
-     i++;
-     return String.fromCharCode(i);
+  getNextChar(): String{
+    const code = this.optionLetter.charCodeAt(0);
+    let next = code;
+    this.numberOption = next;
+    this.numberOption += 1;
+    this.optionLetter = String.fromCharCode(this.numberOption);
+    return this.optionLetter;
   }
 }

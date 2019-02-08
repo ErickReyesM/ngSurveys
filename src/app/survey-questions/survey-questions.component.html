@@ -39,15 +39,15 @@
             </div>
       </td>
   </tr>
-  <tr>
+  <tr><!--Button Section-->
       <td class="questionCreatonBtn" colspan="2">
           <button 
           routerLink="/survey-questions"
           mat-raised-button 
           color="primary"
           (click)="onAddQuestion(questionTxt.value); questionTxt.value = ''"
-          [disabled]="!questionTxt.value.length > 0">
-          Ingresar Preguntas
+          [disabled]="!(questionTxt.value.length > 0 && radioType != '')">
+          Ingresar Pregunta
         </button>
           <button style="margin-left:10px"
           mat-raised-button 
