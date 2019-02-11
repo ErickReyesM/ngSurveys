@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-   MatListModule, MatRadioModule, MatInputModule  } from '@angular/material';
+   MatListModule, MatRadioModule, MatInputModule, MatCardModule  } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FirstPageComponent } from './first-page/first-page.component';
@@ -45,7 +45,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {initialNavigation: false}),
     MatInputModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
