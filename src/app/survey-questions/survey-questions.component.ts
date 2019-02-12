@@ -13,8 +13,8 @@ export class SurveyQuestionsComponent implements OnInit {
   surveyTitle:string = '';
   count:number = 1;
   optionLetter:any = ['a'];
-  questionsSet:any = [];
-  questionType:any = ['satisfaction', 'options', 'open'];
+  questionsSet: { numberOrd:number, questionTxt:string, type:string }[] = [];
+  questionType:any = ['Satisfacción', 'Opción Multitple', 'Abierta'];
   numberOption:number = 97;
   surveyQuestion: { title:string, questions:Survey[] };
 
@@ -25,13 +25,18 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onAddQuestion(question:string){
+    let questObj = {
+      numberOrd: this.count,
+      questionTxt: question,
+      type: this.radioType
+    }
+    this.questionsSet.push(questObj);
     this.count += 1;
-    this.questionsSet.push(question);
-    console.log(this.radioType);
+    console.log(this.questionsSet);
   }
 
   onFinishSurvey(){
-    //console.log(this.getNextChar());
+    //console.log(this.questionsSet);
   }
 
   getNextChar(): any[]{

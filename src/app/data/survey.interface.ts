@@ -1,5 +1,6 @@
 export interface Survey{
     questionNumber:number,
     questionText:string,
-    type:string
+    type:string,
+    options: string[]
 }
