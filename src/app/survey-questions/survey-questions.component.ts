@@ -12,10 +12,10 @@ export class SurveyQuestionsComponent implements OnInit {
   radioType:string='';
   surveyTitle:string = '';
   count:number = 1;
-  optionLetter:string = 'a';
+  optionLetter:any = ['a'];
   questionsSet:any = [];
   questionType:any = ['satisfaction', 'options', 'open'];
-  numberOption:number;
+  numberOption:number = 97;
   surveyQuestion: { title:string, questions:Survey[] };
 
   constructor(private data: DataService) { }
@@ -31,15 +31,26 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onFinishSurvey(){
-    console.log(this.getNextChar());
+    //console.log(this.getNextChar());
   }
 
-  getNextChar(): String{
-    const code = this.optionLetter.charCodeAt(0);
-    let next = code;
-    this.numberOption = next;
+  getNextChar(): any[]{
     this.numberOption += 1;
-    this.optionLetter = String.fromCharCode(this.numberOption);
+    this.optionLetter.push(String.fromCharCode(this.numberOption));
     return this.optionLetter;
   }
+
+  onAddOption(){
+    this.getNextChar();
+  }
+
+  onDeleteOption(letter: string){
+    const index:number = this.optionLetter.indexOf(letter);
+    console.log('delete: '+ letter);
+    if (index !== -1) {
+      this.optionLetter.splice(index, 1);
+      this.numberOption -= 1;
+    } 
+  }
+
 }

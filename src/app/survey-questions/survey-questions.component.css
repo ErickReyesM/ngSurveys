@@ -34,4 +34,12 @@ table, th, td {
   margin: 5px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  width: 100%;
+}
 

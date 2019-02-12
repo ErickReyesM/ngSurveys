@@ -24,17 +24,23 @@
           </mat-radio-group>    
     </td>
       <td><!--Select Input Question-->
+        <!--Icon-->
         <mat-icon class="satisfactionIcon" aria-label="back to title" *ngIf="'satisfaction'==radioType">mood</mat-icon>
+        <!--Text Area-->
           <mat-form-field class="inputQuestion" *ngIf="'open'==radioType">
-              <textarea matInput placeholder="Textarea" disabled="true"></textarea>
+              <textarea matInput placeholder="Area de Texto Abierta" disabled="true"></textarea>
             </mat-form-field>
+        <!--Options-->
             <div *ngIf="'options'==radioType">
-                <mat-form-field class="inputQuestion">
-                    <input matInput placeholder="Opcion {{ optionLetter }}" type="text">
-                    <span matPrefix>{{optionLetter}}&#41;</span>
+                <mat-form-field class="inputQuestion" *ngFor="let letter of optionLetter" class="container">
+                    <input matInput placeholder="Opcion {{ letter }}" type="text">
+                    <span matPrefix>{{letter}}&#41;</span>
+                    <button matSuffix mat-icon-button (click)="onDeleteOption(letter)">
+                        <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
                 </mat-form-field>
                 <button mat-icon-button>
-                  <mat-icon aria-label="back to title">add</mat-icon>
+                  <mat-icon aria-label="back to title" (click)="onAddOption()">add</mat-icon>
                 </button>
             </div>
       </td>
