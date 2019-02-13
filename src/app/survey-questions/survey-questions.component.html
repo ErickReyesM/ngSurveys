@@ -29,14 +29,15 @@
          <!--Options-->
          <div *ngIf="questionType[1]===radioType">
             <mat-form-field class="inputQuestion" *ngFor="let letter of optionLetter" class="container">
-                <input matInput placeholder="Opcion {{ letter }}" type="text">
-                <span matPrefix>{{letter}}&#41;</span>
-                <button matSuffix mat-icon-button (click)="onDeleteOption(letter)">
+                <input matInput placeholder="Opcion {{ letter }}" type="text"  [(ngModel)]="optionEntry" [value]="option">
+                <span matPrefix>{{letter}}&#41;&nbsp;&nbsp;</span>
+                <button matSuffix mat-icon-button *ngIf="optionLetter.length > 2" (click)="onDeleteOption(letter)">
                     <mat-icon>remove_circle_outline</mat-icon>
                 </button>
             </mat-form-field>
-            <button mat-icon-button>
-              <mat-icon aria-label="back to title" (click)="onAddOption()">add</mat-icon>
+            <span>{{optionEntry}}</span>
+            <button mat-icon-button (click)="onAddOption()">
+              <mat-icon aria-label="add option">add</mat-icon>
             </button>
         </div>
         <!--Text Area-->
@@ -68,9 +69,8 @@
 
 
 <mat-list role="list" *ngIf="questionsSet.length > 0">
-    <h3>Preguntas en la encuesta:</h3>
-  <mat-list-item role="listitem"
-  *ngFor="let question of  questionsSet; let i = index">
-  <h4>{{i + 1}}.-{{question.questionTxt }}</h4>
+  <h3>Preguntas en la encuesta:</h3>
+  <mat-list-item role="listitem" *ngFor="let question of  questionsSet; let i = index">
+  {{i + 1}}.-{{question.questionTxt}}
 </mat-list-item>
 </mat-list>
