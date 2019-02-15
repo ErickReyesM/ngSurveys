@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import { Survey } from '../data/survey.interface';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-survey-questions',
@@ -18,6 +19,7 @@ export class SurveyQuestionsComponent implements OnInit {
   numberOption:number = 97;
   surveyQuestion: { title:string, questions:Survey[] };
   optionEntry:string = '';
+  sendingSurvey:boolean = false;
 
   constructor(private data: DataService) { }
 
@@ -38,7 +40,17 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onFinishSurvey(){
-    //console.log(this.questionsSet);
+    this.sendingSurvey = true;
+    firebase.firestore().collection("surveys").add({
+      surveyTitle: this.surveyTitle,
+      questions: this.questionsSet,
+      created: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(data => {
+      this.sendingSurvey = false;
+      console.log('***' + data + '***');
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   getNextChar(): any[]{

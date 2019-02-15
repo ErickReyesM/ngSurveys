@@ -60,13 +60,15 @@
           mat-raised-button 
           color="warn"
           (click)="onFinishSurvey()"
-          [disabled]="!questionsSet.length > 0">
+          [disabled]="!questionsSet.length > 0"
+          routerLink="/home">
           Terminar Encuesta
         </button>
       </td>
     </tr>
 </table>
 
+<mat-progress-bar color="primary" mode="query" *ngIf="sendingSurvey"></mat-progress-bar>
 
 <mat-list role="list" *ngIf="questionsSet.length > 0">
   <h3>Preguntas en la encuesta:</h3>
