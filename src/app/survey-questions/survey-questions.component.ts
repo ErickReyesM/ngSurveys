@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import { Survey } from '../data/survey.interface';
 import firebase from 'firebase';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-survey-questions',
@@ -9,6 +10,7 @@ import firebase from 'firebase';
   styleUrls: ['./survey-questions.component.css']
 })
 export class SurveyQuestionsComponent implements OnInit {
+
 
   radioType:string='';
   surveyTitle:string = '';
