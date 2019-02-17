@@ -29,21 +29,41 @@
         <mat-icon class="satisfactionIcon" aria-label="back to title" *ngIf="questionType[0]===radioType">mood</mat-icon>
          <!--Options Input-->
          <div *ngIf="questionType[1]===radioType">
-           <section *ngFor="let option of options; let i of index" class="inputQuestion">
-              <mat-form-field  class="inputQuestion">
-                  <input matInput placeholder="opción {{ i+1 }}" type="text" #optionInput>
-                  <span matPrefix>{{i+1}})&nbsp;</span>
-                  <!--button to delete option-->
-                  <button matSuffix mat-icon-button *ngIf="options.length > 2" (click)="onDeleteOption(i)">
-                    <mat-icon>remove_circle_outline</mat-icon>
-                  </button>
-              </mat-form-field>
-           </section>
-            <!--button to add option-->
-            <button mat-icon-button (click)="onAddOption(optionInput.value)">
-                <mat-icon aria-label="add option">add</mat-icon>
-              </button>
-        </div>
+           <mat-form-field appearance="legacy" class="inputQuestion">
+             <input matInput placeholder="opción A" type="text" #optionInput1>
+             <span matPrefix>a)&nbsp;</span>
+            </mat-form-field>
+            <mat-form-field *ngIf="optionCount >= 2" appearance="legacy" class="inputQuestion">
+                <input matInput placeholder="opción B" type="text" #optionInput2>
+                <span matPrefix>b)&nbsp;</span>
+               </mat-form-field>
+               <mat-form-field *ngIf="optionCount >= 3" appearance="legacy" class="inputQuestion">
+                  <input matInput placeholder="opción C" type="text" #optionInput3>
+                  <span matPrefix>c)&nbsp;</span>
+                 </mat-form-field>
+                 <mat-form-field *ngIf="optionCount >= 4" appearance="legacy" class="inputQuestion">
+                    <input matInput placeholder="opción D" type="text" #optionInput4>
+                    <span matPrefix>d)&nbsp;</span>
+                   </mat-form-field>
+                   <mat-form-field *ngIf="optionCount >= 5" appearance="legacy" class="inputQuestion">
+                      <input matInput placeholder="opción E" type="text" #optionInput5>
+                      <span matPrefix>e)&nbsp;</span>
+                     </mat-form-field>
+                     <mat-form-field *ngIf="optionCount >= 6" appearance="legacy" class="inputQuestion">
+                        <input matInput placeholder="opción F" type="text" #optionInput6>
+                        <span matPrefix>f)&nbsp;</span>
+                       </mat-form-field>
+                 <!--button to add option-->
+                 <button mat-icon-button 
+                 matTooltip="Cargar opciones a la pregunta, opciones vacias seran ignoradas">
+                     <mat-icon aria-label="finish option">done</mat-icon>
+                 </button>
+                 <button mat-icon-button matTooltip="Agregar otra Opcion"
+                 (click)="onAddNewOption()"
+                 [disabled]="optionCount === 6">
+                    <mat-icon aria-label="finish option">add</mat-icon>
+                </button>
+         </div>         
         <!--Text Area-->
           <mat-form-field class="inputQuestion" *ngIf="questionType[2]===radioType">
               <textarea matInput placeholder="Area de Texto Abierta" disabled="true"></textarea>
