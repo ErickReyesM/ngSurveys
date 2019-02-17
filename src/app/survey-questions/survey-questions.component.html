@@ -1,3 +1,4 @@
+<mat-progress-bar color="primary" mode="buffer" *ngIf="sendingSurvey"></mat-progress-bar>
 <table class="example-form">
     <button mat-icon-button routerLink="/first-page">
       <mat-icon aria-label="back to title">arrow_back</mat-icon>
@@ -24,21 +25,24 @@
           </mat-radio-group>    
     </td>
       <td><!--Select Input Question-->
-        <!--Icon-->
+        <!--Satisfaction Icon-->
         <mat-icon class="satisfactionIcon" aria-label="back to title" *ngIf="questionType[0]===radioType">mood</mat-icon>
-         <!--Options-->
+         <!--Options Input-->
          <div *ngIf="questionType[1]===radioType">
-            <mat-form-field class="inputQuestion" *ngFor="let letter of optionLetter" class="container">
-                <input matInput placeholder="Opcion {{ letter }}" type="text"  [(ngModel)]="optionEntry" [value]="option">
-                <span matPrefix>{{letter}}&#41;&nbsp;&nbsp;</span>
-                <button matSuffix mat-icon-button *ngIf="optionLetter.length > 2" (click)="onDeleteOption(letter)">
+           <section *ngFor="let option of options; let i of index" class="inputQuestion">
+              <mat-form-field  class="inputQuestion">
+                  <input matInput placeholder="opción {{ i+1 }}" type="text" #optionInput>
+                  <span matPrefix>{{i+1}})&nbsp;</span>
+                  <!--button to delete option-->
+                  <button matSuffix mat-icon-button *ngIf="options.length > 2" (click)="onDeleteOption(i)">
                     <mat-icon>remove_circle_outline</mat-icon>
-                </button>
-            </mat-form-field>
-            <span>{{optionEntry}}</span>
-            <button mat-icon-button (click)="onAddOption()">
-              <mat-icon aria-label="add option">add</mat-icon>
-            </button>
+                  </button>
+              </mat-form-field>
+           </section>
+            <!--button to add option-->
+            <button mat-icon-button (click)="onAddOption(optionInput.value)">
+                <mat-icon aria-label="add option">add</mat-icon>
+              </button>
         </div>
         <!--Text Area-->
           <mat-form-field class="inputQuestion" *ngIf="questionType[2]===radioType">
@@ -67,9 +71,6 @@
       </td>
     </tr>
 </table>
-
-<mat-progress-bar color="primary" mode="query" *ngIf="sendingSurvey"></mat-progress-bar>
-
 <mat-list role="list" *ngIf="questionsSet.length > 0">
   <h3>Preguntas en la encuesta:</h3>
   <mat-list-item role="listitem" *ngFor="let question of  questionsSet; let i = index">

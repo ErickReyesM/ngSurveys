@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import { Survey } from '../data/survey.interface';
 import firebase from 'firebase';
-import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-survey-questions',
@@ -15,13 +14,13 @@ export class SurveyQuestionsComponent implements OnInit {
   radioType:string='';
   surveyTitle:string = '';
   count:number = 1;
-  optionLetter:any = ['a'];
-  questionsSet: { numberOrd:number, questionTxt:string, type:string, options:any[] }[] = [];
-  questionType:any = ['Satisfacción', 'Opción Multitple', 'Abierta'];
+  questionsSet: { numberOrd:number, questionTxt:string, type:string, options?:any[] }[] = [];
+  questionType:any[] = ['Satisfacción', 'Opción Multitple', 'Abierta'];
   numberOption:number = 97;
   surveyQuestion: { title:string, questions:Survey[] };
-  optionEntry:string = '';
   sendingSurvey:boolean = false;
+  options:any[] = [''];
+  optionInput:string = '';
 
   constructor(private data: DataService) { }
 
@@ -34,7 +33,7 @@ export class SurveyQuestionsComponent implements OnInit {
         numberOrd: this.count,
         questionTxt: question,
         type: this.radioType,
-        options: []
+        //options: []
       };
       this.questionsSet.push(questObj);
       console.log(this.questionsSet);
@@ -55,21 +54,16 @@ export class SurveyQuestionsComponent implements OnInit {
     })
   }
 
-  getNextChar(): any[]{
-    this.numberOption += 1;
-    this.optionLetter.push(String.fromCharCode(this.numberOption));
-    return this.optionLetter;
-  }
-
-  onAddOption(){
-    this.getNextChar();
+  onAddOption(input: string){
+    this.options.push(input);
+    console.log(this.options);
   }
 
   onDeleteOption(letter: string){
-    const index:number = this.optionLetter.indexOf(letter);
+    const index:number = this.options.indexOf(letter);
     console.log('delete: '+ letter);
     if (index !== -1) {
-      this.optionLetter.splice(index, 1);
+      this.options.splice(index, 1);
       this.numberOption -= 1;
     } 
   }
