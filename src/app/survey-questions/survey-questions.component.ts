@@ -61,11 +61,11 @@ export class SurveyQuestionsComponent implements OnInit {
       created: firebase.firestore.FieldValue.serverTimestamp()
     }).then(data => {
       this.sendingSurvey = false;
+      window.location.reload();
       //data TODO
     }).catch(err => {
       //TODO
     });
-    window.location.reload();
   }
 
   onAddNewOption(){
