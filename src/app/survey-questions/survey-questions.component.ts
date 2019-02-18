@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import { Survey } from '../data/survey.interface';
 import firebase from 'firebase';
-import { Option } from './option.class';
 
 @Component({
   selector: 'app-survey-questions',
@@ -15,13 +14,19 @@ export class SurveyQuestionsComponent implements OnInit {
   surveyTitle:string = '';
   count:number = 1;
   questionsSet: { numberOrd:number, questionTxt:string, type:string, options?:any[] }[] = [];
-  questionType:any[] = ['Satisfacción', 'Opción Multitple', 'Abierta'];
+  questionType:any[] = ['Satisfacción', 'Opción Multitple', 'Abierta', 'Elección'];
   numberOption:number = 98;
   surveyQuestion: { title:string, questions:Survey[] };
   sendingSurvey:boolean = false;
   optionCount:number = 1;
-  createdOptions:Option[] = [];
-
+  createdOptions:any[] = [];
+  optInp1:string = '';
+  optInp2:string = '';
+  optInp3:string = '';
+  optInp4:string = '';
+  optInp5:string = '';
+  optInp6:string = '';
+  questionTxt:string = '';
 
   constructor(private data: DataService) { }
 
@@ -30,15 +35,22 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   onAddQuestion(question:string){
+    var filtered = this.createdOptions.filter((el)=>{
+      return el != '';
+    });
       let questObj = {
         numberOrd: this.count,
         questionTxt: question,
         type: this.radioType,
-        //options: []
+        options: filtered
       };
       this.questionsSet.push(questObj);
       console.log(this.questionsSet);
     this.count += 1;
+  }
+
+  onAddOptions(optIn1:string, optIn2:string, optIn3?:string, optIn4?:string, optIn5?:string, optIn6?:string){
+    this.createdOptions = [optIn1,optIn2,optIn3,optIn4,optIn5,optIn6];
   }
 
   onFinishSurvey(){
@@ -49,31 +61,14 @@ export class SurveyQuestionsComponent implements OnInit {
       created: firebase.firestore.FieldValue.serverTimestamp()
     }).then(data => {
       this.sendingSurvey = false;
-      console.log('***' + data + '***');
+      //data TODO
     }).catch(err => {
-      console.log(err);
-    })
-  }
-
-  onLoadOptions(input: string){
-    let optionInput = new Option(this.optionCount, input);
-    this.createdOptions.push(optionInput);
-    console.log(this.createdOptions);
+      //TODO
+    });
+    window.location.reload();
   }
 
   onAddNewOption(){
     this.optionCount += 1;
-    console.log(this.optionCount);
   }
-
-  /*
-  onDeleteOption(letter: string){
-    const index:number = this.createdOptions.indexOf(letter);
-    console.log('delete: '+ letter);
-    if (index !== -1) {
-      this.options.splice(index, 1);
-      this.numberOption -= 1;
-    } 
-  }*/
-
 }
