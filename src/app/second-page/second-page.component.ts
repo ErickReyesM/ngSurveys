@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
 import moment from 'moment';
+import { DataService } from 'src/seervices/data.service';
 
 @Component({
   selector: 'app-second-page',
@@ -14,7 +15,7 @@ export class SecondPageComponent implements OnInit {
   gettingSurveys:boolean;
   collectionFB:string = 'surveys';
 
-  constructor() { }
+  constructor(private data:DataService) { }
 
   ngOnInit() {
     this.gettingSurveys = true;
@@ -33,6 +34,10 @@ export class SecondPageComponent implements OnInit {
     }).catch((err)=>{
       console.log(err);
     })
+  }
+
+  onOpenSurvey(sId:any){
+    this.data.setSurveyId(sId.id);
   }
 
   onRemoveSurvey(survey: any) {

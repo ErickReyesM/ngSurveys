@@ -1,3 +1,14 @@
+<h1>
+  {{title}}
+</h1>
+<div *ngFor="let question of questions">
+  <h3>
+    {{question.numberOrd}}.- &nbsp; {{question.questionTxt}}
+  </h3>
+  <p>Tipo de respuesta: {{question.type}}</p>
+  <p *ngIf="question.type === 'Opción Multitple' ||
+  question.type ==='Elección'">con {{question.options.length}} opciones para responder</p>
+</div>
 <p>
-  third-page works!
+  Creada hace: {{createdOn}}
 </p>

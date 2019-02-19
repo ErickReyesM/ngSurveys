@@ -1,15 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/seervices/data.service';
+import firebase from 'firebase';
+import moment from 'moment';
 
 @Component({
   selector: 'app-third-page',
   templateUrl: './third-page.component.html',
   styleUrls: ['./third-page.component.css']
 })
-export class ThirdPageComponent {
+export class ThirdPageComponent implements OnInit{
 
-  surveysInDB:any[] = [];
-  pageSize:number = 10;
+  surveyId:string = '';
+  survey:any[] = [];
+  collectionFB:string = 'surveys'
+  title:string = '';
+  createdOn:any;
+  questions:any[] = []
 
-  constructor() {  }
+  constructor(private data:DataService) {  }
+
+  ngOnInit(): void {
+    this.data.idOfTheSurvey.subscribe(message => this.surveyId = message);
+    firebase.firestore().collection(this.collectionFB).doc(this.surveyId).get()
+    .then((doc)=>{
+      this.questions = doc.get('questions');
+      this.createdOn = this.ago(doc.data().created.toDate());
+      this.title = doc.data().surveyTitle;
+    }).catch((err)=>{
+      console.log(err);
+    });
+  }
+
+  ago(time){
+    moment.locale("es-us")
+    let difference = moment(time).diff(moment());
+    return moment.duration(difference).humanize();
+  }
 
 }
