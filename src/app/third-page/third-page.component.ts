@@ -16,19 +16,22 @@ export class ThirdPageComponent implements OnInit{
   title:string = '';
   createdOn:any;
   questions:any[] = []
+  isGettingSurvey:boolean = false;
 
   constructor(private data:DataService) { 
    }
 
   ngOnInit(): void {
+    this.isGettingSurvey = true;
     this.data.idOfTheSurvey.subscribe(message => this.surveyId = message);
     firebase.firestore().collection(this.collectionFB).doc(this.surveyId).get()
     .then((doc)=>{
       this.questions = doc.get('questions');
       this.createdOn = this.ago(doc.data().created.toDate());
       this.title = doc.data().surveyTitle;
+      this.isGettingSurvey = false;
     }).catch((err)=>{
-      console.log(err);
+      //TODO
     });
   }
 

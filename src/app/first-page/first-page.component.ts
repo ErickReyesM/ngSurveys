@@ -17,8 +17,9 @@ export class FirstPageComponent implements OnInit {
 
   constructor(private data: DataService) {}
 
-  onGoToQuestions(value: string){
-    this.data.changeMessage(value);
+  onGoToQuestions(sTitle: string, sDescription:string){
+    this.data.changeMessage(sTitle);
+    this.data.setSurveyDescription(sDescription);
   }
   
 }

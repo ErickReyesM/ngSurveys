@@ -2,6 +2,7 @@
 <mat-card *ngFor="let survey of surveysInDB">
   <mat-card-header>
     <mat-card-title>{{ survey.data().surveyTitle }}</mat-card-title>
+    <mat-card-subtitle>{{ survey.data().surveyDescription }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
-import { Survey } from '../data/survey.interface';
 import firebase from 'firebase';
 
 @Component({
@@ -16,7 +15,6 @@ export class SurveyQuestionsComponent implements OnInit {
   questionsSet: { numberOrd:number, questionTxt:string, type:string, options?:any[] }[] = [];
   questionType:any[] = ['Satisfacción', 'Opción Multitple', 'Abierta', 'Elección'];
   numberOption:number = 98;
-  surveyQuestion: { title:string, questions:Survey[] };
   sendingSurvey:boolean = false;
   optionCount:number = 1;
   createdOptions:any[] = [];
@@ -27,14 +25,16 @@ export class SurveyQuestionsComponent implements OnInit {
   optInp5:string = '';
   optInp6:string = '';
   questionTxt:string = '';
+  sDescription:string = '';
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.currentMessage.subscribe(message=> this.surveyTitle = message);
+    this.data.currentMessage.subscribe(title=> this.surveyTitle = title);
+    this.data.surveyDescription.subscribe(desc => this.sDescription = desc);
   }
 
-  onAddQuestion(question:string){
+  onAddQuestion(question: string){
     var filtered = this.createdOptions.filter((el)=>{
       return el != '';
     });
@@ -45,8 +45,14 @@ export class SurveyQuestionsComponent implements OnInit {
         options: filtered
       };
       this.questionsSet.push(questObj);
-      console.log(this.questionsSet);
     this.count += 1;
+    this.optInp1 = '';
+    this.optInp2 = '';
+    this.optInp3 = '';
+    this.optInp4 = '';
+    this.optInp5 = '';
+    this.optInp6 = '';
+    this.optionCount = 1;
   }
 
   onAddOptions(optIn1:string, optIn2:string, optIn3?:string, optIn4?:string, optIn5?:string, optIn6?:string){
@@ -57,6 +63,7 @@ export class SurveyQuestionsComponent implements OnInit {
     this.sendingSurvey = true;
     firebase.firestore().collection("surveys").add({
       surveyTitle: this.surveyTitle,
+      surveyDescription: this.sDescription,
       questions: this.questionsSet,
       created: firebase.firestore.FieldValue.serverTimestamp()
     }).then(data => {

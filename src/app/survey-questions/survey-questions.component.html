@@ -8,7 +8,7 @@
         <mat-form-field appearance="outline" class="inputQuestion">
             <mat-label>Pregunta {{ count }}</mat-label>
             <input matInput 
-            #questionTxt
+            #questionText
             required 
             placeholder="Ingresa la Pregunta" 
             type="text">
@@ -77,8 +77,8 @@
           routerLink="/survey-questions"
           mat-raised-button 
           color="primary"
-          (click)="onAddQuestion(questionTxt.value); questionTxt.value = ''"
-          [disabled]="!(questionTxt.value.length > 0 && radioType != '')">
+          (click)="onAddQuestion(questionText.value); questionText.value = ''"
+          [disabled]="!(questionText.value.length > 0 && radioType != '')">
           Ingresar Pregunta
         </button>
           <button style="margin-left:10px"

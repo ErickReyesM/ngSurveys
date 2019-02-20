@@ -1,3 +1,4 @@
+<div class="survey-container">
 <h1>
   {{title}}
 </h1>
@@ -9,6 +10,8 @@
   <p *ngIf="question.type === 'Opción Multitple' ||
   question.type ==='Elección'">con {{question.options.length}} opciones para responder</p>
 </div>
-<p>
-  Creada hace: {{createdOn}}
-</p>
+</div>
+
+<div class="loading-shade" *ngIf="isGettingSurvey">
+  <mat-spinner mode="indeterminate" color="primary"></mat-spinner>
+</div>

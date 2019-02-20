@@ -10,6 +10,9 @@ export class DataService {
   private surveyId = new BehaviorSubject('');
   idOfTheSurvey = this.surveyId.asObservable();
 
+  private sDescription = new BehaviorSubject('');
+  surveyDescription = this.sDescription.asObservable();
+
   constructor() { }
 
   changeMessage(message: string) {
@@ -18,6 +21,10 @@ export class DataService {
 
   setSurveyId(sId: string){
     this.surveyId.next(sId);
+  }
+
+  setSurveyDescription(sDesc: string){
+    this.sDescription.next(sDesc);
   }
 
 }
