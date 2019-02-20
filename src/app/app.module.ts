@@ -29,9 +29,9 @@ var config = {
 firebase.initializeApp(config);
 
 const appRoutes: Routes = [
-  { path: 'first-page', component: FirstPageComponent },
-  { path: 'second-page', component: SecondPageComponent },
-  { path: 'third-page', component: ThirdPageComponent },
+  { path: 'survey-creator', component: FirstPageComponent },
+  { path: 'my-surveys', component: SecondPageComponent },
+  { path: 'survey', component: ThirdPageComponent },
   { path: 'survey-questions', component: SurveyQuestionsComponent },
 ];
 

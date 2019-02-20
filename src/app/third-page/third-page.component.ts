@@ -17,7 +17,8 @@ export class ThirdPageComponent implements OnInit{
   createdOn:any;
   questions:any[] = []
 
-  constructor(private data:DataService) {  }
+  constructor(private data:DataService) { 
+   }
 
   ngOnInit(): void {
     this.data.idOfTheSurvey.subscribe(message => this.surveyId = message);
