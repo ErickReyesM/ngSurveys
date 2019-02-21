@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule, MatTooltipModule,
-   MatListModule, MatRadioModule, MatInputModule, MatCardModule, MatProgressBarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule, MatTooltipModule, MatTableModule,
+  MatExpansionModule, MatListModule, MatRadioModule, MatInputModule, MatCardModule, MatProgressBarModule, MatCheckboxModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
@@ -17,6 +17,7 @@ import { SurveyQuestionsComponent } from './survey-questions/survey-questions.co
 import { DataService } from 'src/seervices/data.service';
 
 import firebase from 'firebase';
+import { StartSurveyComponent } from './start-survey/start-survey.component';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     FirstPageComponent,
     SecondPageComponent,
     ThirdPageComponent,
-    SurveyQuestionsComponent
+    SurveyQuestionsComponent,
+    StartSurveyComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,10 @@ const appRoutes: Routes = [
     MatProgressBarModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatTableModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -4,6 +4,12 @@ import moment from 'moment';
 import { DataService } from 'src/seervices/data.service';
 import { Router } from '@angular/router';
 
+export interface Question{
+  order: number,
+  text: string,
+  type: string,
+}
+
 @Component({
   selector: 'app-second-page',
   templateUrl: './second-page.component.html',
@@ -11,10 +17,13 @@ import { Router } from '@angular/router';
 })
 export class SecondPageComponent implements OnInit {
   
+  displayedColumns: string[] = ['position', 'question', 'type'];
   surveysInDB: any[] = [];
   pageSize:number = 10;
   gettingSurveys:boolean;
   collectionFB:string = 'surveys';
+  questions:any[] = [];
+  dataSource: Question[] = [];
 
   constructor(private data:DataService, private router: Router) { }
 
@@ -30,17 +39,31 @@ export class SecondPageComponent implements OnInit {
       docs.forEach((doc)=>{
         this.surveysInDB.push(doc);
       })
-      console.log(this.surveysInDB);
       this.gettingSurveys = false;
     }).catch((err)=>{
-      console.log(err);
+      //TODO
     })
   }
 
   onOpenSurvey(sId:any){
-    this.data.setSurveyId(sId.id);
-    this.router.navigate(['/survey'], {queryParams:{id:sId.id}});
+    this.dataSource = [];
+    firebase.firestore().collection(this.collectionFB).doc(sId.id).get()
+    .then((doc)=>{
+      this.questions = doc.get('questions');
+    }).catch((err)=>{
+      //TODO
+    });
+    this.questions.forEach((question)=>{
+      let qObj:Question = {
+        order: question.numberOrd,
+        text: question.questionTxt,
+        type: question.type,
+      }
+      this.dataSource.push(qObj);
+    });
   }
+
+  onCloseSurvey(sId:any){this.onOpenSurvey(sId)}
 
   onRemoveSurvey(survey: any) {
     firebase.firestore().collection(this.collectionFB).doc(survey.id).delete();
