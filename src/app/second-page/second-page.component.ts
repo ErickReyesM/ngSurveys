@@ -22,8 +22,6 @@ export class SecondPageComponent implements OnInit {
   pageSize:number = 10;
   gettingSurveys:boolean;
   collectionFB:string = 'surveys';
-  questions:any[] = [];
-  dataSource: Question[] = [];
 
   constructor(private data:DataService, private router: Router) { }
 
@@ -42,28 +40,8 @@ export class SecondPageComponent implements OnInit {
       this.gettingSurveys = false;
     }).catch((err)=>{
       //TODO
-    })
-  }
-
-  onOpenSurvey(sId:any){
-    this.dataSource = [];
-    firebase.firestore().collection(this.collectionFB).doc(sId.id).get()
-    .then((doc)=>{
-      this.questions = doc.get('questions');
-    }).catch((err)=>{
-      //TODO
-    });
-    this.questions.forEach((question)=>{
-      let qObj:Question = {
-        order: question.numberOrd,
-        text: question.questionTxt,
-        type: question.type,
-      }
-      this.dataSource.push(qObj);
     });
   }
-
-  onCloseSurvey(sId:any){this.onOpenSurvey(sId)}
 
   onRemoveSurvey(survey: any) {
     firebase.firestore().collection(this.collectionFB).doc(survey.id).delete();

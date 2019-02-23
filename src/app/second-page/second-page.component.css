@@ -13,3 +13,18 @@ mat-card-actions{
 table {
     width: 100%;
   }
+
+  /*table#t01 tr:nth-child(even) {
+    background-color: rgba(235, 8, 204, 0.603);
+  }
+  table#t01 tr:nth-child(odd) {
+    background-color: rgba(153, 153, 153, 0.897);
+  }*/
+  table#t01 th {
+    color: white;
+    background-color: #2e2e2ebd;
+  }
+
+  td{
+      text-align: center;
+  }

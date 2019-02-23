@@ -1,6 +1,6 @@
 <mat-progress-bar class="loader-bar" color="primary" mode="buffer" *ngIf="gettingSurveys"></mat-progress-bar>
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let survey of surveysInDB" (opened)="onOpenSurvey(survey)" (closeded)="onCloseSurvey(survey)">
+  <mat-expansion-panel *ngFor="let survey of surveysInDB">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{ survey.data().surveyTitle }}
@@ -13,34 +13,21 @@
     <button mat-button>Reporte</button>
     <button mat-button color="warn" (click)="onRemoveSurvey(survey)">Eliminar</button>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-    
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let question"> {{question.order}} </td>
-      </ng-container>
-    
-      <!-- Name Column -->
-      <ng-container matColumnDef="question">
-        <th mat-header-cell *matHeaderCellDef> Pregunta </th>
-        <td mat-cell *matCellDef="let question"> {{question.text}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let question"> {{question.type}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-    
+    <table id="t01">
+        <tr>
+          <th>No.</th>
+          <th>Pregunta</th> 
+          <th>Tipo</th>
+          <th># Opciones</th>
+        </tr>
+        <tr *ngFor="let question of survey.data().questions">
+          <td>{{question.numberOrd}}</td>
+          <td>{{question.questionTxt}}</td> 
+          <td>{{question.type}}</td>
+          <td>{{question.type === 'Elección' || question.type === 'Opción Multitple' ?
+            question.options.length : '-'}}</td>
+        </tr>
+      </table>
 
   </mat-expansion-panel>
 </mat-accordion>
