@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import { Router } from '@angular/router';
 import { DataService } from 'src/seervices/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-start-survey',
@@ -21,16 +21,21 @@ export class StartSurveyComponent implements OnInit {
   myColor:string = 'primary';
   messageBtn:string = 'Siguiente';
 
-  constructor(private data:DataService, private router: Router) { }
+  constructor(private data:DataService, private router: ActivatedRoute) {
+    this.router.queryParamMap.subscribe(param => {
+      console.log(param.get('id'))
+    })
+   }
 
   ngOnInit() {
+    /*
     this.data.currentMessage.subscribe(message => { this.surveyId = message });
     firebase.firestore().collection(this.collectionFB).doc(this.surveyId).get()
     .then((doc)=>{
       this.questions = doc.get('questions');
     }).catch((err)=>{
       //TODO
-    });
+    });*/
   }
 
   getQuestionLenght():number{

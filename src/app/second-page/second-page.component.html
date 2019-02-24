@@ -10,9 +10,18 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <button mat-button>Reporte</button>
-    <button mat-button color="warn" (click)="onRemoveSurvey(survey)">Eliminar</button>
-
+    <table>
+      <tr>
+        <td style="text-align:left">
+          <button mat-button>Reporte</button>
+          <button mat-button color="warn" (click)="onRemoveSurvey(survey)">Eliminar</button>
+        </td>
+        <td class="start-survey-button">
+          <button mat-stroked-button (click)="onStartSurvey(survey)" >Click Me</button>
+        </td>
+      </tr>
+    </table>    
+    <br>
     <table id="t01">
         <tr>
           <th>No.</th>
@@ -28,6 +37,6 @@
             question.options.length : '-'}}</td>
         </tr>
       </table>
-
+<p style="text-align:right">creada hace: {{ ago(survey.data().created.toDate()) }}</p>
   </mat-expansion-panel>
 </mat-accordion>

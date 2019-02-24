@@ -32,8 +32,9 @@ firebase.initializeApp(config);
 const appRoutes: Routes = [
   { path: 'survey-creator', component: FirstPageComponent },
   { path: 'my-surveys', component: SecondPageComponent },
-  { path: 'survey', component: ThirdPageComponent },
+  { path: 'report', component: ThirdPageComponent },
   { path: 'survey-questions', component: SurveyQuestionsComponent },
+  { path: 'survey', component: StartSurveyComponent },
 ];
 
 @NgModule({
