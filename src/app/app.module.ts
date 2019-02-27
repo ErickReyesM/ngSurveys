@@ -15,6 +15,7 @@ import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
 import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
 import { DataService } from 'src/seervices/data.service';
+import { ChartsModule } from 'ng2-charts';
 
 import firebase from 'firebase';
 import { StartSurveyComponent } from './start-survey/start-survey.component';
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatTableModule
+    MatTableModule,
+    ChartsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
