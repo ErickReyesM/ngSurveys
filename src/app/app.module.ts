@@ -16,9 +16,7 @@ import { ThirdPageComponent } from './third-page/third-page.component';
 import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
 import { DataService } from 'src/seervices/data.service';
 import { ChartsModule } from 'ng2-charts';
-
 import firebase from 'firebase';
-import { StartSurveyComponent } from './start-survey/start-survey.component';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -35,7 +33,6 @@ const appRoutes: Routes = [
   { path: 'my-surveys', component: SecondPageComponent },
   { path: 'report', component: ThirdPageComponent },
   { path: 'survey-questions', component: SurveyQuestionsComponent },
-  { path: 'survey', component: StartSurveyComponent },
 ];
 
 @NgModule({
@@ -46,7 +43,6 @@ const appRoutes: Routes = [
     SecondPageComponent,
     ThirdPageComponent,
     SurveyQuestionsComponent,
-    StartSurveyComponent
   ],
   imports: [
     BrowserModule,
