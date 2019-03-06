@@ -17,6 +17,7 @@ import { SurveyQuestionsComponent } from './survey-questions/survey-questions.co
 import { DataService } from 'src/seervices/data.service';
 import { ChartsModule } from 'ng2-charts';
 import firebase from 'firebase';
+import { DateService } from './date.service';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     MatTableModule,
     ChartsModule
   ],
-  providers: [DataService],
+  providers: [DataService, DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
