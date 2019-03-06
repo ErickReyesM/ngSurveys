@@ -37,4 +37,25 @@ export class DateService {
   });
   return month;
 }
+
+countByHour(array_docs:any[]) {
+  var current = null;
+  var cnt = 0;
+
+  for (var i = 0; i < array_docs.length; i++) {
+      if (array_docs[i] != current) {
+          if (cnt > 0) {
+              document.write(current + ' comes --> ' + cnt + ' times<br>');
+          }
+          current = array_docs[i];
+          cnt = 1;
+      } else {
+          cnt++;
+      }
+  }
+  if (cnt > 0) {
+      document.write(current + ' comes --> ' + cnt + ' times');
+  }
+}
+
 }

@@ -12,16 +12,20 @@ import { DateService } from '../date.service';
 
 export class ThirdPageComponent implements OnInit{
 
-  /**Line Chart Data Configuration */
-  public lineChartOptions:ChartOptions = { responsive: true, beginAtZero: true };
-  public lineChartData:Array<ChartDataSets> =  [{data:[8,3,9], label: 'Encuesta'}];
-  public lineChartLabels:Array<string> = [];
-  public lineChartType:string = 'line';
-  public lineChartLegend = true;
-
   surveyId:string = '';
   inputCollection:Promise<firebase.firestore.QuerySnapshot>;
   collection:string = 'userInput';
+  countByHour:Array<any> = [];
+  countByDay:Array<any> = [];
+
+  /**Line Chart Data Configuration */
+  public lineChartOptions:ChartOptions = {
+    responsive: true,
+    scales: { yAxes: [ {ticks: { beginAtZero: true }} ] } };
+  public lineChartData:Array<ChartDataSets> = [];
+  public lineChartLabels:Array<string> = [];
+  public lineChartType:string = 'line';
+  public lineChartLegend = true;
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
    this.route.queryParams.subscribe( param => {this.surveyId = param['id']} );
@@ -40,9 +44,12 @@ export class ThirdPageComponent implements OnInit{
   this.dateSrv.getDataByWeek(querySnapShot.docs, new Date()).forEach(doc => {
     documentDataByWeek.push(doc.created.toDate().toLocaleDateString());
   });
-  this.dateSrv.getDataByMonth(querySnapShot.docs, new Date());
-
+  
+  this.dateSrv.getDataByWeek(querySnapShot.docs, new Date());
+  this.countByDay = [1,2,3];
+  this.lineChartData = [{ data: this.countByDay, label: 'Encuestas' }];
   this.lineChartLabels = documentDataByWeek.sort();
+
    })
    .catch(err => {
      console.log(err);
