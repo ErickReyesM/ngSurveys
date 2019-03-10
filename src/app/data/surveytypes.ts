@@ -1,1 +1,0 @@
-export default ['Satisfacción', 'Opción Multitple', 'Abierta']
