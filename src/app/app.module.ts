@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule, MatTooltipModule, MatTableModule,
-  MatExpansionModule, MatListModule, MatRadioModule, MatInputModule, MatCardModule, MatProgressBarModule, MatCheckboxModule } from '@angular/material';
+  MatExpansionModule, MatListModule, MatRadioModule, MatInputModule, MatCardModule, MatProgressBarModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
@@ -67,7 +67,8 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatCheckboxModule,
     MatTableModule,
-    ChartsModule
+    ChartsModule,
+    MatSelectModule
   ],
   providers: [DataService, DateService],
   bootstrap: [AppComponent]

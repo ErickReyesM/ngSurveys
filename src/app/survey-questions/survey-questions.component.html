@@ -95,6 +95,6 @@
 <mat-list role="list" *ngIf="questionsSet.length > 0">
   <h3>Preguntas en la encuesta:</h3>
   <mat-list-item role="listitem" *ngFor="let question of  questionsSet; let i = index">
-  {{i + 1}}.-{{question.questionTxt}}
+  {{i + 1}}.-&nbsp;{{question.questionTxt}}
 </mat-list-item>
 </mat-list>

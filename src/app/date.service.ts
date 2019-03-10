@@ -11,7 +11,7 @@ export class DateService {
   getDataByDay(array_docs:firebase.firestore.QueryDocumentSnapshot[], day:Date):any[]{
     let today:Array<any> = [];
     array_docs.forEach(document => {
-      if(document.data().created.toDate().getDay() == day.getDay()){
+      if(document.data().created.toDate().getDate() == day.getDate() - 1){
         today.push(document.data());
       }
     });
@@ -38,14 +38,15 @@ export class DateService {
   return month;
 }
 
-countByHour(array_docs:any[]) {
+count(array_docs:any[]):any[] {
   var current = null;
   var cnt = 0;
+  var countTimes:Array<Number> = [];
 
   for (var i = 0; i < array_docs.length; i++) {
       if (array_docs[i] != current) {
           if (cnt > 0) {
-              document.write(current + ' comes --> ' + cnt + ' times<br>');
+              countTimes.push(cnt);
           }
           current = array_docs[i];
           cnt = 1;
@@ -54,8 +55,8 @@ countByHour(array_docs:any[]) {
       }
   }
   if (cnt > 0) {
-      document.write(current + ' comes --> ' + cnt + ' times');
+    countTimes.push(cnt);
   }
+  return countTimes;
 }
-
 }

@@ -1,8 +1,44 @@
-<div style="display: block;">
+<mat-form-field>
+        <mat-select [(value)]="selected">
+                <mat-option value="option1">Hoy</mat-option>
+                <mat-option value="option2">Últimos 7 días</mat-option>
+                <mat-option value="option3">Este Mes</mat-option>
+        </mat-select>
+</mat-form-field>
+
+<div style="display: block;" *ngIf="selected == 'option1'">
         <canvas baseChart
                 [options]="lineChartOptions"
                 [chartType]="lineChartType"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels">
+                [legend]="lineChartLegend"
+                [datasets]="dailyLineChartData"
+                [labels]="dailyLineChartLabels">
+        </canvas>
+        <div style="display: block">
+                <canvas baseChart 
+                        [data]="doughnutChartData" 
+                        [labels]="doughnutChartLabels" 
+                        [chartType]="doughnutChartType">
+                </canvas>
+        </div>
+</div>
+      
+<div style="display: block;" *ngIf="selected == 'option2'">
+        <canvas baseChart
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                [legend]="lineChartLegend"
+                [datasets]="weeklyLineChartData"
+                [labels]="weeklyLineChartLabels">
+        </canvas>
+</div>
+
+<div style="display: block;" *ngIf="selected == 'option3'">
+        <canvas baseChart
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                [legend]="lineChartLegend"
+                [datasets]="monthlyLineChartData"
+                [labels]="monthlyLineChartLabels">
         </canvas>
 </div>
