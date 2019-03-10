@@ -55,13 +55,6 @@ export class SecondPageComponent implements OnInit {
     window.location.replace('http://localhost:4300/survey/?id='+survey.id)
   }
 
-  fullScreen(){
-    let elem = document.documentElement;
-    let methodInvoked = elem.requestFullscreen || elem['mozRequestFullscreen']
-    || elem['msRequestFullscreen'];
-    if (methodInvoked) methodInvoked.call(elem);
-  }
-
   ago(time){
     moment.locale("es-us")
     let difference = moment(time).diff(moment());

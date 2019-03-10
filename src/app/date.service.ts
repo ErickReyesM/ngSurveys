@@ -11,7 +11,7 @@ export class DateService {
   getDataByDay(array_docs:firebase.firestore.QueryDocumentSnapshot[], day:Date):any[]{
     let today:Array<any> = [];
     array_docs.forEach(document => {
-      if(document.data().created.toDate().getDate() == day.getDate() - 1){
+      if(document.data().created.toDate().getDate() == day.getDate()){
         today.push(document.data());
       }
     });
