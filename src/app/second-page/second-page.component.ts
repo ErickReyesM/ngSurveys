@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
 import moment from 'moment';
-import { DataService } from 'src/seervices/data.service';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 export interface Question{
   order: number,
@@ -19,11 +19,10 @@ export class SecondPageComponent implements OnInit {
   
   displayedColumns: string[] = ['position', 'question', 'type'];
   surveysInDB: any[] = [];
-  pageSize:number = 10;
   gettingSurveys:boolean;
   collectionFB:string = 'surveys';
 
-  constructor(private data:DataService, private router: Router) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
     this.gettingSurveys = true;
@@ -32,7 +31,7 @@ export class SecondPageComponent implements OnInit {
 
   GetPost(){
     this.surveysInDB = [];
-    firebase.firestore().collection(this.collectionFB).orderBy("created","desc").limit(this.pageSize).get()
+    firebase.firestore().collection(this.collectionFB).orderBy("created","desc").get()
     .then((docs)=>{
       docs.forEach((doc)=>{
         this.surveysInDB.push(doc);
@@ -43,14 +42,6 @@ export class SecondPageComponent implements OnInit {
     });
   }
 
-  onRemoveSurvey(survey: any) {
-    firebase.firestore().collection(this.collectionFB).doc(survey.id).delete();
-    const index:number = this.surveysInDB.indexOf(survey);
-    if (index !== -1) {
-      this.surveysInDB.splice(index, 1);
-    } 
-  }
-
   onStartSurvey(survey: any){
     window.location.replace('https://sondaggio-user.firebaseapp.com/?id='+survey.id);
   }
@@ -59,6 +50,16 @@ export class SecondPageComponent implements OnInit {
     moment.locale("es-us")
     let difference = moment(time).diff(moment());
     return moment.duration(difference).humanize();
+  }
+
+  openDialog(survey:any): void {
+    const dialogRef = this.dialog.open(DialogDeleteComponent, {
+      data : {surveyInfo: survey},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.GetPost();
+    });
   }
 
 }

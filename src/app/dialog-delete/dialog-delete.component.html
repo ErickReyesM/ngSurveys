@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Borrar Encuesta</h1>
+<div mat-dialog-content>
+  <p>Estas seguro de borrar <i>{{data.surveyInfo.data().surveyTitle}}</i></p>
+  <p>Se borrara permanentemente</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Fue Un Error</button>
+  <button mat-button color="warn" (click)="onRemoveSurvey()">Si, Eliminar</button>
+</div>

@@ -19,6 +19,7 @@ import { ChartsModule } from 'ng2-charts';
 import firebase from 'firebase';
 import { DateService } from './date.service';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     SecondPageComponent,
     ThirdPageComponent,
     SurveyQuestionsComponent,
-    DialogConfirmationComponent
+    DialogConfirmationComponent,
+    DialogDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatDialogModule
   ],
-  entryComponents: [DialogConfirmationComponent],
+  entryComponents: [DialogConfirmationComponent, DialogDeleteComponent],
   providers: [DataService, DateService],
   bootstrap: [AppComponent]
 })

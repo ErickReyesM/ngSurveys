@@ -15,7 +15,7 @@
         <td style="text-align:left">
           <button mat-button [routerLink]="['/report']"
           [queryParams]="{id: survey.id }">Reporte</button>
-          <button mat-button color="warn" (click)="onRemoveSurvey(survey)">Eliminar</button>
+          <button mat-button color="warn" (click)="openDialog(survey)">Eliminar</button>
         </td>
         <td class="start-survey-button">
           <button mat-stroked-button (click)="onStartSurvey(survey)" >Comenzar Encuesta</button>
