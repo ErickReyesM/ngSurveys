@@ -26,7 +26,7 @@
         color="primary"
         routerLink="/survey-questions"
         (click)="onGoToQuestions(surveyTitle.value, surveyDescription.value)"
-        [disabled]="!surveyTitle.value.length > 0">
+        [disabled]="!(surveyTitle.value.length > 0)">
         Ingresar Preguntas
       </button>
     </td>
