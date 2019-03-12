@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule, MatTooltipModule, MatTableModule,
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule, MatTooltipModule, MatTableModule, MatDialogModule,
   MatExpansionModule, MatListModule, MatRadioModule, MatInputModule, MatCardModule, MatProgressBarModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
@@ -18,6 +18,7 @@ import { DataService } from 'src/seervices/data.service';
 import { ChartsModule } from 'ng2-charts';
 import firebase from 'firebase';
 import { DateService } from './date.service';
+import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     SecondPageComponent,
     ThirdPageComponent,
     SurveyQuestionsComponent,
+    DialogConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +70,10 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatTableModule,
     ChartsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
+  entryComponents: [DialogConfirmationComponent],
   providers: [DataService, DateService],
   bootstrap: [AppComponent]
 })

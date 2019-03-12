@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/seervices/data.service';
 import firebase from 'firebase';
+import { MatDialog } from '@angular/material';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 
 @Component({
   selector: 'app-survey-questions',
@@ -27,7 +29,7 @@ export class SurveyQuestionsComponent implements OnInit {
   questionTxt:string = '';
   sDescription:string = '';
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(title=> this.surveyTitle = title);
@@ -68,8 +70,7 @@ export class SurveyQuestionsComponent implements OnInit {
       created: firebase.firestore.FieldValue.serverTimestamp()
     }).then(data => {
       this.sendingSurvey = false;
-      window.location.reload();
-      //data TODO
+      this.openDialog(data.id);
     }).catch(err => {
       //TODO
     });
@@ -78,4 +79,15 @@ export class SurveyQuestionsComponent implements OnInit {
   onAddNewOption(){
     this.optionCount += 1;
   }
+
+  openDialog(surveyId:string): void {
+    const dialogRef = this.dialog.open(DialogConfirmationComponent, {
+      data: {id: surveyId},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      window.location.reload();
+    });
+  }
+
 }

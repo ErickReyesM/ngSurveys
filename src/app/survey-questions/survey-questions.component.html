@@ -92,6 +92,7 @@
       </td>
     </tr>
 </table>
+<button mat-raised-button (click)="openDialog()">Open Dialog</button>
 <mat-list role="list" *ngIf="questionsSet.length > 0">
   <h3>Preguntas en la encuesta:</h3>
   <mat-list-item role="listitem" *ngFor="let question of  questionsSet; let i = index">
