@@ -62,24 +62,29 @@ export class ThirdPageComponent implements OnInit{
   });
 
   valueDayInput.forEach(inputObj => {inputValue.push(inputObj.value)});
-  console.log(inputValue.sort((a, b) => {return a-b}));
   this.doughnutChartData.push(this.dateSrv.count(inputValue.sort((a, b) => {return a-b})));
 
   this.dateSrv.getDataByWeek(querySnapShot.docs, new Date()).forEach(doc => {
     documentDataByWeek.push(doc.created.toDate().toLocaleDateString());
   });
 
-  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a, b) => {return a-b})), 
+  this.dateSrv.getDataByMonth(querySnapShot.docs, new Date()).forEach(doc => {
+    documentDataByMonth.push(doc.created.toDate().toLocaleDateString());
+  });
+
+  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a, b) => {return b-a})), 
     label: 'Encuestas Por Hora'});
   this.dailyLineChartLabels = documentDataByDay.sort((a, b) => {return a-b})
   .filter((v,i) => documentDataByDay.indexOf(v) === i);
 
-
-
-
-  this.weeklyLineChartData.push({data: this.dateSrv.count(documentDataByWeek.sort((a, b) => {return a-b})), 
+  this.weeklyLineChartData.push({data: this.dateSrv.count(documentDataByWeek.sort()), 
     label: 'Encuestas Por Día'});
-  this.weeklyLineChartLabels = documentDataByWeek.sort().sort((a, b) => {return a-b})
+  this.weeklyLineChartLabels = documentDataByWeek.sort().sort()
+  .filter((v,i) => documentDataByWeek.indexOf(v) === i);
+
+  this.monthlyLineChartData.push({data: this.dateSrv.count(documentDataByMonth.sort()), 
+    label: 'Encuestas Por Mes'});
+  this.monthlyLineChartLabels = documentDataByMonth.sort().sort()
   .filter((v,i) => documentDataByWeek.indexOf(v) === i);
   
    })
