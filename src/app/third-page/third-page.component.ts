@@ -72,9 +72,9 @@ export class ThirdPageComponent implements OnInit{
     documentDataByMonth.push(doc.created.toDate().toLocaleDateString());
   });
 
-  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a, b) => {return b-a})), 
+  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort()), 
     label: 'Encuestas Por Hora'});
-  this.dailyLineChartLabels = documentDataByDay.sort((a, b) => {return a-b})
+  this.dailyLineChartLabels = documentDataByDay.sort()
   .filter((v,i) => documentDataByDay.indexOf(v) === i);
 
   this.weeklyLineChartData.push({data: this.dateSrv.count(documentDataByWeek.sort()), 
