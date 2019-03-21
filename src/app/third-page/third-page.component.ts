@@ -18,6 +18,10 @@ export class ThirdPageComponent implements OnInit{
   countByHour:Array<any> = [];
   countByDay:Array<any> = [];
   selected:string = 'option2';
+  today: Date;
+  titleToday:string = '';
+  titleToday7:string = '';
+  titleMonth:string = '';
 
   /**Shared Line Chart Data Configuration*/
   public lineChartOptions:ChartOptions = {
@@ -41,9 +45,12 @@ export class ThirdPageComponent implements OnInit{
   public doughnutChartData:any[] = [];
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
+   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
    this.route.queryParams.subscribe( param => {this.surveyId = param['id']} );
    this.inputCollection = firebase.firestore().collection(this.collection)
-   .where('surveyID', '==', this.surveyId).get()
+   .where('surveyID', '==', this.surveyId).get();
+   this.today = new Date();
+   this.titleToday = this.today.toLocaleDateString('es-US', options).toLocaleUpperCase();
  }
 
  ngOnInit(){
@@ -56,7 +63,7 @@ export class ThirdPageComponent implements OnInit{
 
   this.inputCollection.then(querySnapShot => {
 
-  this.dateSrv.getDataByDay(querySnapShot.docs, new Date()).forEach(doc => {
+  this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByDay.push(doc.created.toDate().getHours());
     valueDayInput = valueDayInput.concat(doc.input);
   });
@@ -64,11 +71,11 @@ export class ThirdPageComponent implements OnInit{
   valueDayInput.forEach(inputObj => {inputValue.push(inputObj.value)});
   this.doughnutChartData.push(this.dateSrv.count(inputValue.sort((a, b) => {return a-b})));
 
-  this.dateSrv.getDataByWeek(querySnapShot.docs, new Date()).forEach(doc => {
+  this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByWeek.push(doc.created.toDate().toLocaleDateString());
   });
 
-  this.dateSrv.getDataByMonth(querySnapShot.docs, new Date()).forEach(doc => {
+  this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByMonth.push(doc.created.toDate().toLocaleDateString());
   });
 
@@ -89,7 +96,7 @@ export class ThirdPageComponent implements OnInit{
   
    })
    .catch(err => {
-     console.log(err);
+     //TODO
    });
  }
 }

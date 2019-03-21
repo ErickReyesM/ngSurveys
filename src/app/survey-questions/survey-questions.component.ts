@@ -28,6 +28,7 @@ export class SurveyQuestionsComponent implements OnInit {
   optInp6:string = '';
   questionTxt:string = '';
   sDescription:string = '';
+  enableAddQuestion:boolean = false;
 
   constructor(private data: DataService, public dialog: MatDialog) { }
 
@@ -59,6 +60,12 @@ export class SurveyQuestionsComponent implements OnInit {
 
   onAddOptions(optIn1:string, optIn2:string, optIn3?:string, optIn4?:string, optIn5?:string, optIn6?:string){
     this.createdOptions = [optIn1,optIn2,optIn3,optIn4,optIn5,optIn6];
+    this.createdOptions = this.createdOptions.filter((el)=>{
+      return el != '';
+    });
+    if(this.createdOptions.length >= 2){
+      this.enableAddQuestion = true;
+    }
   }
 
   onFinishSurvey(){

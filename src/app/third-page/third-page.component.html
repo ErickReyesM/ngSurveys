@@ -6,22 +6,32 @@
         </mat-select>
 </mat-form-field>
 
-<div style="display: block;" *ngIf="selected == 'option1'">
-        <canvas baseChart
-                [options]="lineChartOptions"
-                [chartType]="lineChartType"
-                [legend]="lineChartLegend"
-                [datasets]="dailyLineChartData"
-                [labels]="dailyLineChartLabels">
-        </canvas>
-        <div style="display: block">
-                <canvas baseChart 
-                        [data]="doughnutChartData" 
-                        [labels]="doughnutChartLabels" 
-                        [chartType]="doughnutChartType">
-                </canvas>
-        </div>
-</div>
+<table *ngIf="selected == 'option1'" style="width:100%">
+        <tr>
+                 <th>{{titleToday}}</th>
+        </tr>
+        <tr>
+                <td>
+                                <div style="display: block;">
+                                                <canvas baseChart
+                                                        [options]="lineChartOptions"
+                                                        [chartType]="lineChartType"
+                                                        [legend]="lineChartLegend"
+                                                        [datasets]="dailyLineChartData"
+                                                        [labels]="dailyLineChartLabels">
+                                                </canvas>
+                                                <div style="display: block">
+                                                        <canvas baseChart 
+                                                                [data]="doughnutChartData" 
+                                                                [labels]="doughnutChartLabels" 
+                                                                [chartType]="doughnutChartType">
+                                                        </canvas>
+                                                </div>
+                                        </div>
+                </td>
+        </tr>
+</table>
+
       
 <div style="display: block;" *ngIf="selected == 'option2'">
         <canvas baseChart

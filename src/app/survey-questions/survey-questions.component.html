@@ -73,12 +73,12 @@
   </tr>
   <tr><!--Button Section-->
       <td class="questionCreatonBtn" colspan="2">
-          <button 
+          <button *ngIf="(questionText.value.length > 0 && radioType != '')"
           routerLink="/survey-questions"
           mat-raised-button 
           color="primary"
           (click)="onAddQuestion(questionText.value); questionText.value = ''"
-          [disabled]="!(questionText.value.length > 0 && radioType != '')">
+          [disabled]="((questionType[1]===radioType || questionType[3]===radioType) && !enableAddQuestion)">
           Ingresar Pregunta
         </button>
           <button style="margin-left:10px"
