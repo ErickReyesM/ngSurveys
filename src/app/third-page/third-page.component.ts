@@ -19,9 +19,10 @@ export class ThirdPageComponent implements OnInit{
   countByDay:Array<any> = [];
   selected:string = 'option2';
   today: Date;
-  titleToday:string = '';
-  titleToday7:string = '';
-  titleMonth:string = '';
+  titleToday:any;
+  titleToday7:Date;
+  title7ago:any;
+  titleMonth:any;
 
   /**Shared Line Chart Data Configuration*/
   public lineChartOptions:ChartOptions = {
@@ -50,7 +51,11 @@ export class ThirdPageComponent implements OnInit{
    this.inputCollection = firebase.firestore().collection(this.collection)
    .where('surveyID', '==', this.surveyId).get();
    this.today = new Date();
-   this.titleToday = this.today.toLocaleDateString('es-US', options).toLocaleUpperCase();
+   let sevenD = this.today.getDate() - 7;
+   this.titleToday = this.today.toLocaleDateString('es-US', options).toUpperCase();
+   this.titleToday7 = new Date(this.today.getFullYear(), this.today.getMonth(), sevenD);
+   this.title7ago = this.titleToday7.toLocaleDateString('es-US', options).toUpperCase();
+   this.titleMonth = this.today.toLocaleDateString('es-US', {month: 'long'}).toUpperCase();
  }
 
  ngOnInit(){
@@ -92,7 +97,7 @@ export class ThirdPageComponent implements OnInit{
   this.monthlyLineChartData.push({data: this.dateSrv.count(documentDataByMonth.sort()), 
     label: 'Encuestas Por Mes'});
   this.monthlyLineChartLabels = documentDataByMonth.sort().sort()
-  .filter((v,i) => documentDataByWeek.indexOf(v) === i);
+  .filter((v,i) => documentDataByMonth.indexOf(v) === i);
   
    })
    .catch(err => {
