@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import * as firebase from 'firebase';
 import { DateService } from '../date.service';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-third-page',
@@ -104,4 +106,27 @@ export class ThirdPageComponent implements OnInit{
      //TODO
    });
  }
+
+ public captureScreen(param){
+   if(this.selected === 'option1')
+      var data = document.getElementById('dailyReport');
+   if(this.selected === 'option2')
+      var data = document.getElementById('weeklyReport');
+   if(this.selected === 'option3')
+      var data = document.getElementById('monthlyReport');
+  html2canvas(data).then(canvas => {  
+    // Few necessary setting options  
+    var imgWidth = 208;   
+    var pageHeight = 295;    
+    var imgHeight = canvas.height * imgWidth / canvas.width;  
+    var heightLeft = imgHeight;  
+
+    const contentDataURL = canvas.toDataURL('image/png')  
+    let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
+    var position = 0;  
+    pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+    pdf.save(this.surveyId+'.pdf'); // Generated PDF   
+  });
+}
+
 }

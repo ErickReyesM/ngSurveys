@@ -6,9 +6,9 @@
         </mat-select>
 </mat-form-field>
 
-<table *ngIf="selected == 'option1'" style="width:100%">
+<table *ngIf="selected == 'option1'" style="width:100%" id="dailyReport" #dailyReport>
         <tr>
-                 <th>REPORTE DEL DÍA {{titleToday}}</th>
+                 <th><p>REPORTE DEL DÍA {{titleToday}}</p></th>
         </tr>
         <tr>
                 <td>
@@ -32,9 +32,9 @@
         </tr>
 </table>
 
-<table *ngIf="selected == 'option2'" style="width:100%">
+<table *ngIf="selected == 'option2'" style="width:100%" id="weeklyReport" #weeklyReport>
         <tr>
-                <th>REPORTE DEL {{title7ago}} AL {{titleToday}}</th>
+                <th><p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p></th>
         </tr>
         <tr>
                 <td>
@@ -51,9 +51,9 @@
         </tr>
 </table>
 
-<table *ngIf="selected == 'option3'" style="width:100%">
+<table *ngIf="selected == 'option3'" style="width:100%" id="monthlyReport" #monthlyReport>
         <tr>
-                <th>REPORTE DEL MES DE {{titleMonth}}</th>
+                <th><p>REPORTE DEL MES DE {{titleMonth}}</p></th>
         </tr>
         <tr>
                 <td>
@@ -69,3 +69,10 @@
                 </td>
         </tr>
 </table>
+
+<div style="text-align: right;">
+                <button mat-raised-button 
+                (click)="captureScreen(selected)"
+                color="primary"
+                class="report-button">Descargar Reporte</button>
+</div>
