@@ -93,7 +93,7 @@ export class SurveyQuestionsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      window.location.reload();
+      window.location.assign('https://sondaggio-admin.firebaseapp.com');
     });
   }
 

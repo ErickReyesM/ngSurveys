@@ -23,7 +23,7 @@ export class DialogConfirmationComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
-    window.location.reload();
+    window.location.assign('https://sondaggio-admin.firebaseapp.com');
   }
 
 }
