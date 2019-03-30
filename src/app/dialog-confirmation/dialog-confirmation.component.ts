@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DialogConfirmationComponent {
 
-  baseURL:string = 'https://sondaggio-input-user.firebaseapp.com/';
+  baseURL:string = 'https://sondaggio-input-user.firebaseapp.com?id=';
 
   constructor(public dialogRef: MatDialogRef<DialogConfirmationComponent>,
     @Inject(MAT_DIALOG_DATA) public data) { 
@@ -23,7 +23,7 @@ export class DialogConfirmationComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
-    window.location.assign('https://sondaggio-admin.firebaseapp.com');
+    window.location.replace('https://sondaggio-admin.firebaseapp.com');
   }
 
 }

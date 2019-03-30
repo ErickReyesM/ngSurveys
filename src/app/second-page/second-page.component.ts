@@ -43,7 +43,7 @@ export class SecondPageComponent implements OnInit {
   }
 
   onStartSurvey(survey: any){
-    window.location.replace('https://sondaggio-input-user.firebaseapp.com/'+survey.id);
+    window.location.replace('https://sondaggio-input-user.firebaseapp.com?id='+survey.id);
   }
 
   ago(time){
