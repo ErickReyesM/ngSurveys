@@ -59,7 +59,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule.forRoot(appRoutes, {initialNavigation: false}),
+    RouterModule.forRoot(appRoutes),
     MatInputModule,
     MatRadioModule,
     FormsModule,
