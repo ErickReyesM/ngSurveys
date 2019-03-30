@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DialogConfirmationComponent {
 
-  baseURL:string = 'https://sondaggio-user.firebaseapp.com/?id=';
+  baseURL:string = 'https://sondaggio-input-user.firebaseapp.com/';
 
   constructor(public dialogRef: MatDialogRef<DialogConfirmationComponent>,
     @Inject(MAT_DIALOG_DATA) public data) { 
