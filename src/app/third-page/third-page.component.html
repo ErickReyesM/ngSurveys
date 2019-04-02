@@ -23,21 +23,6 @@
                                         </div>
                 </td>
         </tr>
-        <tr>
-                <td>
-                                <div id="question-container">
-                                                <div style="display: block">
-                                                        <canvas baseChart
-                                                                [datasets]="barChartData"
-                                                                [labels]="barChartLabels"
-                                                                [options]="barChartOptions"
-                                                                [legend]="barChartLegend"
-                                                                [chartType]="barChartType">
-                                                        </canvas>
-                                                </div>
-                                        </div>
-                </td>
-        </tr>
 </table>
 
 <table *ngIf="selected == 'option2'" style="width:100%" id="weeklyReport" #weeklyReport>
@@ -54,7 +39,14 @@
                                                         [datasets]="weeklyLineChartData"
                                                         [labels]="weeklyLineChartLabels">
                                                 </canvas>
-                                        </div>
+                                </div>
+                </td>
+        </tr>
+        <tr>
+                <td  id="questionContainer">
+                        <div *ngFor="let question of questions">
+                                <p>{{ question }}</p>
+                        </div>
                 </td>
         </tr>
 </table>

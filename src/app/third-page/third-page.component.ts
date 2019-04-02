@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import * as firebase from 'firebase';
@@ -13,6 +13,8 @@ import html2canvas from 'html2canvas';
 })
 
 export class ThirdPageComponent implements OnInit{
+
+  @ViewChild('questionContainer') questionContainer: ElementRef;
 
   surveyId:string = '';
   survey: Promise<firebase.firestore.DocumentSnapshot>;
@@ -97,13 +99,11 @@ export class ThirdPageComponent implements OnInit{
     documentDataByWeek.push(doc.created.toDate().toDateString());
     valueWeeklyInput.push(doc.input);
   });
-  console.log(valueWeeklyInput[0][0].type);
 
   this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByMonth.push(doc.created.toDate().toDateString());
     valueMonthlyInput.push(doc.input);
   });
-  //console.log(valueMonthlyInput.length);
 
   this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a,b)=>{return a-b;})), 
     label: 'Encuestas Por Hora'});
@@ -127,21 +127,17 @@ export class ThirdPageComponent implements OnInit{
     return new Date(a).getTime() - new Date(b).getTime();
   } )
   .filter((v,i) => documentDataByMonth.indexOf(v) === i);
-  
 
+  this.survey.then((doc) => {
+    for(let i=0; i < doc.data().questions.length; i++){
+      this.questions.push(doc.data().questions[i].questionTxt);
+      this.dateSrv.count(this.countInputByQuestion(valueWeeklyInput, i).sort());
+    }
+  });
 })
    .catch(err => {
      //TODO
    });
-
-   this.survey.then(doc => {
-     doc.data().questions.forEach(question => {
-       this.questions.push(question);
-     })
-   }).catch(err => {
-     console.log(err);
-   })
-
  }
 
  public captureScreen(){
@@ -152,6 +148,7 @@ export class ThirdPageComponent implements OnInit{
    if(this.selected === 'option3')
       var data = document.getElementById('monthlyReport');
   html2canvas(data).then(canvas => {  
+    var questionC = document.getElementById('questionContainer');
     // Few necessary setting options  
     var imgWidth = 208;   
     var pageHeight = 295;    
@@ -161,10 +158,25 @@ export class ThirdPageComponent implements OnInit{
     const contentDataURL = canvas.toDataURL('image/png')  
     let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
     var position = 0;  
-    pdf.addPage([1],'p');
-    pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+    pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight) ;
+    pdf.text(questionC.innerText, 15, 15); 
     pdf.save(this.surveyId+'.pdf'); // Generated PDF   
   });
+}
+
+/**
+ * countInputByQuestion
+ *
+ */
+public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
+  var valueInAnswer:Array<any> = [];
+  for(let x = 0; x < questionCollection.length-1 ;x++){
+    if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
+      valueInAnswer.push(questionCollection[x][questionNumber].value);
+    }
+    else{ /*TODO*/ }
+  }
+  return valueInAnswer;
 }
 
 }
