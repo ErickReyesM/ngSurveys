@@ -20,13 +20,21 @@
                                                         [datasets]="dailyLineChartData"
                                                         [labels]="dailyLineChartLabels">
                                                 </canvas>
-                                               <!-- <div style="display: block">
-                                                        <canvas baseChart 
-                                                                [data]="doughnutChartData" 
-                                                                [labels]="doughnutChartLabels" 
-                                                                [chartType]="doughnutChartType">
+                                        </div>
+                </td>
+        </tr>
+        <tr>
+                <td>
+                                <div id="question-container">
+                                                <div style="display: block">
+                                                        <canvas baseChart
+                                                                [datasets]="barChartData"
+                                                                [labels]="barChartLabels"
+                                                                [options]="barChartOptions"
+                                                                [legend]="barChartLegend"
+                                                                [chartType]="barChartType">
                                                         </canvas>
-                                                </div>-->
+                                                </div>
                                         </div>
                 </td>
         </tr>
@@ -70,9 +78,10 @@
         </tr>
 </table>
 
+
 <div style="text-align: right;">
                 <button mat-raised-button 
-                (click)="captureScreen(selected)"
+                (click)="captureScreen()"
                 color="primary"
                 class="report-button">Descargar Reporte</button>
 </div>

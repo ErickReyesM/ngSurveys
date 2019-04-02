@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ChartDataSets, ChartOptions } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import * as firebase from 'firebase';
 import { DateService } from '../date.service';
 import * as jspdf from 'jspdf';
@@ -15,8 +15,10 @@ import html2canvas from 'html2canvas';
 export class ThirdPageComponent implements OnInit{
 
   surveyId:string = '';
+  survey: Promise<firebase.firestore.DocumentSnapshot>;
   inputCollection:Promise<firebase.firestore.QuerySnapshot>;
-  collection:string = 'userInput';
+  collectionInput:string = 'userInput';
+  collectionSurveys:string = 'surveys';
   countByHour:Array<any> = [];
   countByDay:Array<any> = [];
   selected:string = 'option2';
@@ -25,17 +27,15 @@ export class ThirdPageComponent implements OnInit{
   titleToday7:Date;
   title7ago:any;
   titleMonth:any;
+  questions: Array<any> = [];
 
   /**Shared Line Chart Data Configuration*/
   public lineChartOptions:ChartOptions = {
     responsive: true,
     scales: { yAxes: [ {ticks: { beginAtZero: true }} ] } };
-  public lineChartType:string = 'line';
+  public lineChartType:ChartType = 'line';
   public lineChartLegend = true;
   /**Shared Line Chart Data Configuration*/
-  public doughnutChartType:string = 'doughnut';
-  public doughnutChartLabels:any[] = ['Malo','Regular','Bueno','Excelente'];
-
   public dailyLineChartData:Array<ChartDataSets> = [];
   public dailyLineChartLabels:Array<string> = [];
 
@@ -45,13 +45,30 @@ export class ThirdPageComponent implements OnInit{
   public monthlyLineChartData:Array<ChartDataSets> = [];
   public monthlyLineChartLabels:Array<string> = [];
 
-  public doughnutChartData:any[] = [];
+  /*Bar Chart Configuration*/
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    }
+  };
+  public barChartLabels: Array<string> = [];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+
+  public barChartData: Array<ChartDataSets>[] = [];
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
    this.route.queryParams.subscribe( param => {this.surveyId = param['id']} );
-   this.inputCollection = firebase.firestore().collection(this.collection)
+   this.inputCollection = firebase.firestore().collection(this.collectionInput)
    .where('surveyID', '==', this.surveyId).get();
+   this.survey = firebase.firestore().collection(this.collectionSurveys).doc(this.surveyId).get();
    this.today = new Date();
    let sevenD = this.today.getDate() - 7;
    this.titleToday = this.today.toLocaleDateString('es-US', options).toUpperCase();
@@ -65,49 +82,69 @@ export class ThirdPageComponent implements OnInit{
   let documentDataByWeek:Array<any> = [];
   let documentDataByMonth:Array<any> = [];
 
-  let valueDayInput:any[] = [];
-  let inputValue:any[] = [];
+  let valueDayInput:Array<any> = [];
+  let valueWeeklyInput:Array<any> = [];
+  let valueMonthlyInput:Array<any> = [];
 
   this.inputCollection.then(querySnapShot => {
 
   this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByDay.push(doc.created.toDate().getHours());
-    valueDayInput = valueDayInput.concat(doc.input);
+    valueDayInput.push(doc.input);
   });
-
-  valueDayInput.forEach(inputObj => {inputValue.push(inputObj.value)});
-  this.doughnutChartData.push(this.dateSrv.count(inputValue.sort((a, b) => {return a-b})));
 
   this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
-    documentDataByWeek.push(doc.created.toDate().toLocaleDateString());
+    documentDataByWeek.push(doc.created.toDate().toDateString());
+    valueWeeklyInput.push(doc.input);
   });
+  console.log(valueWeeklyInput[0][0].type);
 
   this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
-    documentDataByMonth.push(doc.created.toDate().toLocaleDateString());
+    documentDataByMonth.push(doc.created.toDate().toDateString());
+    valueMonthlyInput.push(doc.input);
   });
+  //console.log(valueMonthlyInput.length);
 
-  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort()), 
+  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a,b)=>{return a-b;})), 
     label: 'Encuestas Por Hora'});
-  this.dailyLineChartLabels = documentDataByDay.sort()
+  this.dailyLineChartLabels = documentDataByDay.sort((a,b)=>{return a-b;})
   .filter((v,i) => documentDataByDay.indexOf(v) === i);
 
-  this.weeklyLineChartData.push({data: this.dateSrv.count(documentDataByWeek.sort()), 
+  this.weeklyLineChartData.push({data: this.dateSrv.count( documentDataByWeek.sort( (a,b) => {
+    return new Date(a).getTime() - new Date(b).getTime();
+  } )), 
     label: 'Encuestas Por Día'});
-  this.weeklyLineChartLabels = documentDataByWeek.sort().sort()
+  this.weeklyLineChartLabels = documentDataByWeek.sort( (a,b) => {
+    return new Date(a).getTime() - new Date(b).getTime();
+  } )
   .filter((v,i) => documentDataByWeek.indexOf(v) === i);
 
-  this.monthlyLineChartData.push({data: this.dateSrv.count(documentDataByMonth.sort()), 
+  this.monthlyLineChartData.push({data: this.dateSrv.count(documentDataByMonth.sort( (a,b) => {
+    return new Date(a).getTime() - new Date(b).getTime();
+  } )), 
     label: 'Encuestas Por Mes'});
-  this.monthlyLineChartLabels = documentDataByMonth.sort().sort()
+  this.monthlyLineChartLabels = documentDataByMonth.sort( (a,b) => {
+    return new Date(a).getTime() - new Date(b).getTime();
+  } )
   .filter((v,i) => documentDataByMonth.indexOf(v) === i);
   
-   })
+
+})
    .catch(err => {
      //TODO
    });
+
+   this.survey.then(doc => {
+     doc.data().questions.forEach(question => {
+       this.questions.push(question);
+     })
+   }).catch(err => {
+     console.log(err);
+   })
+
  }
 
- public captureScreen(param){
+ public captureScreen(){
    if(this.selected === 'option1')
       var data = document.getElementById('dailyReport');
    if(this.selected === 'option2')
@@ -119,11 +156,12 @@ export class ThirdPageComponent implements OnInit{
     var imgWidth = 208;   
     var pageHeight = 295;    
     var imgHeight = canvas.height * imgWidth / canvas.width;  
-    var heightLeft = imgHeight;  
+    var heightLeft = imgHeight;
 
     const contentDataURL = canvas.toDataURL('image/png')  
     let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
     var position = 0;  
+    pdf.addPage([1],'p');
     pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
     pdf.save(this.surveyId+'.pdf'); // Generated PDF   
   });
