@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets , ChartOptions, ChartType } from 'chart.js';
 import * as firebase from 'firebase';
 import { DateService } from '../date.service';
 import * as jspdf from 'jspdf';
@@ -30,6 +30,11 @@ export class ThirdPageComponent implements OnInit{
   title7ago:any;
   titleMonth:any;
   questions: Array<any> = [];
+  questionCount:number = 0;
+  questionInputCollection: Array<any> = [];
+  valueDayInput:Array<any> = [];
+  valueWeeklyInput:Array<any> = [];
+  valueMonthlyInput:Array<any> = [];
 
   /**Shared Line Chart Data Configuration*/
   public lineChartOptions:ChartOptions = {
@@ -38,34 +43,26 @@ export class ThirdPageComponent implements OnInit{
   public lineChartType:ChartType = 'line';
   public lineChartLegend = true;
   /**Shared Line Chart Data Configuration*/
-  public dailyLineChartData:Array<ChartDataSets> = [];
+  public dailyLineChartData:Array<ChartDataSets > = [];
   public dailyLineChartLabels:Array<string> = [];
 
-  public weeklyLineChartData:Array<ChartDataSets> = [];
+  public weeklyLineChartData:Array<ChartDataSets > = [];
   public weeklyLineChartLabels:Array<string> = [];
 
-  public monthlyLineChartData:Array<ChartDataSets> = [];
+  public monthlyLineChartData:Array<ChartDataSets > = [];
   public monthlyLineChartLabels:Array<string> = [];
 
   /*Bar Chart Configuration*/
-  public barChartOptions: ChartOptions = {
+  public barChartOptions:ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{ticks: {beginAtZero: true}}] },
   };
-  public barChartLabels: Array<string> = ['Malo', 'Bueno', 'Excelente'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
-  public barChartData: Array<ChartDataSets> = [{"data": [3,12,22], 
-                                            "label": 'Pregunta',
-                                            "fill": false,
-                                            "backgroundColor":["rgb(255, 159, 64)",
-                                                              "rgb(255, 205, 86)",
-                                                              "rgb(75, 192, 192)"],
-                                            "borderColor":["rgb(255, 99, 132)",
-                                                          "rgb(255, 159, 64)",
-                                                          "rgb(255, 205, 86)"],
-                                            "borderWidth":5}];
+  public barChartLabels: Array<string> = ['Malo', 'Bueno', 'Excelente'];
+  public barChartData: Array<ChartDataSets> = [];
+
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -79,6 +76,7 @@ export class ThirdPageComponent implements OnInit{
    this.titleToday7 = new Date(this.today.getFullYear(), this.today.getMonth(), sevenD);
    this.title7ago = this.titleToday7.toLocaleDateString('es-US', options).toUpperCase();
    this.titleMonth = this.today.toLocaleDateString('es-US', {month: 'long'}).toUpperCase();
+   this.barChartData = [{data:[], label:''}];
  }
 
  ngOnInit(){
@@ -86,25 +84,21 @@ export class ThirdPageComponent implements OnInit{
   let documentDataByWeek:Array<any> = [];
   let documentDataByMonth:Array<any> = [];
 
-  let valueDayInput:Array<any> = [];
-  let valueWeeklyInput:Array<any> = [];
-  let valueMonthlyInput:Array<any> = [];
-
   this.inputCollection.then(querySnapShot => {
 
   this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByDay.push(doc.created.toDate().getHours());
-    valueDayInput.push(doc.input);
+    this.valueDayInput.push(doc.input);
   });
 
   this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByWeek.push(doc.created.toDate().toDateString());
-    valueWeeklyInput.push(doc.input);
+    this.valueWeeklyInput.push(doc.input);
   });
 
   this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
     documentDataByMonth.push(doc.created.toDate().toDateString());
-    valueMonthlyInput.push(doc.input);
+    this.valueMonthlyInput.push(doc.input);
   });
 
   this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a,b)=>{return a-b;})), 
@@ -133,9 +127,15 @@ export class ThirdPageComponent implements OnInit{
   this.survey.then((doc) => {
     for(let i=0; i < doc.data().questions.length; i++){
       this.questions.push(doc.data().questions[i].questionTxt);
-      this.dateSrv.count(this.countInputByQuestion(valueWeeklyInput, i).sort());
     }
   });
+
+  for(let i = 0; i < this.barChartData.length; i++){
+    this.barChartData[i].data = this.dateSrv.count(this.countInputByQuestion(this.valueWeeklyInput, 0).sort());
+    this.barChartData[i].label = 'Pregunta' + (i+1);
+  }
+
+  console.log(this.barChartData);
 })
    .catch(err => {
      //TODO
