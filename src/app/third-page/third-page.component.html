@@ -46,6 +46,15 @@
                 <td  id="questionContainer">
                         <div *ngFor="let question of questions">
                                 <p>{{ question }}</p>
+                                <div style="display: block; width: 770px; height: 385px;">
+                                                <canvas baseChart
+                                                        [datasets]="barChartData"
+                                                        [labels]="barChartLabels"
+                                                        [options]="barChartOptions"
+                                                        [legend]="barChartLegend"
+                                                        [chartType]="barChartType">
+                                              </canvas>
+                                </div>
                         </div>
                 </td>
         </tr>

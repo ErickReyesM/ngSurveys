@@ -51,19 +51,21 @@ export class ThirdPageComponent implements OnInit{
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      }
-    }
+    scales: { xAxes: [{}], yAxes: [{ticks: {beginAtZero: true}}] },
   };
-  public barChartLabels: Array<string> = [];
+  public barChartLabels: Array<string> = ['Malo', 'Bueno', 'Excelente'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
-
-  public barChartData: Array<ChartDataSets>[] = [];
+  public barChartData: Array<ChartDataSets> = [{"data": [3,12,22], 
+                                            "label": 'Pregunta',
+                                            "fill": false,
+                                            "backgroundColor":["rgb(255, 159, 64)",
+                                                              "rgb(255, 205, 86)",
+                                                              "rgb(75, 192, 192)"],
+                                            "borderColor":["rgb(255, 99, 132)",
+                                                          "rgb(255, 159, 64)",
+                                                          "rgb(255, 205, 86)"],
+                                            "borderWidth":5}];
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -159,7 +161,7 @@ export class ThirdPageComponent implements OnInit{
     let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
     var position = 0;  
     pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight) ;
-    pdf.text(questionC.innerText, 15, 15); 
+    pdf.text(questionC.innerText, 15, 130); 
     pdf.save(this.surveyId+'.pdf'); // Generated PDF   
   });
 }
