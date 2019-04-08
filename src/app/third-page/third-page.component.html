@@ -44,15 +44,17 @@
         </tr>
         <tr>
                 <td  id="questionContainer">
-                                <div style="display: block">
-                                        <canvas baseChart
-                                                [options]="barChartOptions"
-                                                [chartType]="barChartType"
-                                                [legend]="barChartLegend"
-                                                [datasets]="barChartData"
-                                                [labels]="barChartLabels">
-                                        </canvas>
-                                </div>
+                        <div>
+                                <p>{{ questions[0] }}</p>
+                        </div>
+                        <div style="display: block; width: 770px; height: 385px;" width="770" height="385">
+                                <canvas baseChart
+                                        [data]="doughnutChartData"
+                                        [labels]="doughnutChartLabels"
+                                        [chartType]="doughnutChartType"
+                                        [options]="doughnutChartOptions">
+                                </canvas>
+                        </div>
                 </td>
         </tr>
 </table>
@@ -71,7 +73,7 @@
                                                         [datasets]="monthlyLineChartData"
                                                         [labels]="monthlyLineChartLabels">
                                                 </canvas>
-                                        </div>
+                                </div>
                 </td>
         </tr>
 </table>

@@ -43,26 +43,27 @@ export class ThirdPageComponent implements OnInit{
   public lineChartType:ChartType = 'line';
   public lineChartLegend = true;
   /**Shared Line Chart Data Configuration*/
-  public dailyLineChartData:Array<ChartDataSets > = [];
+  public dailyLineChartData:Array<ChartDataSets> = [];
   public dailyLineChartLabels:Array<string> = [];
 
-  public weeklyLineChartData:Array<ChartDataSets > = [];
+  public weeklyLineChartData:Array<ChartDataSets> = [];
   public weeklyLineChartLabels:Array<string> = [];
 
-  public monthlyLineChartData:Array<ChartDataSets > = [];
+  public monthlyLineChartData:Array<ChartDataSets> = [];
   public monthlyLineChartLabels:Array<string> = [];
 
-  /*Bar Chart Configuration*/
-  public barChartOptions:ChartOptions = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{ticks: {beginAtZero: true}}] },
-  };
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-  public barChartLabels: Array<string> = ['Malo', 'Bueno', 'Excelente'];
-  public barChartData: Array<ChartDataSets> = [];
+  /*Doughnut Chart Configuration*/
+  public doughnutChartType:ChartType = 'doughnut';
+  public doughnutChartLabels: Array<string>;
+  public doughnutChartData;
+  public doughnutChartOptions: ChartOptions = {
+    "backgroundColor":['rgb(255,102,0)','rgb(255,255,0)','rgb(0,255,0)'],
+    "borderWidth": 5
+  }
 
+  documentDataByDay:Array<any> = [];
+  documentDataByWeek:Array<any> = [];
+  documentDataByMonth:Array<any> = [];
 
  constructor(private route:ActivatedRoute, private dateSrv: DateService) {
    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -76,70 +77,65 @@ export class ThirdPageComponent implements OnInit{
    this.titleToday7 = new Date(this.today.getFullYear(), this.today.getMonth(), sevenD);
    this.title7ago = this.titleToday7.toLocaleDateString('es-US', options).toUpperCase();
    this.titleMonth = this.today.toLocaleDateString('es-US', {month: 'long'}).toUpperCase();
-   this.barChartData = [{data:[], label:''}];
+   this.doughnutChartData = [];
+   this.doughnutChartLabels = [];
  }
 
  ngOnInit(){
-  let documentDataByDay:Array<any> = [];
-  let documentDataByWeek:Array<any> = [];
-  let documentDataByMonth:Array<any> = [];
+   let satisfactionLabels = ['Malo', 'Bueno', 'Excelente'];
+   this.doughnutChartLabels = satisfactionLabels;
+   this.inputCollection.then(querySnapShot => {
 
-  this.inputCollection.then(querySnapShot => {
-
-  this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
-    documentDataByDay.push(doc.created.toDate().getHours());
-    this.valueDayInput.push(doc.input);
-  });
-
-  this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
-    documentDataByWeek.push(doc.created.toDate().toDateString());
-    this.valueWeeklyInput.push(doc.input);
-  });
-
-  this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
-    documentDataByMonth.push(doc.created.toDate().toDateString());
-    this.valueMonthlyInput.push(doc.input);
-  });
-
-  this.dailyLineChartData.push({data: this.dateSrv.count(documentDataByDay.sort((a,b)=>{return a-b;})), 
-    label: 'Encuestas Por Hora'});
-  this.dailyLineChartLabels = documentDataByDay.sort((a,b)=>{return a-b;})
-  .filter((v,i) => documentDataByDay.indexOf(v) === i);
-
-  this.weeklyLineChartData.push({data: this.dateSrv.count( documentDataByWeek.sort( (a,b) => {
-    return new Date(a).getTime() - new Date(b).getTime();
-  } )), 
-    label: 'Encuestas Por Día'});
-  this.weeklyLineChartLabels = documentDataByWeek.sort( (a,b) => {
-    return new Date(a).getTime() - new Date(b).getTime();
-  } )
-  .filter((v,i) => documentDataByWeek.indexOf(v) === i);
-
-  this.monthlyLineChartData.push({data: this.dateSrv.count(documentDataByMonth.sort( (a,b) => {
-    return new Date(a).getTime() - new Date(b).getTime();
-  } )), 
-    label: 'Encuestas Por Mes'});
-  this.monthlyLineChartLabels = documentDataByMonth.sort( (a,b) => {
-    return new Date(a).getTime() - new Date(b).getTime();
-  } )
-  .filter((v,i) => documentDataByMonth.indexOf(v) === i);
-
-  this.survey.then((doc) => {
-    for(let i=0; i < doc.data().questions.length; i++){
-      this.questions.push(doc.data().questions[i].questionTxt);
-    }
-  });
-
-  for(let i = 0; i < this.barChartData.length; i++){
-    this.barChartData[i].data = this.dateSrv.count(this.countInputByQuestion(this.valueWeeklyInput, 0).sort());
-    this.barChartData[i].label = 'Pregunta' + (i+1);
-  }
-
-  console.log(this.barChartData);
-})
-   .catch(err => {
-     //TODO
-   });
+    this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
+      this.documentDataByDay.push(doc.created.toDate().getHours());
+      this.valueDayInput.push(doc.input);
+    });
+  
+    this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
+      this.documentDataByWeek.push(doc.created.toDate().toDateString());
+      this.valueWeeklyInput.push(doc.input);
+    });
+  
+    this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
+      this.documentDataByMonth.push(doc.created.toDate().toDateString());
+      this.valueMonthlyInput.push(doc.input);
+    });
+  
+    this.dailyLineChartData.push({data: this.dateSrv.count(this.documentDataByDay.sort((a,b)=>{return a-b;})), 
+      label: 'Encuestas Por Hora'});
+    this.dailyLineChartLabels = this.documentDataByDay.sort((a,b)=>{return a-b;})
+    .filter((v,i) => this.documentDataByDay.indexOf(v) === i);
+  
+    this.weeklyLineChartData.push({data: this.dateSrv.count( this.documentDataByWeek.sort( (a,b) => {
+      return new Date(a).getTime() - new Date(b).getTime();
+    } )), 
+      label: 'Encuestas Por Día'});
+    this.weeklyLineChartLabels = this.documentDataByWeek.sort( (a,b) => {
+      return new Date(a).getTime() - new Date(b).getTime();
+    } )
+    .filter((v,i) => this.documentDataByWeek.indexOf(v) === i);
+  
+    this.monthlyLineChartData.push({data: this.dateSrv.count(this.documentDataByMonth.sort( (a,b) => {
+      return new Date(a).getTime() - new Date(b).getTime();
+    } )), 
+      label: 'Encuestas Por Mes'});
+    this.monthlyLineChartLabels = this.documentDataByMonth.sort( (a,b) => {
+      return new Date(a).getTime() - new Date(b).getTime();
+    } )
+    .filter((v,i) => this.documentDataByMonth.indexOf(v) === i);
+  
+    this.survey.then((doc) => {
+      for(let i=0; i < doc.data().questions.length; i++){
+        this.questions.push(doc.data().questions[i].questionTxt);
+      }
+    });
+    
+    this.doughnutChartData = 
+      this.dateSrv.count(this.countInputByQuestion(this.valueWeeklyInput, 0).sort());
+  })
+     .catch(err => {
+       //TODO
+     });
  }
 
  public captureScreen(){
@@ -171,13 +167,13 @@ export class ThirdPageComponent implements OnInit{
  *
  */
 public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
-  var valueInAnswer:Array<any> = [];
+  let valueInAnswer:Array<any> = [];
   for(let x = 0; x < questionCollection.length-1 ;x++){
     if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
       valueInAnswer.push(questionCollection[x][questionNumber].value);
     }
     else{ /*TODO*/ }
-  }
+}
   return valueInAnswer;
 }
 
