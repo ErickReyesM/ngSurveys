@@ -20,8 +20,9 @@ export class DateService {
 
  getDataByWeek(array_docs:firebase.firestore.QueryDocumentSnapshot[], day:Date):any[]{
   let week:Array<any> = [];
+  let seven = (day.getTime() - 691200000);
   array_docs.forEach(document => {
-    if(document.data().created.toDate().getDate() > (day.getDate() - 7) ){
+    if(document.data().created.toDate().getTime() >= seven ){
       week.push(document.data());
     }
   });
