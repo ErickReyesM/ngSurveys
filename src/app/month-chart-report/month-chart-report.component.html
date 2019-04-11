@@ -1,0 +1,9 @@
+<div style="display: block;" *ngIf="selected == 'option3'">
+        <canvas baseChart
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                [legend]="lineChartLegend"
+                [datasets]="monthlyLineChartData"
+                [labels]="monthlyLineChartLabels">
+        </canvas>
+</div>

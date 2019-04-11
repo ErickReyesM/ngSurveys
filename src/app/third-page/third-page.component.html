@@ -6,78 +6,9 @@
         </mat-select>
 </mat-form-field>
 
-<table *ngIf="selected == 'option1'" style="width:100%" id="dailyReport" #dailyReport>
-        <tr>
-                 <th><p>REPORTE DEL DÍA {{titleToday}}</p></th>
-        </tr>
-        <tr>
-                <td>
-                                <div style="display: block;">
-                                                <canvas baseChart
-                                                        [options]="lineChartOptions"
-                                                        [chartType]="lineChartType"
-                                                        [legend]="lineChartLegend"
-                                                        [datasets]="dailyLineChartData"
-                                                        [labels]="dailyLineChartLabels">
-                                                </canvas>
-                                        </div>
-                </td>
-        </tr>
-</table>
-
-<table *ngIf="selected == 'option2'" style="width:100%" id="weeklyReport" #weeklyReport>
-        <tr>
-                <th><p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p></th>
-        </tr>
-        <tr>
-                <td>
-                                <div style="display: block;">
-                                                <canvas baseChart
-                                                        [options]="lineChartOptions"
-                                                        [chartType]="lineChartType"
-                                                        [legend]="lineChartLegend"
-                                                        [datasets]="weeklyLineChartData"
-                                                        [labels]="weeklyLineChartLabels">
-                                                </canvas>
-                                </div>
-                </td>
-        </tr>
-        <tr>
-                <td  id="questionContainer">
-                        <div>
-                                <p>{{ questions[0] }}</p>
-                        </div>
-                        <div style="display: block; width: 770px; height: 385px;" width="770" height="385">
-                                <canvas baseChart
-                                        [data]="doughnutChartData"
-                                        [labels]="doughnutChartLabels"
-                                        [chartType]="doughnutChartType"
-                                        [options]="doughnutChartOptions">
-                                </canvas>
-                        </div>
-                </td>
-        </tr>
-</table>
-
-<table *ngIf="selected == 'option3'" style="width:100%" id="monthlyReport" #monthlyReport>
-        <tr>
-                <th><p>REPORTE DEL MES DE {{titleMonth}}</p></th>
-        </tr>
-        <tr>
-                <td>
-                                <div style="display: block;" *ngIf="selected == 'option3'">
-                                                <canvas baseChart
-                                                        [options]="lineChartOptions"
-                                                        [chartType]="lineChartType"
-                                                        [legend]="lineChartLegend"
-                                                        [datasets]="monthlyLineChartData"
-                                                        [labels]="monthlyLineChartLabels">
-                                                </canvas>
-                                </div>
-                </td>
-        </tr>
-</table>
-
+<app-today-chart-report *ngIf="selected == 'option1'"></app-today-chart-report>
+<app-week-chart-report *ngIf="selected == 'option2'"></app-week-chart-report>
+<app-month-chart-report *ngIf="selected == 'option3'"></app-month-chart-report>
 
 <div style="text-align: right;">
                 <button mat-raised-button 

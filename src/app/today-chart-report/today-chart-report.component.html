@@ -1,0 +1,10 @@
+<p>REPORTE DEL DÍA {{titleToday}}</p>
+        <div style="display: block;">
+                <canvas baseChart
+                        [options]="lineChartOptions"
+                        [chartType]="lineChartType"
+                        [legend]="lineChartLegend"
+                        [datasets]="dailyLineChartData"
+                        [labels]="dailyLineChartLabels">
+                </canvas>
+        </div>

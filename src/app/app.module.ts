@@ -17,9 +17,12 @@ import { SurveyQuestionsComponent } from './survey-questions/survey-questions.co
 import { DataService } from 'src/seervices/data.service';
 import { ChartsModule } from 'ng2-charts';
 import firebase from 'firebase';
-import { DateService } from './date.service';
+import { DateService } from '../seervices/date.service';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { TodayChartReportComponent } from './today-chart-report/today-chart-report.component';
+import { WeekChartReportComponent } from './week-chart-report/week-chart-report.component';
+import { MonthChartReportComponent } from './month-chart-report/month-chart-report.component';
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -47,7 +50,10 @@ const appRoutes: Routes = [
     ThirdPageComponent,
     SurveyQuestionsComponent,
     DialogConfirmationComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    TodayChartReportComponent,
+    WeekChartReportComponent,
+    MonthChartReportComponent
   ],
   imports: [
     BrowserModule,

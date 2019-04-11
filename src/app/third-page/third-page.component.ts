@@ -1,10 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ChartDataSets , ChartOptions, ChartType } from 'chart.js';
-import * as firebase from 'firebase';
-import { DateService } from '../date.service';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { DataService } from 'src/seervices/data.service';
 
 @Component({
   selector: 'app-third-page',
@@ -16,126 +14,15 @@ export class ThirdPageComponent implements OnInit{
 
   @ViewChild('questionContainer') questionContainer: ElementRef;
 
-  surveyId:string = '';
-  survey: Promise<firebase.firestore.DocumentSnapshot>;
-  inputCollection:Promise<firebase.firestore.QuerySnapshot>;
-  collectionInput:string = 'userInput';
-  collectionSurveys:string = 'surveys';
-  countByHour:Array<any> = [];
-  countByDay:Array<any> = [];
   selected:string = 'option2';
-  today: Date;
-  titleToday:any;
-  titleToday7:Date;
-  title7ago:any;
-  titleMonth:any;
-  questions: Array<any> = [];
-  questionCount:number = 0;
-  questionInputCollection: Array<any> = [];
-  valueDayInput:Array<any> = [];
-  valueWeeklyInput:Array<any> = [];
-  valueMonthlyInput:Array<any> = [];
+  surveyID:string = '';
 
-  /**Shared Line Chart Data Configuration*/
-  public lineChartOptions:ChartOptions = {
-    responsive: true,
-    scales: { yAxes: [ {ticks: { beginAtZero: true }} ] } };
-  public lineChartType:ChartType = 'line';
-  public lineChartLegend = true;
-  /**Shared Line Chart Data Configuration*/
-  public dailyLineChartData:Array<ChartDataSets> = [];
-  public dailyLineChartLabels:Array<string> = [];
-
-  public weeklyLineChartData:Array<ChartDataSets> = [];
-  public weeklyLineChartLabels:Array<string> = [];
-
-  public monthlyLineChartData:Array<ChartDataSets> = [];
-  public monthlyLineChartLabels:Array<string> = [];
-
-  /*Doughnut Chart Configuration*/
-  public doughnutChartType:ChartType = 'doughnut';
-  public doughnutChartLabels: Array<string>;
-  public doughnutChartData;
-  public doughnutChartOptions: ChartOptions = {
-    "backgroundColor":['rgb(255,102,0)','rgb(255,255,0)','rgb(0,255,0)'],
-    "borderWidth": 5
-  }
-
-  documentDataByDay:Array<any> = [];
-  documentDataByWeek:Array<any> = [];
-  documentDataByMonth:Array<any> = [];
-
- constructor(private route:ActivatedRoute, private dateSrv: DateService) {
-   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-   this.route.queryParams.subscribe( param => {this.surveyId = param['id']} );
-   this.inputCollection = firebase.firestore().collection(this.collectionInput)
-   .where('surveyID', '==', this.surveyId).get();
-   this.survey = firebase.firestore().collection(this.collectionSurveys).doc(this.surveyId).get();
-   this.today = new Date();
-   let sevenD = this.today.getDate() - 7;
-   this.titleToday = this.today.toLocaleDateString('es-US', options).toUpperCase();
-   this.titleToday7 = new Date(this.today.getFullYear(), this.today.getMonth(), sevenD);
-   this.title7ago = this.titleToday7.toLocaleDateString('es-US', options).toUpperCase();
-   this.titleMonth = this.today.toLocaleDateString('es-US', {month: 'long'}).toUpperCase();
-   this.doughnutChartData = [];
-   this.doughnutChartLabels = [];
+ constructor(private route:ActivatedRoute, private data:DataService) {
+   this.route.queryParams.subscribe( param => {this.surveyID = param['id']} );
  }
 
  ngOnInit(){
-   let satisfactionLabels = ['Malo', 'Bueno', 'Excelente'];
-   this.doughnutChartLabels = satisfactionLabels;
-   this.inputCollection.then(querySnapShot => {
-
-    this.dateSrv.getDataByDay(querySnapShot.docs, this.today).forEach(doc => {
-      this.documentDataByDay.push(doc.created.toDate().getHours());
-      this.valueDayInput.push(doc.input);
-    });
-  
-    this.dateSrv.getDataByWeek(querySnapShot.docs, this.today).forEach(doc => {
-      this.documentDataByWeek.push(doc.created.toDate().toDateString());
-      this.valueWeeklyInput.push(doc.input);
-    });
-  
-    this.dateSrv.getDataByMonth(querySnapShot.docs, this.today).forEach(doc => {
-      this.documentDataByMonth.push(doc.created.toDate().toDateString());
-      this.valueMonthlyInput.push(doc.input);
-    });
-  
-    this.dailyLineChartData.push({data: this.dateSrv.count(this.documentDataByDay.sort((a,b)=>{return a-b;})), 
-      label: 'Encuestas Por Hora'});
-    this.dailyLineChartLabels = this.documentDataByDay.sort((a,b)=>{return a-b;})
-    .filter((v,i) => this.documentDataByDay.indexOf(v) === i);
-  
-    this.weeklyLineChartData.push({data: this.dateSrv.count( this.documentDataByWeek.sort( (a,b) => {
-      return new Date(a).getTime() - new Date(b).getTime();
-    } )), 
-      label: 'Encuestas Por Día'});
-    this.weeklyLineChartLabels = this.documentDataByWeek.sort( (a,b) => {
-      return new Date(a).getTime() - new Date(b).getTime();
-    } )
-    .filter((v,i) => this.documentDataByWeek.indexOf(v) === i);
-  
-    this.monthlyLineChartData.push({data: this.dateSrv.count(this.documentDataByMonth.sort( (a,b) => {
-      return new Date(a).getTime() - new Date(b).getTime();
-    } )), 
-      label: 'Encuestas Por Mes'});
-    this.monthlyLineChartLabels = this.documentDataByMonth.sort( (a,b) => {
-      return new Date(a).getTime() - new Date(b).getTime();
-    } )
-    .filter((v,i) => this.documentDataByMonth.indexOf(v) === i);
-  
-    this.survey.then((doc) => {
-      for(let i=0; i < doc.data().questions.length; i++){
-        this.questions.push(doc.data().questions[i].questionTxt);
-      }
-    });
-    
-    this.doughnutChartData = 
-      this.dateSrv.count(this.countInputByQuestion(this.valueWeeklyInput, 0).sort());
-  })
-     .catch(err => {
-       //TODO
-     });
+   this.data.setSurveyId(this.surveyID);
  }
 
  public captureScreen(){
@@ -158,23 +45,7 @@ export class ThirdPageComponent implements OnInit{
     var position = 0;  
     pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight) ;
     pdf.text(questionC.innerText, 15, 130); 
-    pdf.save(this.surveyId+'.pdf'); // Generated PDF   
+    pdf.save(this.surveyID+'.pdf'); // Generated PDF   
   });
 }
-
-/**
- * countInputByQuestion
- *
- */
-public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
-  let valueInAnswer:Array<any> = [];
-  for(let x = 0; x < questionCollection.length-1 ;x++){
-    if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
-      valueInAnswer.push(questionCollection[x][questionNumber].value);
-    }
-    else{ /*TODO*/ }
-}
-  return valueInAnswer;
-}
-
 }

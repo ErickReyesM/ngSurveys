@@ -60,4 +60,20 @@ count(array_docs:any[]):any[] {
   }
   return countTimes;
 }
+
+/**
+ * countInputByQuestion
+ *
+ */
+public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
+  let valueInAnswer:Array<any> = [];
+  for(let x = 0; x < questionCollection.length-1 ;x++){
+    if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
+      valueInAnswer.push(questionCollection[x][questionNumber].value);
+    }
+    else{ /*TODO*/ }
+}
+  return valueInAnswer;
+}
+
 }
