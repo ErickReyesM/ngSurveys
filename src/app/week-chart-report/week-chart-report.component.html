@@ -1,10 +1,22 @@
 <p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
 <div style="display: block;">
         <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
                 [options]="lineChartOptions"
-                [chartType]="lineChartType"
                 [legend]="lineChartLegend"
-                [datasets]="weeklyLineChartData"
-                [labels]="weeklyLineChartLabels">
+                [chartType]="lineChartType">
         </canvas>
 </div>
+<ol>
+        <li *ngFor="let question of questionsCollection">
+                {{ question.questionTxt }}
+                <div style="display: block" *ngIf="'Satisfacción' == question.type">
+                        <canvas baseChart
+                                  [data]="doughnutChartData"
+                                  [labels]="doughnutChartLabels"
+                                  [chartType]="doughnutChartType">
+                        </canvas>
+                </div>
+        </li>
+</ol>
