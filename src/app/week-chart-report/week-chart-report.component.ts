@@ -4,6 +4,7 @@ import { DateService } from 'src/seervices/date.service';
 import * as firebase from 'firebase';
 import { DataService } from 'src/seervices/data.service';
 import * as CanvasJS from '../../assets/canvasjs.min.js';
+import { ChartConfiguration } from 'src/assets/intarfaces/chart-configuration.interface.js';
 
 @Component({
   selector: 'app-week-chart-report',
@@ -83,18 +84,20 @@ export class WeekChartReportComponent implements OnInit {
                 "#EE8713",
                 "#F50000"               
                 ]);
+      
+        console.log(this.setDataPoints(this.questionsCollection, this.inputCollection, 4));
 
-        var chart0 = this.onCreateChart('chartContainer0',0, this.questionsCollection);
+        var chart0 = this.onCreateChart('chartContainer0', this.questionsCollection, this.inputCollection, 0);
         chart0.render();
-        var cahrt1 = this.onCreateChart('chartContainer1', 1, this.questionsCollection);
+        var cahrt1 = this.onCreateChart('chartContainer1', this.questionsCollection, this.inputCollection, 1);
         cahrt1.render();
-        var cahrt2 = this.onCreateChart('chartContainer2', 2, this.questionsCollection);
+        var cahrt2 = this.onCreateChart('chartContainer2', this.questionsCollection, this.inputCollection, 2);
         cahrt2.render();
-        var cahrt3 = this.onCreateChart('chartContainer3', 3, this.questionsCollection);
+        var cahrt3 = this.onCreateChart('chartContainer3', this.questionsCollection, this.inputCollection, 3);
         cahrt3.render();
-        var cahrt4 = this.onCreateChart('chartContainer4', 4, this.questionsCollection);
+        var cahrt4 = this.onCreateChart('chartContainer4', this.questionsCollection, this.inputCollection, 4);
         cahrt4.render();
-        var cahrt5 = this.onCreateChart('chartContainer5', 5, this.questionsCollection);
+        var cahrt5 = this.onCreateChart('chartContainer5', this.questionsCollection, this.inputCollection, 5);
         cahrt5.render();
         
       //End of firebase method
@@ -110,8 +113,8 @@ export class WeekChartReportComponent implements OnInit {
     });
   }
 
-  private onCreateChart(chartId:string, questionNumber:number, qCollection:any[]):CanvasJS.Chart{
-    var configChart = {}
+  private onCreateChart(chartElementId:string, qCollection:any[], iCollection:any[], questionNumber:number):CanvasJS.Chart{
+    var configChart:ChartConfiguration;
     switch(qCollection[questionNumber].type){
       case 'Satisfacción': 
                 configChart = {
@@ -153,12 +156,7 @@ export class WeekChartReportComponent implements OnInit {
           indexLabelFontSize: 17,
           indexLabel: "{label} - #percent%",
           toolTipContent: "<b>{label}:</b> {y}",
-        dataPoints: [
-          { y: this.getDataByQuestion(this.inputCollection, questionNumber)[0], 
-            label: this.getLabelsByQuestion(this.questionsCollection, questionNumber)[0] },
-          { y: this.getDataByQuestion(this.inputCollection, questionNumber)[1], 
-            label: this.getLabelsByQuestion(this.questionsCollection, questionNumber)[1] },
-          ]
+        dataPoints: this.setDataPoints(qCollection, iCollection, questionNumber)
         }]
       }
       break;
@@ -166,13 +164,17 @@ export class WeekChartReportComponent implements OnInit {
       return null;
     }
     
-    return new CanvasJS.Chart(chartId, configChart)
+    return new CanvasJS.Chart(chartElementId, configChart)
   }
 
-  private getLabelsByQuestion(arrayContainer:any[], qNumber:number):string[] {
-    var labels:any[];
-    labels = arrayContainer[qNumber].options;
-    return labels;
+  private setDataPoints(labelsArray:any[], inputArray:any[], questionNumber:number):any[]{
+    var dataPoints:any[] = [];
+    for( let i =0; i < labelsArray[questionNumber].options.length; i++ ){
+      dataPoints.push({
+      y: this.getDataByQuestion(inputArray, questionNumber)[i] > 0 ? this.getDataByQuestion(inputArray, questionNumber)[i] : 0, 
+      label:labelsArray[questionNumber].options[i] });
+    }
+    return dataPoints;
   }
 
   private getDataByQuestion(arrayContainer:any[], qNumber:number):any[] {

@@ -68,10 +68,16 @@ count(array_docs:any[]):any[] {
 public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
   let valueInAnswer:Array<any> = [];
   for(let x = 0; x < questionCollection.length-1 ;x++){
-    if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
+    if(questionCollection[x][questionNumber].type ==  'Satisfacción'){
       valueInAnswer.push(questionCollection[x][questionNumber].value);
     }
-    else{ /*TODO*/ }
+    else if(questionCollection[x][questionNumber].type ==  'Opción Multitple' || 
+    questionCollection[x][questionNumber].type ==  'Elección'){ 
+      valueInAnswer = valueInAnswer.concat(questionCollection[x][questionNumber].options);
+     }
+     else if(questionCollection[x][questionNumber].type ==  'Abierta'){
+       valueInAnswer = questionCollection.filter( (element) => {return element != ''})
+     }
 }
   return valueInAnswer;
 }
