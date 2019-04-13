@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { DateService } from 'src/seervices/date.service';
 import * as firebase from 'firebase';
 import { DataService } from 'src/seervices/data.service';
+import * as CanvasJS from '../../assets/canvasjs.min.js';
 
 @Component({
   selector: 'app-week-chart-report',
@@ -12,18 +13,13 @@ import { DataService } from 'src/seervices/data.service';
 export class WeekChartReportComponent implements OnInit {
 
   /**Line Chart Configuration*/
-  public lineChartData: ChartDataSets[] = [];
+  public lineChartData: ChartData[] = [];
   public lineChartLabels: String[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
     scales: { yAxes: [ {ticks: { beginAtZero: true }} ] } };
   public lineChartLegend = true;
   public lineChartType:ChartType = 'line';
-
-  /**Doughnut Chart Configuration*/
-  public doughnutChartLabels: any[] = [];
-  public doughnutChartData: ChartDataSets[] = [];
-  public doughnutChartType: ChartType = 'doughnut';
 
   /**Global Variables*/
   today:Date = new Date();
@@ -39,7 +35,6 @@ export class WeekChartReportComponent implements OnInit {
   documents:any[] = [];
   inputType:string[] = [];
   questionsCollection:any[] = [];
-  satisfactionLabels:string[] = ['Pesimo', 'Regular', 'Bueno', 'Excelente'];
   doughnutLabelContainer:any[] = [];
   doughnutDataContainer:any[] = [];
 
@@ -81,19 +76,28 @@ export class WeekChartReportComponent implements OnInit {
           return new Date(a).getTime() - new Date(b).getTime()
         }).filter((v,i) => this.surveyCreated.indexOf(v) === i);
 
-        this.questionsCollection.forEach((question) => {
-          if('Satisfacción' == question.type){
-            this.doughnutLabelContainer.push(this.satisfactionLabels);
-          }else if('Opción Multitple' == question.type || 'Elección' == question.type){
-            this.doughnutLabelContainer.push(question.options)
-          }
-        });
+        CanvasJS.addColorSet("satisfaction",
+                [//colorSet Array
+                "#49DC21",
+                "#E8EC14",
+                "#EE8713",
+                "#F50000"               
+                ]);
 
-        for(let i=0; i < this.questionsCollection.length; i++){
-          this.doughnutDataContainer.push(this.dateSrv.count(this.dateSrv.countInputByQuestion(this.inputCollection, i).sort()));
-        }
+        var chart0 = this.onCreateChart('chartContainer0',0, this.questionsCollection);
+        chart0.render();
+        var cahrt1 = this.onCreateChart('chartContainer1', 1, this.questionsCollection);
+        cahrt1.render();
+        var cahrt2 = this.onCreateChart('chartContainer2', 2, this.questionsCollection);
+        cahrt2.render();
+        var cahrt3 = this.onCreateChart('chartContainer3', 3, this.questionsCollection);
+        cahrt3.render();
+        var cahrt4 = this.onCreateChart('chartContainer4', 4, this.questionsCollection);
+        cahrt4.render();
+        var cahrt5 = this.onCreateChart('chartContainer5', 5, this.questionsCollection);
+        cahrt5.render();
         
-//End of firebase method
+      //End of firebase method
       }
     ).catch(
       (err) => { 
@@ -104,6 +108,77 @@ export class WeekChartReportComponent implements OnInit {
     ).catch(err=>{
       //TODO
     });
+  }
+
+  private onCreateChart(chartId:string, questionNumber:number, qCollection:any[]):CanvasJS.Chart{
+    var configChart = {}
+    switch(qCollection[questionNumber].type){
+      case 'Satisfacción': 
+                configChart = {
+                  colorSet: "satisfaction",
+                  animationEnabled: true,
+                  title:{
+                    text: this.questionsCollection[questionNumber].questionTxt,
+                    horizontalAlign: "left"
+                  },
+                  theme: "dark2",
+                  data: [{
+                    type: "doughnut",
+                    startAngle: 60,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 17,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y}",
+                  dataPoints: [
+                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[3], label: "Excelente" },
+                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[2], label: "Bueno" },
+                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[1], label: "Malo" },
+                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[0], label: "Pesimo"}]
+                  }]
+                }
+                break;
+      case 'Opción Multitple':
+      case 'Elección':
+      configChart = {
+        animationEnabled: true,
+        title:{
+          text: this.questionsCollection[questionNumber].questionTxt,
+          horizontalAlign: "left"
+        },
+        theme: "dark2",
+        data: [{
+          type: "doughnut",
+          startAngle: 60,
+          //innerRadius: 60,
+          indexLabelFontSize: 17,
+          indexLabel: "{label} - #percent%",
+          toolTipContent: "<b>{label}:</b> {y}",
+        dataPoints: [
+          { y: this.getDataByQuestion(this.inputCollection, questionNumber)[0], 
+            label: this.getLabelsByQuestion(this.questionsCollection, questionNumber)[0] },
+          { y: this.getDataByQuestion(this.inputCollection, questionNumber)[1], 
+            label: this.getLabelsByQuestion(this.questionsCollection, questionNumber)[1] },
+          ]
+        }]
+      }
+      break;
+      case 'Abierta':
+      return null;
+    }
+    
+    return new CanvasJS.Chart(chartId, configChart)
+  }
+
+  private getLabelsByQuestion(arrayContainer:any[], qNumber:number):string[] {
+    var labels:any[];
+    labels = arrayContainer[qNumber].options;
+    return labels;
+  }
+
+  private getDataByQuestion(arrayContainer:any[], qNumber:number):any[] {
+    var data:any[];
+    data = this.dateSrv.count(this.dateSrv.countInputByQuestion(arrayContainer, qNumber).sort());
+    return data;
   }
 
 }

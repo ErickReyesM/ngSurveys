@@ -15,7 +15,7 @@ import { SecondPageComponent } from './second-page/second-page.component';
 import { ThirdPageComponent } from './third-page/third-page.component';
 import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
 import { DataService } from 'src/seervices/data.service';
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import firebase from 'firebase';
 import { DateService } from '../seervices/date.service';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';

@@ -9,14 +9,502 @@
         </canvas>
 </div>
 <ol>
-        <li *ngFor="let question of questionsCollection">
-                {{ question.questionTxt }}
-                <div style="display: block" *ngIf="'Satisfacción' == question.type">
+        <div *ngIf="(0 < questionsCollection.length)">
+                <div id="chartContainer0" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div *ngIf="(1 < questionsCollection.length)">
+                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div *ngIf="(2 < questionsCollection.length)">
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div *ngIf="(3 < questionsCollection.length)">
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div *ngIf="(4 < questionsCollection.length)">
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div *ngIf="(5 < questionsCollection.length)">
+                <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+        </div>
+        <!--<li *ngIf="(2 < questionsCollection.length)">
+                <div style="display: block; width: 700px; height: auto;">
+                        {{ questionsCollection[2].questionTxt }}
                         <canvas baseChart
-                                  [data]="doughnutChartData"
-                                  [labels]="doughnutChartLabels"
+                                  [data]="doughnutChartData2"
+                                  [labels]="doughnutChartLabels2"
                                   [chartType]="doughnutChartType">
                         </canvas>
+                </div>
+        </li>
+        <li *ngIf="(3 < questionsCollection.length)">
+                <div style="display: block; width: 700px; height: auto;">
+                        {{ questionsCollection[3].questionTxt }}
+                        <canvas baseChart
+                                  [data]="doughnutChartData3"
+                                  [labels]="doughnutChartLabels3"
+                                  [chartType]="doughnutChartType">
+                        </canvas>
+                </div>
+        </li>
+        <li *ngIf="(4 < questionsCollection.length)">
+                <div style="display: block; width: 700px; height: auto;">
+                        {{ questionsCollection[4].questionTxt }}
+                        <canvas baseChart
+                                  [data]="doughnutChartData4"
+                                  [labels]="doughnutChartLabels4"
+                                  [chartType]="doughnutChartType">
+                        </canvas>
+                </div>
+        </li>
+        <li *ngIf="(5 < questionsCollection.length)">
+                <div style="display: block; width: 700px; height: auto;">
+                        {{ questionsCollection[5].questionTxt }}
+                        <canvas baseChart
+                                  [data]="doughnutChartData5"
+                                  [labels]="doughnutChartLabels5"
+                                  [chartType]="doughnutChartType">
+                        </canvas>
+                </div>
+        </li>-->
+        <li *ngIf="(6 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[6].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData6"
+                                  [labels]="doughnutChartLabels6"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(7 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[7].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData7"
+                                  [labels]="doughnutChartLabels7"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(8 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[8].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData8"
+                                  [labels]="doughnutChartLabels8"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(9 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[9].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData9"
+                                  [labels]="doughnutChartLabels9"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(10 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[10].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData10"
+                                  [labels]="doughnutChartLabels10"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(11 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[11].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData11"
+                                  [labels]="doughnutChartLabels11"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(12 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[12].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData12"
+                                  [labels]="doughnutChartLabels12"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(13 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[13].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData13"
+                                  [labels]="doughnutChartLabels13"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(14 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[14].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData14"
+                                  [labels]="doughnutChartLabels14"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(15 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[15].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData15"
+                                  [labels]="doughnutChartLabels15"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(16 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[16].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData16"
+                                  [labels]="doughnutChartLabels16"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(17 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[17].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData17"
+                                  [labels]="doughnutChartLabels17"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(18 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[18].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData18"
+                                  [labels]="doughnutChartLabels18"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(19 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[19].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData19"
+                                  [labels]="doughnutChartLabels19"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(20 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[20].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData20"
+                                  [labels]="doughnutChartLabels20"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(21 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[21].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData21"
+                                  [labels]="doughnutChartLabels21"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(22 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[22].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData22"
+                                  [labels]="doughnutChartLabels22"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(23 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[23].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData23"
+                                  [labels]="doughnutChartLabels23"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(24 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[24].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData24"
+                                  [labels]="doughnutChartLabels24"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(25 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[25].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData25"
+                                  [labels]="doughnutChartLabels25"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(26 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[26].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData26"
+                                  [labels]="doughnutChartLabels26"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(27 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[27].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData27"
+                                  [labels]="doughnutChartLabels27"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(28 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[28].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData28"
+                                  [labels]="doughnutChartLabels28"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(29 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[29].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData29"
+                                  [labels]="doughnutChartLabels29"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(30 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[30].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData30"
+                                  [labels]="doughnutChartLabels30"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(31 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[31].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData31"
+                                  [labels]="doughnutChartLabels31"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(32 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[32].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData32"
+                                  [labels]="doughnutChartLabels32"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(33 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[33].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData33"
+                                  [labels]="doughnutChartLabels33"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(34 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[34].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData34"
+                                  [labels]="doughnutChartLabels34"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(35 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[35].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData35"
+                                  [labels]="doughnutChartLabels35"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(36 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[36].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData36"
+                                  [labels]="doughnutChartLabels36"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(37 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[37].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData37"
+                                  [labels]="doughnutChartLabels37"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(38 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[38].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData38"
+                                  [labels]="doughnutChartLabels38"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(39 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[39].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData39"
+                                  [labels]="doughnutChartLabels39"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(40 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[40].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData40"
+                                  [labels]="doughnutChartLabels40"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(41 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[41].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData41"
+                                  [labels]="doughnutChartLabels41"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(42 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[42].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData42"
+                                  [labels]="doughnutChartLabels42"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(43 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[43].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData43"
+                                  [labels]="doughnutChartLabels43"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(44 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[44].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData44"
+                                  [labels]="doughnutChartLabels44"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(45 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[45].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData45"
+                                  [labels]="doughnutChartLabels45"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(46 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[46].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData46"
+                                  [labels]="doughnutChartLabels46"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(47 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[47].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData47"
+                                  [labels]="doughnutChartLabels47"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(48 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[48].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData48"
+                                  [labels]="doughnutChartLabels48"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
+                </div>
+        </li>
+        <li *ngIf="(49 < questionsCollection.length)">
+                <div style="display: block">
+                        {{ questionsCollection[49].questionTxt }}
+                        <!--<canvas baseChart
+                                  [data]="doughnutChartData49"
+                                  [labels]="doughnutChartLabels49"
+                                  [chartType]="doughnutChartType">
+                        </canvas>-->
                 </div>
         </li>
 </ol>
