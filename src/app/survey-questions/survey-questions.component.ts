@@ -56,6 +56,8 @@ export class SurveyQuestionsComponent implements OnInit {
     this.optInp5 = '';
     this.optInp6 = '';
     this.optionCount = 1;
+    this.createdOptions = [];
+    filtered = [];
   }
 
   onAddOptions(optIn1:string, optIn2:string, optIn3?:string, optIn4?:string, optIn5?:string, optIn6?:string){

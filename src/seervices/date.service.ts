@@ -9,9 +9,13 @@ export class DateService {
   constructor() { }
 
   getDataByDay(array_docs:firebase.firestore.QueryDocumentSnapshot[], day:Date):any[]{
+    let todayNow = new Date(day.getFullYear(), day.getMonth(), day.getDate());
+    let dayInSurvey:Date;
     let today:Array<any> = [];
     array_docs.forEach(document => {
-      if(document.data().created.toDate().getDate() == day.getDate()){
+      dayInSurvey = 
+        new Date(document.data().created.toDate().getFullYear(), document.data().created.toDate().getMonth(), document.data().created.toDate().getDate());
+      if(dayInSurvey.getTime() == todayNow.getTime()){
         today.push(document.data());
       }
     });
@@ -30,9 +34,13 @@ export class DateService {
 }
 
  getDataByMonth(array_docs:firebase.firestore.QueryDocumentSnapshot[], day:Date):any[]{
+  let monthNow = new Date(day.getFullYear(), day.getMonth());
+  let dayInSurvey:Date;
   let month:Array<any> = [];
   array_docs.forEach(document => {
-    if(document.data().created.toDate().getMonth() == day.getMonth()){
+    dayInSurvey = 
+        new Date(document.data().created.toDate().getFullYear(), document.data().created.toDate().getMonth());
+    if(dayInSurvey.getTime() == monthNow.getTime()){
       month.push(document.data());
     }
   });
@@ -68,15 +76,11 @@ count(array_docs:any[]):any[] {
 public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
   let valueInAnswer:Array<any> = [];
   for(let x = 0; x < questionCollection.length ;x++){
-    if(questionCollection[x][questionNumber].type ==  'Satisfacción'){
+    if(questionCollection[x][questionNumber].type !=  'Opción Multitple'){
       valueInAnswer.push(questionCollection[x][questionNumber].value);
     }
-    else if(questionCollection[x][questionNumber].type ==  'Opción Multitple' || 
-    questionCollection[x][questionNumber].type ==  'Elección'){ 
+    else{ 
       valueInAnswer = valueInAnswer.concat(questionCollection[x][questionNumber].options);
-     }
-     else if(questionCollection[x][questionNumber].type ==  'Abierta'){
-      valueInAnswer.push(questionCollection[x][questionNumber].value);
      }
 }
   return valueInAnswer;

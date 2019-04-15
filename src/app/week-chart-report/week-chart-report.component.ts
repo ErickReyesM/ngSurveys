@@ -6,13 +6,6 @@ import { DataService } from 'src/seervices/data.service';
 import * as CanvasJS from '../../assets/canvasjs.min.js';
 import { ChartConfiguration } from 'src/assets/intarfaces/chart-configuration.interface.js';
 
-export interface SatisfactionObject {
-  worse: number,
-  bad: number,
-  ok: number,
-  excelent: number
-}
-
 @Component({
   selector: 'app-week-chart-report',
   templateUrl: './week-chart-report.component.html',
@@ -513,6 +506,7 @@ export class WeekChartReportComponent implements OnInit {
     var configChart: ChartConfiguration;
     switch (qCollection[questionNumber].type) {
       case 'Satisfacción':
+      case 'Elección':
         configChart = {
           colorSet: "satisfaction",
           animationEnabled: true,
@@ -533,7 +527,6 @@ export class WeekChartReportComponent implements OnInit {
         }
         break;
       case 'Opción Multitple':
-      case 'Elección':
         configChart = {
           animationEnabled: true,
           title: {
@@ -572,11 +565,11 @@ export class WeekChartReportComponent implements OnInit {
 
   private setDataPointsSatisfaction(inputArray: any[], questionNumber: number): any[] {
     var satisfactionData: any = [];
-    for (let i = 0; i < this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, 0).sort()).length; i++) {
+    for (let i = 0; i < this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, questionNumber).sort()).length; i++) {
       satisfactionData.push(
         {
-          y: this.dateSrv.count(this.dateSrv.countInputByQuestion(inputArray, 0).sort())[i],
-          label: this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, 0).sort())[i]
+          y: this.dateSrv.count(this.dateSrv.countInputByQuestion(inputArray, questionNumber).sort())[i],
+          label: this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, questionNumber).sort())[i]
         }
       )
     }
