@@ -67,7 +67,7 @@ count(array_docs:any[]):any[] {
  */
 public countInputByQuestion(questionCollection:any[], questionNumber:number):any[] {
   let valueInAnswer:Array<any> = [];
-  for(let x = 0; x < questionCollection.length-1 ;x++){
+  for(let x = 0; x < questionCollection.length ;x++){
     if(questionCollection[x][questionNumber].type ==  'Satisfacción'){
       valueInAnswer.push(questionCollection[x][questionNumber].value);
     }
@@ -76,10 +76,16 @@ public countInputByQuestion(questionCollection:any[], questionNumber:number):any
       valueInAnswer = valueInAnswer.concat(questionCollection[x][questionNumber].options);
      }
      else if(questionCollection[x][questionNumber].type ==  'Abierta'){
-       valueInAnswer = questionCollection.filter( (element) => {return element != ''})
+      valueInAnswer.push(questionCollection[x][questionNumber].value);
      }
 }
   return valueInAnswer;
+}
+
+public getSatisfactionLabels(inputLabels:any[]){
+  return inputLabels.filter(function(item, index){
+		return inputLabels.indexOf(item) >= index;
+	});
 }
 
 }

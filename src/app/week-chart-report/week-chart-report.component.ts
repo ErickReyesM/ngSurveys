@@ -6,6 +6,13 @@ import { DataService } from 'src/seervices/data.service';
 import * as CanvasJS from '../../assets/canvasjs.min.js';
 import { ChartConfiguration } from 'src/assets/intarfaces/chart-configuration.interface.js';
 
+export interface SatisfactionObject {
+  worse: number,
+  bad: number,
+  ok: number,
+  excelent: number
+}
+
 @Component({
   selector: 'app-week-chart-report',
   templateUrl: './week-chart-report.component.html',
@@ -26,7 +33,7 @@ export class WeekChartReportComponent implements OnInit {
   today:Date = new Date();
   title7ago:string = '';
   titleToday:string = '';
-  sevenDays:number = 604800000;
+  sevenDays:number = 518400000;
   options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   collectionInput:string = 'userInput';
   collectionSurveys:string = 'surveys';
@@ -38,6 +45,7 @@ export class WeekChartReportComponent implements OnInit {
   questionsCollection:any[] = [];
   doughnutLabelContainer:any[] = [];
   doughnutDataContainer:any[] = [];
+  commentsCollection:string[] = [];
 
   constructor(private dateSrv:DateService, private dataSrv:DataService) { 
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -79,26 +87,48 @@ export class WeekChartReportComponent implements OnInit {
 
         CanvasJS.addColorSet("satisfaction",
                 [//colorSet Array
-                "#49DC21",
                 "#E8EC14",
+                "#49DC21",
                 "#EE8713",
-                "#F50000"               
+                "#F50000"       
                 ]);
-      
-        console.log(this.setDataPoints(this.questionsCollection, this.inputCollection, 4));
 
-        var chart0 = this.onCreateChart('chartContainer0', this.questionsCollection, this.inputCollection, 0);
+        if(this.questionsCollection[0].type != 'Abierta'){
+          var chart0 = this.onCreateChart('chartContainer0', this.questionsCollection, this.inputCollection, 0);
         chart0.render();
-        var cahrt1 = this.onCreateChart('chartContainer1', this.questionsCollection, this.inputCollection, 1);
-        cahrt1.render();
-        var cahrt2 = this.onCreateChart('chartContainer2', this.questionsCollection, this.inputCollection, 2);
-        cahrt2.render();
-        var cahrt3 = this.onCreateChart('chartContainer3', this.questionsCollection, this.inputCollection, 3);
-        cahrt3.render();
-        var cahrt4 = this.onCreateChart('chartContainer4', this.questionsCollection, this.inputCollection, 4);
-        cahrt4.render();
-        var cahrt5 = this.onCreateChart('chartContainer5', this.questionsCollection, this.inputCollection, 5);
-        cahrt5.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 0).filter((element) => {return element != ""});}
+
+        if(this.questionsCollection[1].type != 'Abierta'){
+          var chart1 = this.onCreateChart('chartContainer1', this.questionsCollection, this.inputCollection, 1);
+        chart1.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 1).filter((element) => {return element != ""});}
+           
+        if(this.questionsCollection[2].type != 'Abierta'){
+          var chart2 = this.onCreateChart('chartContainer2', this.questionsCollection, this.inputCollection, 2);
+        chart2.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 2).filter((element) => {return element != ""});}
+        
+        if(this.questionsCollection[3].type != 'Abierta'){
+          var chart3 = this.onCreateChart('chartContainer3', this.questionsCollection, this.inputCollection, 3);
+        chart3.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 3).filter((element) => {return element != ""});}
+        
+        if(this.questionsCollection[4].type != 'Abierta'){
+          var chart4 = this.onCreateChart('chartContainer4', this.questionsCollection, this.inputCollection, 4);
+        chart4.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 4).filter((element) => {return element != ""});}
+      
+        if(this.questionsCollection[5].type != 'Abierta'){
+          var chart5 = this.onCreateChart('chartContainer5', this.questionsCollection, this.inputCollection, 5);
+        chart5.render();
+        }else { this.commentsCollection = 
+          this.dateSrv.countInputByQuestion(this.inputCollection, 5).filter((element) => {return element != ""});}
+        
         
       //End of firebase method
       }
@@ -132,11 +162,7 @@ export class WeekChartReportComponent implements OnInit {
                     indexLabelFontSize: 17,
                     indexLabel: "{label} - #percent%",
                     toolTipContent: "<b>{label}:</b> {y}",
-                  dataPoints: [
-                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[3], label: "Excelente" },
-                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[2], label: "Bueno" },
-                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[1], label: "Malo" },
-                    { y: this.getDataByQuestion(this.inputCollection, questionNumber)[0], label: "Pesimo"}]
+                  dataPoints: this.setDataPointsSatisfaction(iCollection, questionNumber)
                   }]
                 }
                 break;
@@ -177,10 +203,24 @@ export class WeekChartReportComponent implements OnInit {
     return dataPoints;
   }
 
+  private setDataPointsSatisfaction(inputArray:any[], questionNumber:number):any[]{
+    var satisfactionData:any = [];
+    for(let i = 0; i < this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, 0).sort()).length; i++){
+      satisfactionData.push(
+        {
+          y: this.dateSrv.count(this.dateSrv.countInputByQuestion(inputArray, 0).sort())[i],
+          label: this.dateSrv.getSatisfactionLabels(this.dateSrv.countInputByQuestion(inputArray, 0).sort())[i]
+        }
+      )
+    }
+    return satisfactionData;
+  }
+
   private getDataByQuestion(arrayContainer:any[], qNumber:number):any[] {
     var data:any[];
     data = this.dateSrv.count(this.dateSrv.countInputByQuestion(arrayContainer, qNumber).sort());
     return data;
   }
+
 
 }
