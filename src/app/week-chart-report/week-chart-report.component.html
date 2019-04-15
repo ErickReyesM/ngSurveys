@@ -1,66 +1,516 @@
-<p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
-<div style="display: block;">
-        <canvas baseChart
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [options]="lineChartOptions"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType">
-        </canvas>
-</div>
+<div *ngIf="inputCollection.length > 0">
+        <p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
+        <div style="display: block;">
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                        [legend]="lineChartLegend" [chartType]="lineChartType">
+                </canvas>
+        </div>
 
-<div *ngIf="(0 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[0].type != 'Abierta'" id="chartContainer0" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[0].type == 'Abierta'">
-                <h3>{{ questionsCollection[0].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
+        <div *ngIf="(0 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[0].type != 'Abierta'" id="chartContainer0"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[0].type == 'Abierta'">
+                        <h3>{{ questionsCollection[0].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(1 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[1].type != 'Abierta'" id="chartContainer1"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[1].type == 'Abierta'">
+                        <h3>{{ questionsCollection[1].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(2 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[2].type != 'Abierta'" id="chartContainer2"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[2].type == 'Abierta'">
+                        <h3>{{ questionsCollection[2].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(3 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[3].type != 'Abierta'" id="chartContainer3"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[3].type == 'Abierta'">
+                        <h3>{{ questionsCollection[3].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(4 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[4].type != 'Abierta'" id="chartContainer4"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[4].type == 'Abierta'">
+                        <h3>{{ questionsCollection[4].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(5 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[5].type != 'Abierta'" id="chartContainer5"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[5].type == 'Abierta'">
+                        <h3>{{ questionsCollection[5].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(6 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[6].type != 'Abierta'" id="chartContainer6"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[6].type == 'Abierta'">
+                        <h3>{{ questionsCollection[6].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(7 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[7].type != 'Abierta'" id="chartContainer7"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[7].type == 'Abierta'">
+                        <h3>{{ questionsCollection[7].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(8 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[8].type != 'Abierta'" id="chartContainer8"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[8].type == 'Abierta'">
+                        <h3>{{ questionsCollection[8].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(9 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[9].type != 'Abierta'" id="chartContainer9"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[9].type == 'Abierta'">
+                        <h3>{{ questionsCollection[9].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+
+        <div *ngIf="(10 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[10].type != 'Abierta'" id="chartContainer10"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[10].type == 'Abierta'">
+                        <h3>{{ questionsCollection[10].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(11 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[11].type != 'Abierta'" id="chartContainer11"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[11].type == 'Abierta'">
+                        <h3>{{ questionsCollection[11].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(12 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[12].type != 'Abierta'" id="chartContainer12"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[12].type == 'Abierta'">
+                        <h3>{{ questionsCollection[12].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(13 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[13].type != 'Abierta'" id="chartContainer13"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[13].type == 'Abierta'">
+                        <h3>{{ questionsCollection[13].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(14 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[14].type != 'Abierta'" id="chartContainer14"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[14].type == 'Abierta'">
+                        <h3>{{ questionsCollection[14].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(15 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[15].type != 'Abierta'" id="chartContainer15"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[15].type == 'Abierta'">
+                        <h3>{{ questionsCollection[15].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(16 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[16].type != 'Abierta'" id="chartContainer16"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[16].type == 'Abierta'">
+                        <h3>{{ questionsCollection[16].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(17 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[17].type != 'Abierta'" id="chartContainer17"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[17].type == 'Abierta'">
+                        <h3>{{ questionsCollection[17].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(18 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[18].type != 'Abierta'" id="chartContainer18"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[18].type == 'Abierta'">
+                        <h3>{{ questionsCollection[18].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(19 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[19].type != 'Abierta'" id="chartContainer19"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[19].type == 'Abierta'">
+                        <h3>{{ questionsCollection[19].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+
+        <div *ngIf="(20 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[20].type != 'Abierta'" id="chartContainer20"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[20].type == 'Abierta'">
+                        <h3>{{ questionsCollection[20].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(21 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[21].type != 'Abierta'" id="chartContainer21"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[21].type == 'Abierta'">
+                        <h3>{{ questionsCollection[21].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(22 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[22].type != 'Abierta'" id="chartContainer22"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[22].type == 'Abierta'">
+                        <h3>{{ questionsCollection[22].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(23 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[23].type != 'Abierta'" id="chartContainer23"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[23].type == 'Abierta'">
+                        <h3>{{ questionsCollection[23].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(24 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[24].type != 'Abierta'" id="chartContainer24"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[24].type == 'Abierta'">
+                        <h3>{{ questionsCollection[24].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(25 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[25].type != 'Abierta'" id="chartContainer25"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[25].type == 'Abierta'">
+                        <h3>{{ questionsCollection[25].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(26 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[26].type != 'Abierta'" id="chartContainer26"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[26].type == 'Abierta'">
+                        <h3>{{ questionsCollection[26].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(27 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[27].type != 'Abierta'" id="chartContainer27"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[27].type == 'Abierta'">
+                        <h3>{{ questionsCollection[27].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(28 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[28].type != 'Abierta'" id="chartContainer28"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[8].type == 'Abierta'">
+                        <h3>{{ questionsCollection[8].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(29 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[29].type != 'Abierta'" id="chartContainer29"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[29].type == 'Abierta'">
+                        <h3>{{ questionsCollection[29].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+
+        <div *ngIf="(30 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[30].type != 'Abierta'" id="chartContainer30"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[30].type == 'Abierta'">
+                        <h3>{{ questionsCollection[30].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(31 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[31].type != 'Abierta'" id="chartContainer31"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[31].type == 'Abierta'">
+                        <h3>{{ questionsCollection[31].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(32 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[32].type != 'Abierta'" id="chartContainer32"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[32].type == 'Abierta'">
+                        <h3>{{ questionsCollection[32].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(33 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[33].type != 'Abierta'" id="chartContainer33"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[33].type == 'Abierta'">
+                        <h3>{{ questionsCollection[33].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(34 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[34].type != 'Abierta'" id="chartContainer34"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[34].type == 'Abierta'">
+                        <h3>{{ questionsCollection[34].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(35 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[35].type != 'Abierta'" id="chartContainer35"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[35].type == 'Abierta'">
+                        <h3>{{ questionsCollection[35].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(36 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[36].type != 'Abierta'" id="chartContainer36"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[36].type == 'Abierta'">
+                        <h3>{{ questionsCollection[36].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(37 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[37].type != 'Abierta'" id="chartContainer37"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[37].type == 'Abierta'">
+                        <h3>{{ questionsCollection[37].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(38 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[38].type != 'Abierta'" id="chartContainer38"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[38].type == 'Abierta'">
+                        <h3>{{ questionsCollection[38].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(39 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[39].type != 'Abierta'" id="chartContainer39"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[39].type == 'Abierta'">
+                        <h3>{{ questionsCollection[39].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+
+        <div *ngIf="(40 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[40].type != 'Abierta'" id="chartContainer40"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[40].type == 'Abierta'">
+                        <h3>{{ questionsCollection[40].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(41 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[41].type != 'Abierta'" id="chartContainer41"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[41].type == 'Abierta'">
+                        <h3>{{ questionsCollection[41].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(42 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[42].type != 'Abierta'" id="chartContainer42"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[42].type == 'Abierta'">
+                        <h3>{{ questionsCollection[42].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(43 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[43].type != 'Abierta'" id="chartContainer43"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[43].type == 'Abierta'">
+                        <h3>{{ questionsCollection[43].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(44 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[44].type != 'Abierta'" id="chartContainer44"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[44].type == 'Abierta'">
+                        <h3>{{ questionsCollection[44].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(45 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[45].type != 'Abierta'" id="chartContainer45"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[45].type == 'Abierta'">
+                        <h3>{{ questionsCollection[45].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(46 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[46].type != 'Abierta'" id="chartContainer46"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[46].type == 'Abierta'">
+                        <h3>{{ questionsCollection[46].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(47 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[47].type != 'Abierta'" id="chartContainer47"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[47].type == 'Abierta'">
+                        <h3>{{ questionsCollection[47].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(48 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[48].type != 'Abierta'" id="chartContainer48"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[48].type == 'Abierta'">
+                        <h3>{{ questionsCollection[48].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
+                </div>
+        </div>
+        <div *ngIf="(49 < questionsCollection.length)">
+                <div *ngIf="questionsCollection[49].type != 'Abierta'" id="chartContainer49"
+                        style="height: 300px; width: 100%;"></div>
+                <div *ngIf="questionsCollection[49].type == 'Abierta'">
+                        <h3>{{ questionsCollection[49].questionTxt }}</h3>
+                        <div *ngFor="let comment of commentsCollection">
+                                <p>{{ comment }}</p>
+                        </div>
                 </div>
         </div>
 </div>
-<div *ngIf="(1 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[1].type != 'Abierta'" id="chartContainer1" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[1].type == 'Abierta'">
-                <h3>{{ questionsCollection[1].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
-                </div>
-        </div>
+<div class="firstScreen">
+        <p><b>No hay datos que mostrar</b></p>
 </div>
-<div *ngIf="(2 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[2].type != 'Abierta'" id="chartContainer2" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[2].type == 'Abierta'">
-                <h3>{{ questionsCollection[2].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
-                </div>
-        </div>
-</div>
-<div *ngIf="(3 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[3].type != 'Abierta'" id="chartContainer3" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[3].type == 'Abierta'">
-                <h3>{{ questionsCollection[3].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
-                </div>
-        </div>
-</div>
-<div *ngIf="(4 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[4].type != 'Abierta'" id="chartContainer4" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[4].type == 'Abierta'">
-                <h3>{{ questionsCollection[4].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
-                </div>
-        </div>
-</div>
-<div *ngIf="(5 < questionsCollection.length)">
-        <div *ngIf="questionsCollection[5].type != 'Abierta'" id="chartContainer5" style="height: 300px; width: 100%;"></div>
-        <div *ngIf="questionsCollection[5].type == 'Abierta'">
-                <h3>{{ questionsCollection[5].questionTxt }}</h3>
-                <div *ngFor="let comment of commentsCollection">
-                        <p>{{ comment }}</p>
-                </div>
-        </div>
-</div>
-        
