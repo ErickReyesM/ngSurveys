@@ -23,6 +23,9 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { TodayChartReportComponent } from './today-chart-report/today-chart-report.component';
 import { WeekChartReportComponent } from './week-chart-report/week-chart-report.component';
 import { MonthChartReportComponent } from './month-chart-report/month-chart-report.component';
+import {Text, geometry } from '@progress/kendo-drawing';
+const { Point } = geometry;
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export'
 
 var config = {
   apiKey: "AIzaSyCMsiQRCVEa-qzxA-bnt-Jk5FXyOQgFrBw",
@@ -79,7 +82,8 @@ const appRoutes: Routes = [
     MatTableModule,
     ChartsModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    PDFExportModule
   ],
   entryComponents: [DialogConfirmationComponent, DialogDeleteComponent],
   providers: [DataService, DateService],

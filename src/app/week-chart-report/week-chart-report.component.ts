@@ -40,8 +40,9 @@ export class WeekChartReportComponent implements OnInit {
   doughnutLabelContainer: any[] = [];
   doughnutDataContainer: any[] = [];
   commentsCollection: string[] = [];
-  themeInCharts:string = "dark2";
+  themeInCharts:string = "light2";
   surveyTitle:string = '';
+  pdfTitle:string = '';
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -491,7 +492,7 @@ export class WeekChartReportComponent implements OnInit {
                 this.dateSrv.countInputByQuestion(this.inputCollection, 49).filter((element) => { return element != "" });
             }
 
-
+            this.pdfTitle = this.surveyTitle + '_' + this.today.toTimeString;
             //End of firebase method
           }
         ).catch(

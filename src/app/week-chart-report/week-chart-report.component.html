@@ -1,10 +1,10 @@
+<kendo-pdf-export #pdf paperSize="A4" margin="0.5cm" [scale]="0.48">
 <p id="weekly-report-title">REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
 <div style="display: block;">
         <canvas id="weekly-report-count" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
                 [legend]="lineChartLegend" [chartType]="lineChartType">
         </canvas>
 </div>
-
 <div *ngIf="(0 < questionsCollection.length)">
         <div *ngIf="questionsCollection[0].type != 'Abierta'" id="chartContainer0" style="height: 300px; width: 100%;">
         </div>
@@ -509,3 +509,7 @@
                 </div>
         </div>
 </div>
+</kendo-pdf-export>
+<button kendo-button (click)="pdf.saveAs('reporteSemanal.pdf')">
+                Exportar a PDF...
+</button>
