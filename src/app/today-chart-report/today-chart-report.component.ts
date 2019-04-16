@@ -573,5 +573,4 @@ export class TodayChartReportComponent implements OnInit {
     data = this.dateSrv.count(this.dateSrv.countInputByQuestion(arrayContainer, qNumber).sort());
     return data;
   }
-
 }

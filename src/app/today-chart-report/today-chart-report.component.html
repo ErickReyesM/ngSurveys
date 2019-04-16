@@ -1,6 +1,6 @@
-<p>REPORTE DEL DÍA {{titleToday}}</p>
+<p id="report-title">REPORTE DEL DÍA {{titleToday}}</p>
 <div style="display: block;">
-        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        <canvas id="dailyChartCounter" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
                 [legend]="lineChartLegend" [chartType]="lineChartType">
         </canvas>
 </div>

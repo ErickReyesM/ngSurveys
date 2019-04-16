@@ -40,6 +40,8 @@ export class WeekChartReportComponent implements OnInit {
   doughnutLabelContainer: any[] = [];
   doughnutDataContainer: any[] = [];
   commentsCollection: string[] = [];
+  themeInCharts:string = "dark2";
+  surveyTitle:string = '';
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -56,6 +58,7 @@ export class WeekChartReportComponent implements OnInit {
     firebase.firestore().collection(this.collectionSurveys).doc(this.surveyId).get().then(
       (docSnapshot) => {
 
+        this.surveyTitle = docSnapshot.data().surveyTitle;
         this.questionsCollection = docSnapshot.data().questions
 
         //Get Elements from firestore
@@ -514,7 +517,7 @@ export class WeekChartReportComponent implements OnInit {
             text: this.questionsCollection[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,
@@ -533,7 +536,7 @@ export class WeekChartReportComponent implements OnInit {
             text: this.questionsCollection[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,
@@ -581,5 +584,4 @@ export class WeekChartReportComponent implements OnInit {
     data = this.dateSrv.count(this.dateSrv.countInputByQuestion(arrayContainer, qNumber).sort());
     return data;
   }
-
 }

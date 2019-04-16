@@ -1,6 +1,6 @@
-<p>REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
+<p id="weekly-report-title">REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
 <div style="display: block;">
-        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        <canvas id="weekly-report-count" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
                 [legend]="lineChartLegend" [chartType]="lineChartType">
         </canvas>
 </div>
