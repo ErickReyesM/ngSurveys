@@ -38,6 +38,8 @@ export class MonthChartReportComponent implements OnInit {
   doughnutLabelContainer: any[] = [];
   doughnutDataContainer: any[] = [];
   commentsCollection: string[] = [];
+  themeInCharts:string = "light2";
+  surveyTitle:string = '';
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -51,6 +53,7 @@ export class MonthChartReportComponent implements OnInit {
       firebase.firestore().collection(this.collectionSurveys).doc(this.surveyId).get().then(
         (docSnapshot) => {
   
+          this.surveyTitle = docSnapshot.data().surveyTitle;
           this.questionsCollectionMonthly = docSnapshot.data().questions
   
           //Get Elements from firestore
@@ -510,7 +513,7 @@ export class MonthChartReportComponent implements OnInit {
             text: this.questionsCollectionMonthly[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,
@@ -529,7 +532,7 @@ export class MonthChartReportComponent implements OnInit {
             text: this.questionsCollectionMonthly[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,

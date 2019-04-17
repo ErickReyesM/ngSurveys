@@ -36,6 +36,8 @@ export class TodayChartReportComponent implements OnInit {
   inputType: string[] = [];
   questionsCollectionDaily: any[] = [];
   commentsCollection: string[] = [];
+  themeInCharts:string = "light2";
+  surveyTitle:string = '';
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -49,6 +51,7 @@ export class TodayChartReportComponent implements OnInit {
     firebase.firestore().collection(this.collectionSurveys).doc(this.surveyId).get().then(
       (docSnapshot) => {
 
+        this.surveyTitle = docSnapshot.data().surveyTitle;
         this.questionsCollectionDaily = docSnapshot.data().questions
 
         //Get Elements from firestore
@@ -506,7 +509,7 @@ export class TodayChartReportComponent implements OnInit {
             text: this.questionsCollectionDaily[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,
@@ -525,7 +528,7 @@ export class TodayChartReportComponent implements OnInit {
             text: this.questionsCollectionDaily[questionNumber].questionTxt,
             horizontalAlign: "left"
           },
-          theme: "dark2",
+          theme: this.themeInCharts,
           data: [{
             type: "doughnut",
             startAngle: 60,

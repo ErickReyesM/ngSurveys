@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$sondaggio-primary: mat-palette($mat-pink, A400, A700);
+$sondaggio-accent:  mat-palette($mat-blue-grey, );
+
+// The warn palette is optional (defaults to red).
+$sondaggio-warn:    mat-palette($mat-red);
+
+$sondaggio-theme: mat-light-theme($sondaggio-primary, $sondaggio-accent, $sondaggio-warn);
+
+@include angular-material-theme($sondaggio-theme);

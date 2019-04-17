@@ -42,7 +42,6 @@ export class WeekChartReportComponent implements OnInit {
   commentsCollection: string[] = [];
   themeInCharts:string = "light2";
   surveyTitle:string = '';
-  pdfTitle:string = '';
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -491,8 +490,6 @@ export class WeekChartReportComponent implements OnInit {
               this.commentsCollection =
                 this.dateSrv.countInputByQuestion(this.inputCollection, 49).filter((element) => { return element != "" });
             }
-
-            this.pdfTitle = this.surveyTitle + '_' + this.today.toTimeString;
             //End of firebase method
           }
         ).catch(
