@@ -1,4 +1,4 @@
-<kendo-pdf-export #pdf paperSize="A4" margin="0.5cm" [scale]="0.48">
+<kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.43" forcePageBreak=".page-break" [avoidLinks]="true">
 <p id="weekly-report-title">REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
 <div style="display: block;">
         <canvas id="weekly-report-count" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
@@ -35,7 +35,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(3 < questionsCollection.length)">
+<div *ngIf="(3 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[3].type != 'Abierta'" id="chartContainer3" style="height: 300px; width: 100%;">
         </div>
         <div *ngIf="questionsCollection[3].type == 'Abierta'">
@@ -65,7 +65,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(6 < questionsCollection.length)">
+<div *ngIf="(6 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[6].type != 'Abierta'" id="chartContainer6" style="height: 300px; width: 100%;">
         </div>
         <div *ngIf="questionsCollection[6].type == 'Abierta'">
@@ -95,7 +95,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(9 < questionsCollection.length)">
+<div *ngIf="(9 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[9].type != 'Abierta'" id="chartContainer9" style="height: 300px; width: 100%;">
         </div>
         <div *ngIf="questionsCollection[9].type == 'Abierta'">
@@ -126,7 +126,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(12 < questionsCollection.length)">
+<div *ngIf="(12 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[12].type != 'Abierta'" id="chartContainer12"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[12].type == 'Abierta'">
@@ -156,7 +156,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(15 < questionsCollection.length)">
+<div *ngIf="(15 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[15].type != 'Abierta'" id="chartContainer15"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[15].type == 'Abierta'">
@@ -186,7 +186,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(18 < questionsCollection.length)">
+<div *ngIf="(18 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[18].type != 'Abierta'" id="chartContainer18"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[18].type == 'Abierta'">
@@ -217,7 +217,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(21 < questionsCollection.length)">
+<div *ngIf="(21 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[21].type != 'Abierta'" id="chartContainer21"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[21].type == 'Abierta'">
@@ -247,7 +247,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(24 < questionsCollection.length)">
+<div *ngIf="(24 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[24].type != 'Abierta'" id="chartContainer24"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[24].type == 'Abierta'">
@@ -277,7 +277,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(27 < questionsCollection.length)">
+<div *ngIf="(27 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[27].type != 'Abierta'" id="chartContainer27"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[27].type == 'Abierta'">
@@ -308,7 +308,7 @@
         </div>
 </div>
 
-<div *ngIf="(30 < questionsCollection.length)">
+<div *ngIf="(30 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[30].type != 'Abierta'" id="chartContainer30"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[30].type == 'Abierta'">
@@ -338,7 +338,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(33 < questionsCollection.length)">
+<div *ngIf="(33 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[33].type != 'Abierta'" id="chartContainer33"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[33].type == 'Abierta'">
@@ -368,7 +368,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(36 < questionsCollection.length)">
+<div *ngIf="(36 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[36].type != 'Abierta'" id="chartContainer36"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[36].type == 'Abierta'">
@@ -398,7 +398,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(39 < questionsCollection.length)">
+<div *ngIf="(39 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[39].type != 'Abierta'" id="chartContainer39"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[39].type == 'Abierta'">
@@ -419,7 +419,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(41 < questionsCollection.length)">
+<div *ngIf="(41 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[41].type != 'Abierta'" id="chartContainer41"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[41].type == 'Abierta'">
@@ -449,7 +449,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(44 < questionsCollection.length)">
+<div *ngIf="(44 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[44].type != 'Abierta'" id="chartContainer44"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[44].type == 'Abierta'">
@@ -479,7 +479,7 @@
                 </div>
         </div>
 </div>
-<div *ngIf="(47 < questionsCollection.length)">
+<div *ngIf="(47 < questionsCollection.length)" class='page-break'>
         <div *ngIf="questionsCollection[47].type != 'Abierta'" id="chartContainer47"
                 style="height: 300px; width: 100%;"></div>
         <div *ngIf="questionsCollection[47].type == 'Abierta'">
