@@ -6,3 +6,21 @@
     color: #8A8A8A;
     margin-top: 5%;
 }
+
+.table-data {
+    font-family: arial, sans-serif;
+    font-size: 1.3em;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 10px;
+  }
+  
+  .cell-data {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

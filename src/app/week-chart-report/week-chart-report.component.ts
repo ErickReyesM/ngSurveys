@@ -11,6 +11,7 @@ import { ChartConfiguration } from 'src/assets/intarfaces/chart-configuration.in
   templateUrl: './week-chart-report.component.html',
   styleUrls: ['./week-chart-report.component.css']
 })
+
 export class WeekChartReportComponent implements OnInit {
 
   /**Line Chart Configuration*/
@@ -40,8 +41,9 @@ export class WeekChartReportComponent implements OnInit {
   doughnutLabelContainer: any[] = [];
   doughnutDataContainer: any[] = [];
   commentsCollection: string[] = [];
-  themeInCharts:string = "light2";
-  surveyTitle:string = '';
+  themeInCharts: string = "light2";
+  surveyTitle: string = '';
+  dataTable:any[] = [];
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -94,6 +96,7 @@ export class WeekChartReportComponent implements OnInit {
             if (this.questionsCollection[0].type != 'Abierta') {
               var chart0 = this.onCreateChart('chartContainer0', this.questionsCollection, this.inputCollection, 0);
               chart0.render();
+              console.log(this.dataTable[0]);
             } else {
               this.commentsCollection =
                 this.dateSrv.countInputByQuestion(this.inputCollection, 0).filter((element) => { return element != "" });
@@ -520,7 +523,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 33,
+            indexLabelFontSize: 25,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPointsSatisfaction(iCollection, questionNumber)
@@ -539,7 +542,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 33,
+            indexLabelFontSize: 25,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPoints(qCollection, iCollection, questionNumber)
@@ -549,7 +552,7 @@ export class WeekChartReportComponent implements OnInit {
       case 'Abierta':
         return null;
     }
-
+    this.dataTable.push(configChart.data[0].dataPoints);
     return new CanvasJS.Chart(chartElementId, configChart)
   }
 
