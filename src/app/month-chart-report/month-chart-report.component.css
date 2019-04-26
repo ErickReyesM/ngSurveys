@@ -7,18 +7,32 @@
     margin-top: 5%;
 }
 
-.table-data {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-  }
-  
-  .cell-data {
-    border: 1px solid #dddddd;
-    text-align: left;
-    font-size: 1.3em;
-    padding: 8px;
-  }
+table, th, td {
+  width: 100%;
+}
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+div.table-data table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin-bottom: 6em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+  
+div.table-data .cell-data {
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-size: 1.5em;
+  padding: 8px;
+}
+
+div.table-data tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td div.table-data{
+  vertical-align: middle;
+  text-align: center;
+}
+

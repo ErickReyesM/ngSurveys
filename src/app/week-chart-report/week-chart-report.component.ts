@@ -528,7 +528,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 26,
+            indexLabelFontSize: 30,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPointsSatisfaction(iCollection, questionNumber)
@@ -547,7 +547,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 26,
+            indexLabelFontSize: 30,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPoints(qCollection, iCollection, questionNumber)
