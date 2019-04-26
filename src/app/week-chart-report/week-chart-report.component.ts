@@ -81,9 +81,15 @@ export class WeekChartReportComponent implements OnInit {
                 label: 'Encuestas Por Día'
               });
 
-            this.lineChartLabels = this.surveyCreated.sort((a, b) => {
+            var labels = this.surveyCreated.sort((a, b) => {
               return new Date(a).getTime() - new Date(b).getTime()
             }).filter((v, i) => this.surveyCreated.indexOf(v) === i);
+
+            for(let i=0; i<labels.length; i++){
+              labels[i] = new Date(labels[i]).toLocaleDateString('es-US');
+            }
+
+            this.lineChartLabels = labels;
 
             CanvasJS.addColorSet("satisfaction",
               [//colorSet Array
@@ -96,7 +102,6 @@ export class WeekChartReportComponent implements OnInit {
             if (this.questionsCollection[0].type != 'Abierta') {
               var chart0 = this.onCreateChart('chartContainer0', this.questionsCollection, this.inputCollection, 0);
               chart0.render();
-              console.log(this.dataTable[0]);
             } else {
               this.commentsCollection =
                 this.dateSrv.countInputByQuestion(this.inputCollection, 0).filter((element) => { return element != "" });
@@ -523,7 +528,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 25,
+            indexLabelFontSize: 26,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPointsSatisfaction(iCollection, questionNumber)
@@ -542,7 +547,7 @@ export class WeekChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 25,
+            indexLabelFontSize: 26,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPoints(qCollection, iCollection, questionNumber)
@@ -553,7 +558,7 @@ export class WeekChartReportComponent implements OnInit {
         return null;
     }
     this.dataTable.push(configChart.data[0].dataPoints);
-    return new CanvasJS.Chart(chartElementId, configChart)
+    return new CanvasJS.Chart(chartElementId, configChart);
   }
 
   private setDataPoints(labelsArray: any[], inputArray: any[], questionNumber: number): any[] {

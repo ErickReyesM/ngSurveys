@@ -40,6 +40,7 @@ export class MonthChartReportComponent implements OnInit {
   commentsCollection: string[] = [];
   themeInCharts:string = "light2";
   surveyTitle:string = '';
+  monthlyDataTable:any[] = [];
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
     this.dataSrv.idOfTheSurvey.subscribe(identifier => this.surveyId = identifier);
@@ -74,9 +75,15 @@ export class MonthChartReportComponent implements OnInit {
                   label: 'Encuestas Por Día'
                 });
   
-              this.lineChartLabels = this.surveyCreated.sort((a, b) => {
-                return new Date(a).getTime() - new Date(b).getTime()
-              }).filter((v, i) => this.surveyCreated.indexOf(v) === i);
+                var labels = this.surveyCreated.sort((a, b) => {
+                  return new Date(a).getTime() - new Date(b).getTime()
+                }).filter((v, i) => this.surveyCreated.indexOf(v) === i);
+    
+                for(let i=0; i<labels.length; i++){
+                  labels[i] = new Date(labels[i]).toLocaleDateString('es-US');
+                }
+    
+                this.lineChartLabels = labels;
 
             CanvasJS.addColorSet("satisfaction",
               [//colorSet Array
@@ -518,7 +525,7 @@ export class MonthChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 17,
+            indexLabelFontSize: 26,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPointsSatisfaction(iCollection, questionNumber)
@@ -537,7 +544,7 @@ export class MonthChartReportComponent implements OnInit {
             type: "doughnut",
             startAngle: 60,
             //innerRadius: 60,
-            indexLabelFontSize: 17,
+            indexLabelFontSize: 26,
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y}",
             dataPoints: this.setDataPoints(qCollection, iCollection, questionNumber)
@@ -547,8 +554,8 @@ export class MonthChartReportComponent implements OnInit {
       case 'Abierta':
         return null;
     }
-
-    return new CanvasJS.Chart(chartElementId, configChart)
+    this.monthlyDataTable.push(configChart.data[0].dataPoints);
+    return new CanvasJS.Chart(chartElementId, configChart);
   }
 
   private setDataPoints(labelsArray: any[], inputArray: any[], questionNumber: number): any[] {

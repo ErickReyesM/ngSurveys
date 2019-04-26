@@ -7,676 +7,1884 @@
                         [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType">
                 </canvas>
         </div>
+        <p style="font-size:2em; margin-bottom: 3em;">
+                Total Encuestas Contestadas:
+                <strong>
+                        {{ inputCollectionMonthly.length }}
+                </strong>
+        </p>
         <div *ngIf="(0 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[0].type != 'Abierta'" id="monthlyChartContainer0"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[0].type != 'Abierta'"
+                                                id="monthlyChartContainer0"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[0]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[0]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[0].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[0].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(1 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[1].type != 'Abierta'" id="monthlyChartContainer1"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[1].type != 'Abierta'"
+                                                id="monthlyChartContainer1"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[1]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[1]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[1].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[1].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(2 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[2].type != 'Abierta'" id="monthlyChartContainer2"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[2].type != 'Abierta'"
+                                                id="monthlyChartContainer2"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[2]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[2]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[2].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[2].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(3 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[3].type != 'Abierta'" id="monthlyChartContainer3"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[3].type != 'Abierta'"
+                                                id="monthlyChartContainer3"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[3]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[3]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[3].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[3].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(4 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[4].type != 'Abierta'" id="monthlyChartContainer4"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[4].type != 'Abierta'"
+                                                id="monthlyChartContainer4"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[4]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[4]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[4].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[4].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(5 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[5].type != 'Abierta'" id="monthlyChartContainer5"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[5].type != 'Abierta'"
+                                                id="monthlyChartContainer5"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[5]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[5]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[5].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[5].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(6 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[6].type != 'Abierta'" id="monthlyChartContainer6"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[6].type != 'Abierta'"
+                                                id="monthlyChartContainer6"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[6]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[6]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[6].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[6].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(7 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[7].type != 'Abierta'" id="monthlyChartContainer7"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[7].type != 'Abierta'"
+                                                id="monthlyChartContainer7"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[7]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[7]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[7].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[7].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(8 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[8].type != 'Abierta'" id="monthlyChartContainer8"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[8].type != 'Abierta'"
+                                                id="monthlyChartContainer8"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[8]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[8]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[8].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[8].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(9 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[9].type != 'Abierta'" id="monthlyChartContainer9"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[9].type != 'Abierta'"
+                                                id="monthlyChartContainer9"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[9]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[9]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[9].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[9].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(10 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[10].type != 'Abierta'" id="monthlyChartContainer10"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[10].type != 'Abierta'"
+                                                id="monthlyChartContainer10"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[10]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[10]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[10].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[10].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(11 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[11].type != 'Abierta'" id="monthlyChartContainer11"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[11].type != 'Abierta'"
+                                                id="monthlyChartContainer11"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[11]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[11]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[11].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[11].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(12 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[12].type != 'Abierta'" id="monthlyChartContainer12"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[12].type != 'Abierta'"
+                                                id="monthlyChartContainer12"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[12]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[12]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[12].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[12].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(13 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[13].type != 'Abierta'" id="monthlyChartContainer13"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[13].type != 'Abierta'"
+                                                id="monthlyChartContainer13"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[13]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[13]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[13].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[13].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(14 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[14].type != 'Abierta'" id="monthlyChartContainer14"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[14].type != 'Abierta'"
+                                                id="monthlyChartContainer14"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[14]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[14]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[14].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[14].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(15 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[15].type != 'Abierta'" id="monthlyChartContainer15"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[15].type != 'Abierta'"
+                                                id="monthlyChartContainer15"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[15]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[15]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[15].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[15].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(16 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[16].type != 'Abierta'" id="monthlyChartContainer16"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[16].type != 'Abierta'"
+                                                id="monthlyChartContainer16"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[16]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[16]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[16].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[16].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(17 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[17].type != 'Abierta'" id="monthlyChartContainer17"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[17].type != 'Abierta'"
+                                                id="monthlyChartContainer17"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[17]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[17]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[17].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[17].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(18 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[18].type != 'Abierta'" id="monthlyChartContainer18"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[18].type != 'Abierta'"
+                                                id="monthlyChartContainer18"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[18]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[18]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[18].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[18].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(19 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[19].type != 'Abierta'" id="monthlyChartContainer19"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[19].type != 'Abierta'"
+                                                id="monthlyChartContainer19"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[19]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[19]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[19].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[19].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                </div>
-                <br>
-        </div>
 
-        <div *ngIf="(20 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[20].type != 'Abierta'" id="monthlyChartContainer20"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
                 </div>
-                <br>
+
+        </div>
+        <div *ngIf="(20 < questionsCollectionMonthly.length)">
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[20].type != 'Abierta'"
+                                                id="monthlyChartContainer20"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[20]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[20]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[20].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[20].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(21 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[21].type != 'Abierta'" id="monthlyChartContainer21"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[21].type != 'Abierta'"
+                                                id="monthlyChartContainer21"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[21]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[21]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[21].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[21].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(22 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[22].type != 'Abierta'" id="monthlyChartContainer22"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[22].type != 'Abierta'"
+                                                id="monthlyChartContainer22"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[22]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[22]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[22].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[22].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(23 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[23].type != 'Abierta'" id="monthlyChartContainer23"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[23].type != 'Abierta'"
+                                                id="monthlyChartContainer23"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[23]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[23]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[23].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[23].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(24 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[24].type != 'Abierta'" id="monthlyChartContainer24"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[24].type != 'Abierta'"
+                                                id="monthlyChartContainer24"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[24]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[24]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[24].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[24].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(25 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[25].type != 'Abierta'" id="monthlyChartContainer25"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[25].type != 'Abierta'"
+                                                id="monthlyChartContainer25"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[25]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[25]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[25].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[25].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(26 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[26].type != 'Abierta'" id="monthlyChartContainer26"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[26].type != 'Abierta'"
+                                                id="monthlyChartContainer26"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[26]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[26]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[26].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[26].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(27 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[27].type != 'Abierta'" id="monthlyChartContainer27"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[27].type != 'Abierta'"
+                                                id="monthlyChartContainer27"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[27]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[27]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[27].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[27].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(28 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[28].type != 'Abierta'" id="monthlyChartContainer28"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
-                <div *ngIf="questionsCollectionMonthly[8].type == 'Abierta'">
-                        <h1>{{ questionsCollectionMonthly[8].questionTxt }}</h1>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[28].type != 'Abierta'"
+                                                id="monthlyChartContainer28"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[28]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[28]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
+                <div *ngIf="questionsCollectionMonthly[28].type == 'Abierta'">
+                        <h1>{{ questionsCollectionMonthly[28].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(29 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[29].type != 'Abierta'" id="monthlyChartContainer29"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[29].type != 'Abierta'"
+                                                id="monthlyChartContainer29"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[29]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[29]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[29].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[29].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(30 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[30].type != 'Abierta'" id="monthlyChartContainer30"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[30].type != 'Abierta'"
+                                                id="monthlyChartContainer30"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[30]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[30]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[30].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[30].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(31 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[31].type != 'Abierta'" id="monthlyChartContainer31"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[31].type != 'Abierta'"
+                                                id="monthlyChartContainer31"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[31]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[31]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[31].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[31].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(32 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[32].type != 'Abierta'" id="monthlyChartContainer32"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[32].type != 'Abierta'"
+                                                id="monthlyChartContainer32"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[32]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[32]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[32].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[32].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(33 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[33].type != 'Abierta'" id="monthlyChartContainer33"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[33].type != 'Abierta'"
+                                                id="monthlyChartContainer33"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[33]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[33]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[33].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[33].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(34 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[34].type != 'Abierta'" id="monthlyChartContainer34"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[34].type != 'Abierta'"
+                                                id="monthlyChartContainer34"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[34]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[34]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[34].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[34].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(35 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[35].type != 'Abierta'" id="monthlyChartContainer35"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[35].type != 'Abierta'"
+                                                id="monthlyChartContainer35"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[35]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[35]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[35].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[35].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(36 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[36].type != 'Abierta'" id="monthlyChartContainer36"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[36].type != 'Abierta'"
+                                                id="monthlyChartContainer36"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[36]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[36]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[36].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[36].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(37 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[37].type != 'Abierta'" id="monthlyChartContainer37"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[37].type != 'Abierta'"
+                                                id="monthlyChartContainer37"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[37]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[37]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[37].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[37].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(38 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[38].type != 'Abierta'" id="monthlyChartContainer38"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[38].type != 'Abierta'"
+                                                id="monthlyChartContainer38"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[38]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[38]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[38].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[38].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(39 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[39].type != 'Abierta'" id="monthlyChartContainer39"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[39].type != 'Abierta'"
+                                                id="monthlyChartContainer39"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[39]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[39]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[39].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[39].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(40 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[40].type != 'Abierta'" id="monthlyChartContainer40"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[40].type != 'Abierta'"
+                                                id="monthlyChartContainer40"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[40]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[40]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[40].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[40].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(41 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[41].type != 'Abierta'" id="monthlyChartContainer41"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[41].type != 'Abierta'"
+                                                id="monthlyChartContainer41"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[41]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[41]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[41].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[41].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(42 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[42].type != 'Abierta'" id="monthlyChartContainer42"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[42].type != 'Abierta'"
+                                                id="monthlyChartContainer42"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[42]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[42]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[42].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[42].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(43 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[43].type != 'Abierta'" id="monthlyChartContainer43"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[43].type != 'Abierta'"
+                                                id="monthlyChartContainer43"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[43]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[43]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[43].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[43].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(44 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[44].type != 'Abierta'" id="monthlyChartContainer44"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[44].type != 'Abierta'"
+                                                id="monthlyChartContainer44"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[44]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[44]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[44].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[44].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(45 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[45].type != 'Abierta'" id="monthlyChartContainer45"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[45].type != 'Abierta'"
+                                                id="monthlyChartContainer45"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[45]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[45]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[45].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[45].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(46 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[46].type != 'Abierta'" id="monthlyChartContainer46"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[46].type != 'Abierta'"
+                                                id="monthlyChartContainer46"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[46]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[46]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[46].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[46].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(47 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[47].type != 'Abierta'" id="monthlyChartContainer47"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[47].type != 'Abierta'"
+                                                id="monthlyChartContainer47"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[47]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[47]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionMonthly[47].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[47].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(48 < questionsCollectionMonthly.length)">
-                <div *ngIf="questionsCollectionMonthly[48].type != 'Abierta'" id="monthlyChartContainer48"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[48].type != 'Abierta'"
+                                                id="monthlyChartContainer48"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[48]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[48]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[48].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[48].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(49 < questionsCollectionMonthly.length)" class='page-break'>
-                <div *ngIf="questionsCollectionMonthly[49].type != 'Abierta'" id="monthlyChartContainer49"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionMonthly[49].type != 'Abierta'"
+                                                id="monthlyChartContainer49"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of monthlyDataTable[49]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data"
+                                                                        *ngFor="let d of monthlyDataTable[49]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionMonthly[49].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[49].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
 </kendo-pdf-export>
 <div style="text-align: right; margin: 15px">
-        <button mat-raised-button color="primary" kendo-button (click)="pdf.saveAs('reporteSemanal.pdf')">
+        <button mat-raised-button color="primary" kendo-button (click)="pdf.saveAs('reporteMensual.pdf')">
                 Exportar a PDF...
         </button>
 </div>

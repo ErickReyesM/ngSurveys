@@ -7,676 +7,1774 @@
                         [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType">
                 </canvas>
         </div>
+        <p style="font-size:2em; margin-bottom: 3em;">
+                Total Encuestas Contestadas:
+                <strong>
+                        {{ inputCollectionDaily.length }}
+                </strong>
+        </p>
         <div *ngIf="(0 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[0].type != 'Abierta'" id="dailyChartContainer0"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[0].type != 'Abierta'" id="dailyChartContainer0"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[0]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[0]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[0].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[0].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(1 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[1].type != 'Abierta'" id="dailyChartContainer1"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[1].type != 'Abierta'" id="dailyChartContainer1"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[1]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[1]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[1].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[1].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(2 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[2].type != 'Abierta'" id="dailyChartContainer2"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[2].type != 'Abierta'" id="dailyChartContainer2"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[2]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[2]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[2].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[2].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(3 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[3].type != 'Abierta'" id="dailyChartContainer3"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[3].type != 'Abierta'" id="dailyChartContainer3"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[3]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[3]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[3].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[3].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(4 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[4].type != 'Abierta'" id="dailyChartContainer4"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[4].type != 'Abierta'" id="dailyChartContainer4"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[4]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[4]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[4].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[4].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(5 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[5].type != 'Abierta'" id="dailyChartContainer5"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[5].type != 'Abierta'" id="dailyChartContainer5"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[5]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[5]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[5].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[5].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(6 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[6].type != 'Abierta'" id="dailyChartContainer6"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[6].type != 'Abierta'" id="dailyChartContainer6"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[6]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[6]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[6].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[6].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(7 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[7].type != 'Abierta'" id="dailyChartContainer7"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                        
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[7].type != 'Abierta'" id="dailyChartContainer7"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[7]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[7]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[7].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[7].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(8 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[8].type != 'Abierta'" id="dailyChartContainer8"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[8].type != 'Abierta'" id="dailyChartContainer8"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[8]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[8]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[8].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[8].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(9 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[9].type != 'Abierta'" id="dailyChartContainer9"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[9].type != 'Abierta'" id="dailyChartContainer9"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data" *ngFor="let data of dailyDataTable[9]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[9]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[9].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[9].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                        
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(10 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[10].type != 'Abierta'" id="dailyChartContainer10"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[10].type != 'Abierta'" id="dailyChartContainer10"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[10]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[10]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[10].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[10].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(11 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[11].type != 'Abierta'" id="dailyChartContainer11"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[11].type != 'Abierta'" id="dailyChartContainer11"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[11]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[11]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[11].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[11].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(12 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[12].type != 'Abierta'" id="dailyChartContainer12"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[12].type != 'Abierta'" id="dailyChartContainer12"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[12]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[12]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[12].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[12].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(13 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[13].type != 'Abierta'" id="dailyChartContainer13"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[13].type != 'Abierta'" id="dailyChartContainer13"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[13]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[13]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[13].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[13].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(14 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[14].type != 'Abierta'" id="dailyChartContainer14"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[14].type != 'Abierta'" id="dailyChartContainer14"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[14]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[14]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[14].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[14].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(15 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[15].type != 'Abierta'" id="dailyChartContainer15"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[15].type != 'Abierta'" id="dailyChartContainer15"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[15]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[15]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[15].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[15].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(16 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[16].type != 'Abierta'" id="dailyChartContainer16"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[16].type != 'Abierta'" id="dailyChartContainer16"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[16]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[16]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[16].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[16].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(17 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[17].type != 'Abierta'" id="dailyChartContainer17"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[17].type != 'Abierta'" id="dailyChartContainer17"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[17]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[17]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[17].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[17].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(18 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[18].type != 'Abierta'" id="dailyChartContainer18"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[18].type != 'Abierta'" id="dailyChartContainer18"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[18]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[18]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[18].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[18].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(19 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[19].type != 'Abierta'" id="dailyChartContainer19"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[19].type != 'Abierta'" id="dailyChartContainer19"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[19]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[19]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[19].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[19].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
-                </div>
-                <br>
-        </div>
 
-        <div *ngIf="(20 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[20].type != 'Abierta'" id="dailyChartContainer20"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
                 </div>
-                <br>
+
+        </div>
+        <div *ngIf="(20 < questionsCollectionDaily.length)">
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[20].type != 'Abierta'" id="dailyChartContainer20"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[20]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[20]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[20].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[20].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(21 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[21].type != 'Abierta'" id="dailyChartContainer21"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[21].type != 'Abierta'" id="dailyChartContainer21"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[21]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[21]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[21].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[21].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(22 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[22].type != 'Abierta'" id="dailyChartContainer22"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[22].type != 'Abierta'" id="dailyChartContainer22"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[22]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[22]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[22].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[22].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(23 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[23].type != 'Abierta'" id="dailyChartContainer23"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[23].type != 'Abierta'" id="dailyChartContainer23"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[23]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[23]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[23].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[23].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(24 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[24].type != 'Abierta'" id="dailyChartContainer24"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[24].type != 'Abierta'" id="dailyChartContainer24"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[24]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[24]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[24].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[24].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(25 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[25].type != 'Abierta'" id="dailyChartContainer25"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[25].type != 'Abierta'" id="dailyChartContainer25"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[25]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[25]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[25].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[25].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(26 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[26].type != 'Abierta'" id="dailyChartContainer26"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[26].type != 'Abierta'" id="dailyChartContainer26"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[26]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[26]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[26].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[26].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(27 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[27].type != 'Abierta'" id="dailyChartContainer27"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[27].type != 'Abierta'" id="dailyChartContainer27"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[27]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[27]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[27].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[27].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(28 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[28].type != 'Abierta'" id="dailyChartContainer28"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
-                <div *ngIf="questionsCollectionDaily[8].type == 'Abierta'">
-                        <h1>{{ questionsCollectionDaily[8].questionTxt }}</h1>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[28].type != 'Abierta'" id="dailyChartContainer28"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[28]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[28]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
+                <div *ngIf="questionsCollectionDaily[28].type == 'Abierta'">
+                        <h1>{{ questionsCollectionDaily[28].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(29 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[29].type != 'Abierta'" id="dailyChartContainer29"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[29].type != 'Abierta'" id="dailyChartContainer29"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[29]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[29]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[29].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[29].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(30 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[30].type != 'Abierta'" id="dailyChartContainer30"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[30].type != 'Abierta'" id="dailyChartContainer30"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[30]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[30]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[30].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[30].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(31 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[31].type != 'Abierta'" id="dailyChartContainer31"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[31].type != 'Abierta'" id="dailyChartContainer31"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[31]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[31]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[31].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[31].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(32 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[32].type != 'Abierta'" id="dailyChartContainer32"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[32].type != 'Abierta'" id="dailyChartContainer32"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[32]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[32]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[32].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[32].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(33 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[33].type != 'Abierta'" id="dailyChartContainer33"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[33].type != 'Abierta'" id="dailyChartContainer33"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[33]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[33]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[33].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[33].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(34 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[34].type != 'Abierta'" id="dailyChartContainer34"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[34].type != 'Abierta'" id="dailyChartContainer34"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[34]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[34]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[34].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[34].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(35 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[35].type != 'Abierta'" id="dailyChartContainer35"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[35].type != 'Abierta'" id="dailyChartContainer35"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[35]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[35]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[35].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[35].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(36 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[36].type != 'Abierta'" id="dailyChartContainer36"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[36].type != 'Abierta'" id="dailyChartContainer36"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[36]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[36]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[36].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[36].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(37 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[37].type != 'Abierta'" id="dailyChartContainer37"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[37].type != 'Abierta'" id="dailyChartContainer37"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[37]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[37]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[37].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[37].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(38 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[38].type != 'Abierta'" id="dailyChartContainer38"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[38].type != 'Abierta'" id="dailyChartContainer38"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[38]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[38]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[38].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[38].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(39 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[39].type != 'Abierta'" id="dailyChartContainer39"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[39].type != 'Abierta'" id="dailyChartContainer39"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[39]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[39]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[39].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[39].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
         <div *ngIf="(40 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[40].type != 'Abierta'" id="dailyChartContainer40"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[40].type != 'Abierta'" id="dailyChartContainer40"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[40]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[40]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[40].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[40].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
                 </div>
-                <br>
         </div>
+
         <div *ngIf="(41 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[41].type != 'Abierta'" id="dailyChartContainer41"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[41].type != 'Abierta'" id="dailyChartContainer41"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[41]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[41]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[41].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[41].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
         </div>
         <div *ngIf="(42 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[42].type != 'Abierta'" id="dailyChartContainer42"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[42].type != 'Abierta'" id="dailyChartContainer42"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[42]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[42]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[42].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[42].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(43 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[43].type != 'Abierta'" id="dailyChartContainer43"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[43].type != 'Abierta'" id="dailyChartContainer43"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[43]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[43]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[43].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[43].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(44 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[44].type != 'Abierta'" id="dailyChartContainer44"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[44].type != 'Abierta'" id="dailyChartContainer44"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[44]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[44]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[44].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[44].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(45 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[45].type != 'Abierta'" id="dailyChartContainer45"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[45].type != 'Abierta'" id="dailyChartContainer45"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[45]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[45]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[45].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[45].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(46 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[46].type != 'Abierta'" id="dailyChartContainer46"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[46].type != 'Abierta'" id="dailyChartContainer46"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[46]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[46]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[46].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[46].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(47 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[47].type != 'Abierta'" id="dailyChartContainer47"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[47].type != 'Abierta'" id="dailyChartContainer47"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[47]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[47]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
                 <div *ngIf="questionsCollectionDaily[47].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[47].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(48 < questionsCollectionDaily.length)">
-                <div *ngIf="questionsCollectionDaily[48].type != 'Abierta'" id="dailyChartContainer48"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[48].type != 'Abierta'" id="dailyChartContainer48"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[48]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[48]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[48].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[48].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
         <div *ngIf="(49 < questionsCollectionDaily.length)" class='page-break'>
-                <div *ngIf="questionsCollectionDaily[49].type != 'Abierta'" id="dailyChartContainer49"
-                        style="height: 650px; width: 100%; margin-bottom: 4em;">
-                </div>
-                <br>
+                <table>
+                        <tr>
+                                <td>
+                                        <div *ngIf="questionsCollectionDaily[49].type != 'Abierta'" id="dailyChartContainer49"
+                                                style="height: 550px; width: 700px; margin-bottom: 6em;">
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="table-data">
+                                                <table class="table-data">
+                                                        <tr>
+                                                                <th class="cell-data"
+                                                                        *ngFor="let data of dailyDataTable[49]">
+                                                                        {{ data.label }}
+                                                                </th>
+                                                        </tr>
+                                                        <tr>
+                                                                <td class="cell-data" *ngFor="let d of dailyDataTable[49]">
+                                                                        {{ d.y }} </td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
                 <div *ngIf="questionsCollectionDaily[49].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[49].questionTxt }}</h1>
                         <div *ngFor="let comment of commentsCollection">
                                 <p style="font-size:150%">{{ comment }}</p>
                         </div>
+
                 </div>
-                <br>
+
         </div>
 
 </kendo-pdf-export>
 <div style="text-align: right; margin: 15px">
-        <button mat-raised-button color="primary" kendo-button (click)="pdf.saveAs('reporteSemanal.pdf')">
+        <button mat-raised-button color="primary" kendo-button (click)="pdf.saveAs('reporteDiario.pdf')">
                 Exportar a PDF...
         </button>
 </div>
