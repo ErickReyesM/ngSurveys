@@ -43,6 +43,7 @@ export class WeekChartReportComponent implements OnInit {
   commentsCollection: string[] = [];
   themeInCharts: string = "light2";
   surveyTitle: string = '';
+  surveyDescription:string = '';
   dataTable:any[] = [];
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
@@ -61,7 +62,8 @@ export class WeekChartReportComponent implements OnInit {
       (docSnapshot) => {
 
         this.surveyTitle = docSnapshot.data().surveyTitle;
-        this.questionsCollection = docSnapshot.data().questions
+        this.surveyDescription = docSnapshot.data().surveyDescription;
+        this.questionsCollection = docSnapshot.data().questions;
 
         //Get Elements from firestore
         firebase.firestore().collection(this.collectionInput).where('surveyID', '==', this.surveyId).get().then(

@@ -1,7 +1,8 @@
-<kendo-pdf-export #pdf paperSize="A4" margin="1.5cm" [scale]="0.55" [avoidLinks]="true" forcePageBreak=".page-break"
+<kendo-pdf-export #pdf paperSize="A4" margin="1.3cm" [scale]="0.51" [avoidLinks]="true" forcePageBreak=".page-break"
         [landscape]="true">
         <img src="assets/img/logo.png" alt="SondaggioLogo" width="529px" height="163px">
         <h1 style="text-align:center;">{{ surveyTitle }}</h1>
+        <h3>{{surveyDescription}}</h3>
         <p>REPORTE DEL MES DE {{titleMonth}}</p>
         <div style="display: block; width: auto;">
                 <canvas id="monthlyChartCounter" baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
@@ -24,7 +25,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -42,14 +43,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[0].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[0].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -63,7 +64,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -81,15 +82,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[1].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[1].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -103,7 +103,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -121,15 +121,16 @@
                                                 </table>
                                         </div>
                                 </td>
-                                <td><div style="width: 20px;"></div></td>
+                                <td>
+                                        <div style="width: 20px;"></div>
+                                </td>
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[2].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[2].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -144,7 +145,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -162,15 +163,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[3].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[3].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -185,7 +185,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -203,15 +203,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[4].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[4].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -226,7 +225,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -244,15 +243,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[5].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[5].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -267,7 +265,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -285,15 +283,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[6].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[6].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -308,7 +305,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -326,15 +323,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[7].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[7].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -349,7 +345,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -367,15 +363,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[8].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[8].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -390,7 +385,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -408,15 +403,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[9].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[9].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -430,7 +424,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -448,14 +442,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[10].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[10].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -469,7 +463,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -487,15 +481,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[11].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[11].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -509,7 +502,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -527,15 +520,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[12].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[12].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -550,7 +542,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -568,15 +560,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[13].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[13].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -591,7 +582,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -609,15 +600,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[14].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[14].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -632,7 +622,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -650,15 +640,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[15].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[15].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -673,7 +662,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -691,15 +680,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[16].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[16].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -714,7 +702,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -732,15 +720,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[17].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[17].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -755,7 +742,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -773,15 +760,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[18].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[18].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -796,7 +782,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -814,15 +800,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[19].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[19].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -836,7 +821,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -854,14 +839,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[20].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[20].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -875,7 +860,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -893,15 +878,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[21].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[21].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -915,7 +899,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -933,15 +917,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[22].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[22].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -956,7 +939,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -974,15 +957,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[23].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[23].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -997,7 +979,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1015,15 +997,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[24].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[24].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1038,7 +1019,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1056,15 +1037,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[25].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[25].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1079,7 +1059,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1097,15 +1077,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[26].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[26].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1120,7 +1099,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1138,15 +1117,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[27].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[27].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1161,7 +1139,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1179,15 +1157,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[28].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[28].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1202,7 +1179,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1220,15 +1197,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[29].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[29].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1242,7 +1218,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1260,14 +1236,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[30].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[30].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1281,7 +1257,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1299,15 +1275,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[31].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[31].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1321,7 +1296,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1339,15 +1314,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[32].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[32].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1362,7 +1336,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1380,15 +1354,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[33].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[33].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1403,7 +1376,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1421,15 +1394,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[34].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[34].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1444,7 +1416,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1462,15 +1434,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[35].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[35].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1485,7 +1456,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1503,15 +1474,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[36].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[36].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1526,7 +1496,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1544,15 +1514,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[37].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[37].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1567,7 +1536,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1585,15 +1554,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[38].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[38].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1608,7 +1576,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1626,15 +1594,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[39].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[39].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1648,7 +1615,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1666,14 +1633,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[40].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[40].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1687,7 +1654,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1705,15 +1672,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[41].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[41].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1727,7 +1693,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1745,15 +1711,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[42].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[42].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1768,7 +1733,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1786,15 +1751,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[43].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[43].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1809,7 +1773,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1827,15 +1791,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[44].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[44].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1850,7 +1813,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1868,15 +1831,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[45].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[45].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1891,7 +1853,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1909,15 +1871,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[46].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[46].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1932,7 +1893,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1950,15 +1911,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[47].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[47].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1973,7 +1933,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -1991,15 +1951,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[48].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[48].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -2014,7 +1973,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                
+
                                 <td>
                                         <div class="table-data">
                                                 <table>
@@ -2032,15 +1991,14 @@
                                                 </table>
                                         </div>
                                 </td>
-                                
+
                         </tr>
                 </table>
                 <div *ngIf="questionsCollectionMonthly[49].type == 'Abierta'">
                         <h1>{{ questionsCollectionMonthly[49].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 </kendo-pdf-export>

@@ -1,7 +1,8 @@
-<kendo-pdf-export #pdf paperSize="A4" margin="1.5cm" [scale]="0.55" [avoidLinks]="true" forcePageBreak=".page-break"
+<kendo-pdf-export #pdf paperSize="A4" margin="1.3m" [scale]="0.51" [avoidLinks]="true" forcePageBreak=".page-break"
         [landscape]="true">
         <img src="assets/img/logo.png" alt="SondaggioLogo" width="529px" height="163px">
         <h1 style="text-align:center;">{{ surveyTitle }}</h1>
+        <h3>{{surveyDescription}}</h3>
         <p id="weekly-report-title">REPORTE DEL {{title7ago}} AL {{titleToday}}</p>
         <div style="display: block;">
                 <canvas id="weekly-report-count" baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
@@ -18,8 +19,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[0].type != 'Abierta'"
-                                                id="chartContainer0" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[0].type != 'Abierta'" id="chartContainer0"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -29,14 +30,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[0]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[0]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[0]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[0]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -47,9 +46,9 @@
                 </table>
                 <div *ngIf="questionsCollection[0].type == 'Abierta'">
                         <h1>{{ questionsCollection[0].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -57,8 +56,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[1].type != 'Abierta'"
-                                                id="chartContainer1" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[1].type != 'Abierta'" id="chartContainer1"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -68,14 +67,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[1]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[1]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[1]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[1]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -86,9 +83,9 @@
                 </table>
                 <div *ngIf="questionsCollection[1].type == 'Abierta'">
                         <h1>{{ questionsCollection[1].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
         </div>
@@ -97,8 +94,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[2].type != 'Abierta'"
-                                                id="chartContainer2" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[2].type != 'Abierta'" id="chartContainer2"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -108,14 +105,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[2]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[2]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[2]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[2]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -128,9 +123,9 @@
                 </table>
                 <div *ngIf="questionsCollection[2].type == 'Abierta'">
                         <h1>{{ questionsCollection[2].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
 
@@ -140,8 +135,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[3].type != 'Abierta'"
-                                                id="chartContainer3" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[3].type != 'Abierta'" id="chartContainer3"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -151,14 +146,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[3]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[3]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[3]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[3]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -169,9 +162,9 @@
                 </table>
                 <div *ngIf="questionsCollection[3].type == 'Abierta'">
                         <h1>{{ questionsCollection[3].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
 
@@ -181,8 +174,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[4].type != 'Abierta'"
-                                                id="chartContainer4" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[4].type != 'Abierta'" id="chartContainer4"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -192,14 +185,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[4]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[4]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[4]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[4]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -210,9 +201,9 @@
                 </table>
                 <div *ngIf="questionsCollection[4].type == 'Abierta'">
                         <h1>{{ questionsCollection[4].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
 
@@ -222,8 +213,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[5].type != 'Abierta'"
-                                                id="chartContainer5" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[5].type != 'Abierta'" id="chartContainer5"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -233,14 +224,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[5]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[5]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[5]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[5]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -251,9 +240,9 @@
                 </table>
                 <div *ngIf="questionsCollection[5].type == 'Abierta'">
                         <h1>{{ questionsCollection[5].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
 
@@ -263,8 +252,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[6].type != 'Abierta'"
-                                                id="chartContainer6" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[6].type != 'Abierta'" id="chartContainer6"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -274,14 +263,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[6]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[6]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[6]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[6]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -292,9 +279,9 @@
                 </table>
                 <div *ngIf="questionsCollection[6].type == 'Abierta'">
                         <h1>{{ questionsCollection[6].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
 
@@ -304,8 +291,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[7].type != 'Abierta'"
-                                                id="chartContainer7" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[7].type != 'Abierta'" id="chartContainer7"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -315,14 +302,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[7]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[7]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[7]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[7]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -333,10 +318,9 @@
                 </table>
                 <div *ngIf="questionsCollection[7].type == 'Abierta'">
                         <h1>{{ questionsCollection[7].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -345,8 +329,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[8].type != 'Abierta'"
-                                                id="chartContainer8" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[8].type != 'Abierta'" id="chartContainer8"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -356,14 +340,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[8]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[8]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[8]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[8]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -374,10 +356,9 @@
                 </table>
                 <div *ngIf="questionsCollection[8].type == 'Abierta'">
                         <h1>{{ questionsCollection[8].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -386,8 +367,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[9].type != 'Abierta'"
-                                                id="chartContainer9" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[9].type != 'Abierta'" id="chartContainer9"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -397,14 +378,12 @@
                                         <div class="table-data">
                                                 <table>
                                                         <tr>
-                                                                <th class="cell-data"
-                                                                        *ngFor="let data of dataTable[9]">
+                                                                <th class="cell-data" *ngFor="let data of dataTable[9]">
                                                                         {{ data.label }}
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[9]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[9]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -415,10 +394,9 @@
                 </table>
                 <div *ngIf="questionsCollection[9].type == 'Abierta'">
                         <h1>{{ questionsCollection[9].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -426,8 +404,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[10].type != 'Abierta'"
-                                                id="chartContainer10" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[10].type != 'Abierta'" id="chartContainer10"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -443,8 +421,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[10]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[10]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -455,9 +432,9 @@
                 </table>
                 <div *ngIf="questionsCollection[10].type == 'Abierta'">
                         <h1>{{ questionsCollection[10].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -465,8 +442,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[11].type != 'Abierta'"
-                                                id="chartContainer11" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[11].type != 'Abierta'" id="chartContainer11"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -482,8 +459,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[11]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[11]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -494,9 +470,9 @@
                 </table>
                 <div *ngIf="questionsCollection[11].type == 'Abierta'">
                         <h1>{{ questionsCollection[11].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
         </div>
@@ -505,8 +481,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[12].type != 'Abierta'"
-                                                id="chartContainer12" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[12].type != 'Abierta'" id="chartContainer12"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -522,8 +498,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[12]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[12]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -534,10 +509,9 @@
                 </table>
                 <div *ngIf="questionsCollection[12].type == 'Abierta'">
                         <h1>{{ questionsCollection[12].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -546,8 +520,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[13].type != 'Abierta'"
-                                                id="chartContainer13" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[13].type != 'Abierta'" id="chartContainer13"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -563,8 +537,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[13]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[13]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -575,10 +548,9 @@
                 </table>
                 <div *ngIf="questionsCollection[13].type == 'Abierta'">
                         <h1>{{ questionsCollection[13].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -587,8 +559,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[14].type != 'Abierta'"
-                                                id="chartContainer14" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[14].type != 'Abierta'" id="chartContainer14"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -604,8 +576,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[14]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[14]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -616,10 +587,9 @@
                 </table>
                 <div *ngIf="questionsCollection[14].type == 'Abierta'">
                         <h1>{{ questionsCollection[14].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -628,8 +598,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[15].type != 'Abierta'"
-                                                id="chartContainer15" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[15].type != 'Abierta'" id="chartContainer15"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -645,8 +615,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[15]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[15]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -657,10 +626,9 @@
                 </table>
                 <div *ngIf="questionsCollection[15].type == 'Abierta'">
                         <h1>{{ questionsCollection[15].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -669,8 +637,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[16].type != 'Abierta'"
-                                                id="chartContainer16" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[16].type != 'Abierta'" id="chartContainer16"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -686,8 +654,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[16]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[16]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -698,10 +665,9 @@
                 </table>
                 <div *ngIf="questionsCollection[16].type == 'Abierta'">
                         <h1>{{ questionsCollection[16].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -710,8 +676,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[17].type != 'Abierta'"
-                                                id="chartContainer17" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[17].type != 'Abierta'" id="chartContainer17"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -727,8 +693,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[17]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[17]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -739,10 +704,9 @@
                 </table>
                 <div *ngIf="questionsCollection[17].type == 'Abierta'">
                         <h1>{{ questionsCollection[17].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -751,8 +715,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[18].type != 'Abierta'"
-                                                id="chartContainer18" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[18].type != 'Abierta'" id="chartContainer18"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -768,8 +732,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[18]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[18]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -780,10 +743,9 @@
                 </table>
                 <div *ngIf="questionsCollection[18].type == 'Abierta'">
                         <h1>{{ questionsCollection[18].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -792,8 +754,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[19].type != 'Abierta'"
-                                                id="chartContainer19" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[19].type != 'Abierta'" id="chartContainer19"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -809,8 +771,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[19]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[19]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -821,10 +782,9 @@
                 </table>
                 <div *ngIf="questionsCollection[19].type == 'Abierta'">
                         <h1>{{ questionsCollection[19].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -832,8 +792,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[20].type != 'Abierta'"
-                                                id="chartContainer20" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[20].type != 'Abierta'" id="chartContainer20"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -849,8 +809,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[20]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[20]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -861,9 +820,9 @@
                 </table>
                 <div *ngIf="questionsCollection[20].type == 'Abierta'">
                         <h1>{{ questionsCollection[20].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -871,8 +830,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[21].type != 'Abierta'"
-                                                id="chartContainer21" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[21].type != 'Abierta'" id="chartContainer21"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -888,8 +847,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[21]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[21]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -900,10 +858,9 @@
                 </table>
                 <div *ngIf="questionsCollection[21].type == 'Abierta'">
                         <h1>{{ questionsCollection[21].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -911,8 +868,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[22].type != 'Abierta'"
-                                                id="chartContainer22" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[22].type != 'Abierta'" id="chartContainer22"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -928,8 +885,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[22]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[22]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -940,10 +896,9 @@
                 </table>
                 <div *ngIf="questionsCollection[22].type == 'Abierta'">
                         <h1>{{ questionsCollection[22].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -952,8 +907,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[23].type != 'Abierta'"
-                                                id="chartContainer23" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[23].type != 'Abierta'" id="chartContainer23"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -969,8 +924,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[23]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[23]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -981,10 +935,9 @@
                 </table>
                 <div *ngIf="questionsCollection[23].type == 'Abierta'">
                         <h1>{{ questionsCollection[23].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -993,8 +946,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[24].type != 'Abierta'"
-                                                id="chartContainer24" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[24].type != 'Abierta'" id="chartContainer24"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1010,8 +963,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[24]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[24]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1022,10 +974,9 @@
                 </table>
                 <div *ngIf="questionsCollection[24].type == 'Abierta'">
                         <h1>{{ questionsCollection[24].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1034,8 +985,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[25].type != 'Abierta'"
-                                                id="chartContainer25" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[25].type != 'Abierta'" id="chartContainer25"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1051,8 +1002,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[25]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[25]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1063,10 +1013,9 @@
                 </table>
                 <div *ngIf="questionsCollection[25].type == 'Abierta'">
                         <h1>{{ questionsCollection[25].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1075,8 +1024,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[26].type != 'Abierta'"
-                                                id="chartContainer26" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[26].type != 'Abierta'" id="chartContainer26"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1092,8 +1041,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[26]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[26]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1104,10 +1052,9 @@
                 </table>
                 <div *ngIf="questionsCollection[26].type == 'Abierta'">
                         <h1>{{ questionsCollection[26].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1116,8 +1063,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[27].type != 'Abierta'"
-                                                id="chartContainer27" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[27].type != 'Abierta'" id="chartContainer27"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1133,8 +1080,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[27]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[27]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1145,10 +1091,9 @@
                 </table>
                 <div *ngIf="questionsCollection[27].type == 'Abierta'">
                         <h1>{{ questionsCollection[27].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1157,8 +1102,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[28].type != 'Abierta'"
-                                                id="chartContainer28" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[28].type != 'Abierta'" id="chartContainer28"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1174,8 +1119,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[28]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[28]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1186,10 +1130,9 @@
                 </table>
                 <div *ngIf="questionsCollection[28].type == 'Abierta'">
                         <h1>{{ questionsCollection[28].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1198,8 +1141,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[29].type != 'Abierta'"
-                                                id="chartContainer29" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[29].type != 'Abierta'" id="chartContainer29"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1215,8 +1158,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[29]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[29]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1227,10 +1169,9 @@
                 </table>
                 <div *ngIf="questionsCollection[29].type == 'Abierta'">
                         <h1>{{ questionsCollection[29].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1238,8 +1179,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[30].type != 'Abierta'"
-                                                id="chartContainer30" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[30].type != 'Abierta'" id="chartContainer30"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1255,8 +1196,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[30]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[30]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1267,9 +1207,9 @@
                 </table>
                 <div *ngIf="questionsCollection[30].type == 'Abierta'">
                         <h1>{{ questionsCollection[30].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1277,8 +1217,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[31].type != 'Abierta'"
-                                                id="chartContainer31" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[31].type != 'Abierta'" id="chartContainer31"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1294,8 +1234,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[31]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[31]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1306,10 +1245,9 @@
                 </table>
                 <div *ngIf="questionsCollection[31].type == 'Abierta'">
                         <h1>{{ questionsCollection[31].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1317,8 +1255,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[32].type != 'Abierta'"
-                                                id="chartContainer32" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[32].type != 'Abierta'" id="chartContainer32"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1334,8 +1272,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[32]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[32]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1346,10 +1283,9 @@
                 </table>
                 <div *ngIf="questionsCollection[32].type == 'Abierta'">
                         <h1>{{ questionsCollection[32].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1358,8 +1294,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[33].type != 'Abierta'"
-                                                id="chartContainer33" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[33].type != 'Abierta'" id="chartContainer33"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1375,8 +1311,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[33]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[33]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1387,10 +1322,9 @@
                 </table>
                 <div *ngIf="questionsCollection[33].type == 'Abierta'">
                         <h1>{{ questionsCollection[33].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1399,8 +1333,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[34].type != 'Abierta'"
-                                                id="chartContainer34" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[34].type != 'Abierta'" id="chartContainer34"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1416,8 +1350,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[34]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[34]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1428,10 +1361,9 @@
                 </table>
                 <div *ngIf="questionsCollection[34].type == 'Abierta'">
                         <h1>{{ questionsCollection[34].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1440,8 +1372,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[35].type != 'Abierta'"
-                                                id="chartContainer35" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[35].type != 'Abierta'" id="chartContainer35"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1457,8 +1389,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[35]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[35]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1469,10 +1400,9 @@
                 </table>
                 <div *ngIf="questionsCollection[35].type == 'Abierta'">
                         <h1>{{ questionsCollection[35].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1481,8 +1411,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[36].type != 'Abierta'"
-                                                id="chartContainer36" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[36].type != 'Abierta'" id="chartContainer36"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1498,8 +1428,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[36]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[36]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1510,10 +1439,9 @@
                 </table>
                 <div *ngIf="questionsCollection[36].type == 'Abierta'">
                         <h1>{{ questionsCollection[36].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1522,8 +1450,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[37].type != 'Abierta'"
-                                                id="chartContainer37" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[37].type != 'Abierta'" id="chartContainer37"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1539,8 +1467,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[37]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[37]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1551,10 +1478,9 @@
                 </table>
                 <div *ngIf="questionsCollection[37].type == 'Abierta'">
                         <h1>{{ questionsCollection[37].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1563,8 +1489,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[38].type != 'Abierta'"
-                                                id="chartContainer38" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[38].type != 'Abierta'" id="chartContainer38"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1580,8 +1506,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[38]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[38]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1592,10 +1517,9 @@
                 </table>
                 <div *ngIf="questionsCollection[38].type == 'Abierta'">
                         <h1>{{ questionsCollection[38].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1604,8 +1528,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[39].type != 'Abierta'"
-                                                id="chartContainer39" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[39].type != 'Abierta'" id="chartContainer39"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1621,8 +1545,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[39]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[39]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1633,10 +1556,9 @@
                 </table>
                 <div *ngIf="questionsCollection[39].type == 'Abierta'">
                         <h1>{{ questionsCollection[39].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1644,8 +1566,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[40].type != 'Abierta'"
-                                                id="chartContainer40" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[40].type != 'Abierta'" id="chartContainer40"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1661,8 +1583,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[40]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[40]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1673,9 +1594,9 @@
                 </table>
                 <div *ngIf="questionsCollection[40].type == 'Abierta'">
                         <h1>{{ questionsCollection[40].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1683,8 +1604,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[41].type != 'Abierta'"
-                                                id="chartContainer41" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[41].type != 'Abierta'" id="chartContainer41"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1700,8 +1621,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[41]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[41]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1712,9 +1632,9 @@
                 </table>
                 <div *ngIf="questionsCollection[41].type == 'Abierta'">
                         <h1>{{ questionsCollection[41].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
 
                 </div>
         </div>
@@ -1723,8 +1643,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[42].type != 'Abierta'"
-                                                id="chartContainer42" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[42].type != 'Abierta'" id="chartContainer42"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1740,8 +1660,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[42]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[42]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1752,10 +1671,9 @@
                 </table>
                 <div *ngIf="questionsCollection[42].type == 'Abierta'">
                         <h1>{{ questionsCollection[42].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1764,8 +1682,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[43].type != 'Abierta'"
-                                                id="chartContainer43" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[43].type != 'Abierta'" id="chartContainer43"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1781,8 +1699,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[43]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[43]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1793,10 +1710,9 @@
                 </table>
                 <div *ngIf="questionsCollection[43].type == 'Abierta'">
                         <h1>{{ questionsCollection[43].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1805,8 +1721,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[44].type != 'Abierta'"
-                                                id="chartContainer44" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[44].type != 'Abierta'" id="chartContainer44"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1822,8 +1738,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[44]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[44]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1834,10 +1749,9 @@
                 </table>
                 <div *ngIf="questionsCollection[44].type == 'Abierta'">
                         <h1>{{ questionsCollection[44].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1846,8 +1760,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[45].type != 'Abierta'"
-                                                id="chartContainer45" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[45].type != 'Abierta'" id="chartContainer45"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1863,8 +1777,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[45]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[45]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1875,10 +1788,9 @@
                 </table>
                 <div *ngIf="questionsCollection[45].type == 'Abierta'">
                         <h1>{{ questionsCollection[45].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1887,8 +1799,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[46].type != 'Abierta'"
-                                                id="chartContainer46" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[46].type != 'Abierta'" id="chartContainer46"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1904,8 +1816,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[46]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[46]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1916,10 +1827,9 @@
                 </table>
                 <div *ngIf="questionsCollection[46].type == 'Abierta'">
                         <h1>{{ questionsCollection[46].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1928,8 +1838,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[47].type != 'Abierta'"
-                                                id="chartContainer47" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[47].type != 'Abierta'" id="chartContainer47"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1945,8 +1855,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[47]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[47]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1957,10 +1866,9 @@
                 </table>
                 <div *ngIf="questionsCollection[47].type == 'Abierta'">
                         <h1>{{ questionsCollection[47].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1969,8 +1877,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[48].type != 'Abierta'"
-                                                id="chartContainer48" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[48].type != 'Abierta'" id="chartContainer48"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -1986,8 +1894,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[48]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[48]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -1998,10 +1905,9 @@
                 </table>
                 <div *ngIf="questionsCollection[48].type == 'Abierta'">
                         <h1>{{ questionsCollection[48].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -2010,8 +1916,8 @@
                 <table>
                         <tr>
                                 <td>
-                                        <div *ngIf="questionsCollection[49].type != 'Abierta'"
-                                                id="chartContainer49" style="height:700px; width: auto;">
+                                        <div *ngIf="questionsCollection[49].type != 'Abierta'" id="chartContainer49"
+                                                style="height:700px; width: auto;">
                                         </div>
                                 </td>
                         </tr>
@@ -2027,8 +1933,7 @@
                                                                 </th>
                                                         </tr>
                                                         <tr>
-                                                                <td class="cell-data"
-                                                                        *ngFor="let d of dataTable[49]">
+                                                                <td class="cell-data" *ngFor="let d of dataTable[49]">
                                                                         {{ d.y }} </td>
                                                         </tr>
                                                 </table>
@@ -2039,10 +1944,9 @@
                 </table>
                 <div *ngIf="questionsCollection[49].type == 'Abierta'">
                         <h1>{{ questionsCollection[49].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 </kendo-pdf-export>

@@ -38,6 +38,7 @@ export class TodayChartReportComponent implements OnInit {
   commentsCollection: string[] = [];
   themeInCharts:string = "light2";
   surveyTitle:string = '';
+  surveyDescription:string = '';
   dailyDataTable:any[] = [];
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
@@ -53,7 +54,8 @@ export class TodayChartReportComponent implements OnInit {
       (docSnapshot) => {
 
         this.surveyTitle = docSnapshot.data().surveyTitle;
-        this.questionsCollectionDaily = docSnapshot.data().questions
+        this.surveyDescription = docSnapshot.data().surveyDescription;
+        this.questionsCollectionDaily = docSnapshot.data().questions;
 
         //Get Elements from firestore
         firebase.firestore().collection(this.collectionInput).where('surveyID', '==', this.surveyId).get().then(

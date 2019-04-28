@@ -40,6 +40,7 @@ export class MonthChartReportComponent implements OnInit {
   commentsCollection: string[] = [];
   themeInCharts:string = "light2";
   surveyTitle:string = '';
+  surveyDescription:string = '';
   monthlyDataTable:any[] = [];
 
   constructor(private dateSrv: DateService, private dataSrv: DataService) {
@@ -55,6 +56,7 @@ export class MonthChartReportComponent implements OnInit {
         (docSnapshot) => {
   
           this.surveyTitle = docSnapshot.data().surveyTitle;
+          this.surveyDescription = docSnapshot.data().surveyDescription;
           this.questionsCollectionMonthly = docSnapshot.data().questions
   
           //Get Elements from firestore

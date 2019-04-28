@@ -1,7 +1,8 @@
-<kendo-pdf-export #pdf paperSize="A4" margin="1.5cm" [scale]="0.55" [avoidLinks]="true" forcePageBreak=".page-break"
+<kendo-pdf-export #pdf paperSize="A4" margin="1.3cm" [scale]="0.51" [avoidLinks]="true" forcePageBreak=".page-break"
         [landscape]="true">
         <img src="assets/img/logo.png" alt="SondaggioLogo" width="529px" height="163px">
         <h1 style="text-align:center;">{{ surveyTitle }}</h1>
+        <h3>{{surveyDescription}}</h3>
         <p id="report-title">REPORTE DEL DÍA {{titleToday}}</p>
         <div style="display: block;">
                 <canvas id="dailyChartCounter" baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
@@ -47,9 +48,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[0].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[0].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -86,10 +87,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[1].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[1].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -128,10 +128,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[2].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[2].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -169,10 +168,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[3].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[3].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -210,10 +208,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[4].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[4].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -251,10 +248,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[5].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[5].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -292,10 +288,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[6].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[6].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -333,10 +328,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[7].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[7].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -374,10 +368,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[8].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[8].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -415,10 +408,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[9].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[9].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -455,9 +447,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[10].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[10].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -494,10 +486,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[11].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[11].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -534,10 +525,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[12].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[12].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -575,10 +565,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[13].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[13].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -616,10 +605,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[14].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[14].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -657,10 +645,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[15].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[15].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -698,10 +685,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[16].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[16].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -739,10 +725,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[17].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[17].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -780,10 +765,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[18].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[18].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -821,10 +805,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[19].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[19].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -861,9 +844,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[20].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[20].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -900,10 +883,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[21].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[21].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -940,10 +922,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[22].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[22].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -981,10 +962,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[23].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[23].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1022,10 +1002,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[24].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[24].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1063,10 +1042,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[25].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[25].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1104,10 +1082,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[26].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[26].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1145,10 +1122,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[27].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[27].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1186,10 +1162,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[28].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[28].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1227,10 +1202,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[29].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[29].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1267,9 +1241,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[30].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[30].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1306,10 +1280,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[31].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[31].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1346,10 +1319,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[32].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[32].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1387,10 +1359,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[33].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[33].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1428,10 +1399,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[34].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[34].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1469,10 +1439,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[35].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[35].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1510,10 +1479,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[36].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[36].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1551,10 +1519,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[37].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[37].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1592,10 +1559,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[38].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[38].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1633,10 +1599,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[39].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[39].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1673,9 +1638,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[40].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[40].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1712,10 +1677,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[41].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[41].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 
@@ -1752,10 +1716,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[42].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[42].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1793,10 +1756,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[43].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[43].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1834,10 +1796,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[44].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[44].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1875,10 +1836,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[45].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[45].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1916,10 +1876,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[46].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[46].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1957,10 +1916,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[47].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[47].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -1998,10 +1956,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[48].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[48].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
 
         </div>
@@ -2039,10 +1996,9 @@
                 </table>
                 <div *ngIf="questionsCollectionDaily[49].type == 'Abierta'">
                         <h1>{{ questionsCollectionDaily[49].questionTxt }}</h1>
-                        <div *ngFor="let comment of commentsCollection">
-                                <p style="font-size:150%">{{ comment }}</p>
-                        </div>
-
+                        <ul>
+                                <li type="disc" *ngFor="let comment of commentsCollection" style="font-size:150%">{{ comment }}</li>
+                        </ul>
                 </div>
         </div>
 </kendo-pdf-export>
