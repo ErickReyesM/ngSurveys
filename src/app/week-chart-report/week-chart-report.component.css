@@ -15,10 +15,9 @@ div.table-data table{
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-bottom: 6em;
-  width: auto;
+  width: 100%;
+  table-layout: fixed;
   margin-top: 6em;
-  vertical-align: middle;
-  display: inline-block;
 }
   
 div.table-data .cell-data {
@@ -26,7 +25,6 @@ div.table-data .cell-data {
   text-align: center;
   font-size: 1.5em;
   min-width: 180px;
-  max-width: 195px;
 }
 
 div.table-data tr:nth-child(even) {
