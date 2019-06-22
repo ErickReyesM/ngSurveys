@@ -16,15 +16,17 @@ div.table-data table{
   border-collapse: collapse;
   margin-bottom: 6em;
   width: auto;
+  margin-top: 6em;
   vertical-align: middle;
   display: inline-block;
 }
   
 div.table-data .cell-data {
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   font-size: 1.5em;
-  padding: 8px;
+  min-width: 180px;
+  max-width: 195px;
 }
 
 div.table-data tr:nth-child(even) {

@@ -1,37 +1,39 @@
 .firstScreen{
-    margin: auto;
-    width: 50%;
-    padding: 70px 0;
-    text-align: center;
-    color: #8A8A8A;
-    margin-top: 5%;
+  margin: auto;
+  width: 50%;
+  padding: 70px 0;
+  text-align: center;
+  color: #8A8A8A;
+  margin-top: 5%;
 }
 
 table, th, td {
-  width: 100%;
+width: 100%;
 }
 
 div.table-data table{
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  margin-bottom: 6em;
-  width: auto;
-  vertical-align: middle;
-  display: inline-block;
+font-family: arial, sans-serif;
+border-collapse: collapse;
+margin-bottom: 6em;
+width: auto;
+margin-top: 6em;
+vertical-align: middle;
+display: inline-block;
 }
-  
+
 div.table-data .cell-data {
-  border: 1px solid #dddddd;
-  text-align: left;
-  font-size: 1.5em;
-  padding: 8px;
+border: 1px solid #dddddd;
+text-align: center;
+font-size: 1.5em;
+min-width: 180px;
+max-width: 195px;
 }
 
 div.table-data tr:nth-child(even) {
-  background-color: #dddddd;
+background-color: #dddddd;
 }
 
 td div.table-data{
-  vertical-align: middle;
-  text-align: center;
+vertical-align: middle;
+text-align: center;
 }
